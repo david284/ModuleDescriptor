@@ -21,7 +21,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -58,7 +58,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -95,7 +95,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -132,7 +132,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -169,7 +169,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -206,7 +206,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -243,7 +243,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
@@ -280,7 +280,7 @@
           "displaySubTitle": "Range 20 to 2,540 mS, 0 = continuous",
           "displayScale": 20,
           "displayUnits": "mS",
-          "dtartBit": 0,
+          "startBit": 0,
           "endBit": 6,
           "max": 127,
           "min": 0
