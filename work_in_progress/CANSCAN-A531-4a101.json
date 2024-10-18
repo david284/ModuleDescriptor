@@ -1,0 +1,69 @@
+{
+	"generated": "by hand",
+	"moduleDescriptorName": "CANSCAN-A531-4a101",
+	"moduleName": "CANSCAN",
+	"nodeVariables": [
+		{
+			"type": "NodeVariableSelect",
+			"nodeVariableIndex": 1,
+			"displayTitle": "Startup Actions",
+			"options": [
+				{	"value": 0, "label": "Last state" },
+				{	"value": 1, "label": "Do nothing" },
+				{	"value": 2, "label": "Current switch positions" },
+				{	"value": 3, "label": "All off" },
+			],
+			"bitMask": 15
+		},
+		{
+			"type": "NodeVariableBitSingle",
+			"nodeVariableIndex": 1,
+			"displayTitle": "Disable Default Events",
+			"bit": 7
+		}
+	],
+	"eventVariables": [
+		{
+			"type": "EventVariableSelect",
+			"eventVariableIndex": 1,
+			"displayTitle": "Type",
+			"options": [
+				{	"value": 1, "label": "Switch" },
+				{	"value": 2, "label": "Start of Day" },
+				{	"value": 3, "label": "Self SoD" },
+			]
+		},
+		{
+			"type": "EventVariableNumber",
+			"eventVariableIndex": 2,
+			"displayTitle": "Switch Number",
+			"bitMask": 128,
+		},
+		{
+			"type": "EventVariableBitSingle",
+			"eventVariableIndex": 2,
+			"displayTitle": "Taught Event",
+			"bit": 7
+		},
+		{
+			"type": "EventVariableBitArray",
+			"displayTitle": "Switch State",
+			"bitCollection": [
+				{	"bitPosition": 0, "label": "On / Off" },
+				{	"bitPosition": 1, "label": "Invert" },
+				{	"bitPosition": 2, "label": "On only" },
+				{	"bitPosition": 3, "label": "Toggle" },
+				{	"bitPosition": 4, "label": "Send to self" },
+				{	"bitPosition": 5, "label": "Short event" },
+				{	"bitPosition": 6, "label": "Toggle state (internal)" },
+				{	"bitPosition": 7, "label": "Learnt event" },
+			],
+			"eventVariableIndex": 3
+		},
+		{
+			"type": "EventVariableNumber",
+			"eventVariableIndex": 4,
+			"displayTitle": "Unused"
+		}
+	]
+}
