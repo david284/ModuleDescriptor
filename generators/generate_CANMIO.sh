@@ -728,10 +728,11 @@ do
           "options": [
             {"value": 0, "label": "no action"},
             {"value": 1, "label": "Consumed SOD"},
-            {"value": 2, "label": "WAIT05"},
-            {"value": 3, "label": "WAIT1"},
-            {"value": 4, "label": "WAIT2"},
-            {"value": 5, "label": "WAIT5"},
+            {"value": 2, "label": "Wait 0.5s"},
+            {"value": 3, "label": "Wait 1s"},
+            {"value": 4, "label": "Wait 2s"},
+            {"value": 5, "label": "Wait 5s"},
+            {"value": 7, "label": "Stop Processing"},
 EOF
 
 for (( ch=1 ; $ch <= $channels ; ++ch ))
