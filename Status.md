@@ -23,8 +23,11 @@ the production directory.
 The following files are in progress and only small changes are required
 to complete them.
 
-| Filename            | Kit Source                                    | Status                                               |
-|---------------------|-----------------------------------------------|------------------------------------------------------|
+| Filename                | Kit Source                                    | Status                                               |
+|-------------------------|-----------------------------------------------|------------------------------------------------------|
+| CANSCAN-A531-4a101.json | Ian Hart                                      | Created & tested by Richard Crawshaw                 |
+| CANSCAN-A531-4d.json    | Ian Hart                                      | Created & tested by Richard Crawshaw                 |
+
 
 ## Unknown but look complete
 These files have entries for ```nodeVariables``` and ```eventVariables```
