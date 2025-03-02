@@ -8,10 +8,6 @@
 
 TZ= datestring=`date +%Y%m%d%H%M`
 
-# Used to omit trailing comma at end of lists.
-ending[0]=',' # False - not end of list, add a comma.
-ending[1]=''  # True  - at end of list, omit trailing comma.
-
 while getopts 'v:' opt; do
   case "$opt" in
     v)
@@ -31,6 +27,16 @@ then
   echo "Usage: $0 -v <version>"
   exit 1
 fi
+
+function commaIf()
+{
+  if [ "$@" ]
+  then
+    echo ","
+  else
+    echo ""
+  fi
+}
 
 cat <<EOF
 {
@@ -197,7 +203,7 @@ do
               "bit": $((($ch-1)%8))
             }
           ]
-        }${ending[$(($ch == 32))]}
+        }$( commaIf $ch != 32)
 EOF
 done
 cat <<EOF
@@ -244,7 +250,7 @@ do
               "bit": $((($ch-1)%8))
             }
           ]
-        }${ending[$(($ch == 32))]}
+        }$( commaIf $ch != 32)
 EOF
 done
 cat <<EOF
