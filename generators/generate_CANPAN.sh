@@ -101,7 +101,7 @@ then
 cat <<EOF
     {
       "displayTitle": "LED Flash rate",
-      "type": "NodeVariableNumber",
+      "type": "NodeVariableSlider",
       "nodeVariableIndex": 2,
       "displayUnits": "ms",
       "displayScale": 16.13
@@ -116,7 +116,7 @@ EOF
 cat <<EOF
         {
           "displayTitle": "LED $led",
-          "type": "NodeVariableNumber",
+          "type": "NodeVariableSlider",
           "nodeVariableIndex": $((2+$led)),
           "max": 31
         }$( commaIf $led != $LEDs )
