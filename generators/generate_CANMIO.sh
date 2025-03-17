@@ -75,7 +75,7 @@ case $ver in
     hasAnalogue=1
     hasServo180=1
     ;;
-  4a)
+  4a|4b)
     hasAnalogue=1
     hasServo180=1
     ;;

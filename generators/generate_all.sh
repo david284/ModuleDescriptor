@@ -21,8 +21,10 @@ function writeIfUpdated()
   fi
 }
 
+# CANLEVER
 $gen_dir/generate_CANLEVER.sh | writeIfUpdated "$merg_dir"/CANLEVER-0D20-1a.json
 
+# CANMIO-SVO - Default firmware shipped with CANMIO boards.
 $gen_dir/generate_CANMIO-SVO.sh | writeIfUpdated "$merg_dir"/CANMIO-SVO-A532-4S.json
 $gen_dir/generate_CANMIO-SVO.sh -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-4S.json
 
@@ -33,16 +35,21 @@ $gen_dir/generate_CANMIO.sh -v 3c | writeIfUpdated "$merg_dir"/CANMIO-A520-3c.js
 $gen_dir/generate_CANMIO.sh -v 3d | writeIfUpdated "$merg_dir"/CANMIO-A520-3d.json
 $gen_dir/generate_CANMIO.sh -v 3e | writeIfUpdated "$merg_dir"/CANMIO-A520-3e.json
 $gen_dir/generate_CANMIO.sh -v 4a | writeIfUpdated "$merg_dir"/CANMIO-A520-4a.json
+$gen_dir/generate_CANMIO.sh -v 4b | writeIfUpdated "$merg_dir"/CANMIO-A520-4b.json
 
 # Processor P18F27Q83
 $gen_dir/generate_CANMIO.sh -p23 -v 4a | writeIfUpdated "$merg_dir"/CANMIO-A520-4a--P23.json
+$gen_dir/generate_CANMIO.sh -p23 -v 4b | writeIfUpdated "$merg_dir"/CANMIO-A520-4b--P23.json
 
 # Extended CANMIO
 # Default processor PIC18F46K80
 $gen_dir/generate_CANMIO.sh -t XIO -v 3e | writeIfUpdated "$merg_dir"/CANXIO-A540-3e.json
 $gen_dir/generate_CANMIO.sh -t XIO -v 4a | writeIfUpdated "$merg_dir"/CANXIO-A540-4a.json
+$gen_dir/generate_CANMIO.sh -t XIO -v 4b | writeIfUpdated "$merg_dir"/CANXIO-A540-4b.json
 $gen_dir/generate_CANMIO.sh -t XIO -p22 -v 4a | writeIfUpdated "$merg_dir"/CANXIO-A540-4a--P21.json
+$gen_dir/generate_CANMIO.sh -t XIO -p22 -v 4b | writeIfUpdated "$merg_dir"/CANXIO-A540-4b--P21.json
 
+# CANPAN
 $gen_dir/generate_CANPAN.sh -v 1Y | writeIfUpdated "$merg_dir"/CANPAN-A51D-1Y.json
 $gen_dir/generate_CANPAN.sh -v 4C | writeIfUpdated "$merg_dir"/CANPAN-A51D-4C.json
 
