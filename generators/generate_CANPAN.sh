@@ -1,10 +1,7 @@
 #!/bin/sh
 
-# Generate descriptor file for CANMIO-SVO modules.
+# Generate descriptor file for CANPAN/CANPAN3 modules.
 # Use this script to avoid duplication and reduce maintenance.
-
-# Note: This does not use NV37 for testing servos. Instead using the outputOnWrite flag for end positions
-# which writes the corresponding end position NV, just like is done for CANMIO. Works fine.
 
 TZ= datestring=`date +%Y%m%d%H%M`
 
@@ -45,7 +42,6 @@ case $ver in
   1Y)
     ;;
   4C)
-    hasAnalogue=1
     ;;
   5A)
     moduleName="CANPAN3"
@@ -77,21 +73,35 @@ cat <<EOF
       "nodeVariableIndex": 1,
       "displayTitle": "Startup Actions",
       "options": [
+EOF
+case "$ver" in
+1Y)
+  # This behaviour is described in the Knowledgebase page for CANPAN firmware but not in the comments in the assembler file.
+  cat << EOF
         {"label": "0 - Send all current taught event states", "value": 0},
         {"label": "1 - Do nothing", "value": 1},
-EOF
-if [ "$ver" == "1Y" ]
-then
-  cat <<EOF
         {"label": "2 - Set all taught states to ON", "value": 2}
 EOF
-else
+;;
+4C)
   # This behaviour is described in the Knowledgebase page for CANPAN firmware but not in the comments in the assembler file.
-  cat <<EOF
+  cat << EOF
+        {"label": "0 - Send all current taught event states", "value": 0},
+        {"label": "1 - Do nothing", "value": 1},
         {"label": "2 - Set all taught states to according to switches", "value": 2},
         {"label": "3 - Set all taught states to OFF", "value": 3}
 EOF
-fi
+;;
+5A)
+  # Described by Ian Hogg
+  cat <<EOF
+        {"label": "0 - Restore switch states", "value": 0},
+        {"label": "1 - Do nothing", "value": 1},
+        {"label": "2 - Restore switch states and LED states", "value": 2},
+        {"label": "3 - Restore LED states", "value": 3}
+EOF
+;;
+esac
 cat <<EOF
       ]
     }$( commaIf "$ver" = "5A" )
@@ -189,6 +199,7 @@ cat <<EOF
       },
 EOF
 fi
+# TODO: EV2 shall be an EVOption with values None, 1, 2, 3, ...
 cat <<EOF
       "groupItems": [
         {
@@ -205,6 +216,7 @@ cat <<EOF
           "bitMask": 15,
           "options": [
 EOF
+# TODO: For 5A make EV3 visible if EV2 != 0
 if [ $ver != "5A" ]
 then
 cat <<EOF
