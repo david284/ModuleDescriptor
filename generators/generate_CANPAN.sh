@@ -146,7 +146,7 @@ cat <<EOF
         {
           "displayTitle": "Switches $sw & $(($sw + 1))",
           "type": "NodeVariableBitSingle",
-          "nodeVariableIndex": $((2+32+$sw)),
+          "nodeVariableIndex": $((2+$LEDs+$sw)),
           "bit": 0
         }$( commaIf $(($sw + 1)) -lt $switches )
 EOF
@@ -199,15 +199,23 @@ cat <<EOF
       },
 EOF
 fi
-# TODO: EV2 shall be an EVOption with values None, 1, 2, 3, ...
 cat <<EOF
       "groupItems": [
         {
           "displayTitle": "Switch",
-          "type": "EventVariableNumber",
+          "type": "EventVariableSelect",
           "eventVariableIndex": 2,
-          "min": 1,
-          "max": 32
+          "options": [
+            {"label": "None", "value": 0},
+EOF
+for (( sw=1 ; $sw <= $switches ; ++sw ))
+do
+  cat <<EOF
+            {"label": "Switch $sw", "value": $sw}$( commaIf $sw -lt $switches )
+EOF
+done
+cat <<EOF
+          ]
         },
         {
           "displayTitle": "Mode",
@@ -275,10 +283,19 @@ cat <<EOF
       "groupItems": [
         {
           "displayTitle": "Switch",
-          "type": "EventVariableNumber",
+          "type": "EventVariableSelect",
           "eventVariableIndex": 2,
-          "min": 1,
-          "max": 32
+          "options": [
+            {"label": "None", "value": 0},
+EOF
+for (( sw=1 ; $sw <= $switches ; ++sw ))
+do
+  cat <<EOF
+            {"label": "Switch $sw", "value": $sw}$( commaIf $sw -lt $switches )
+EOF
+done
+cat <<EOF
+          ]
         },
         {
           "displayTitle": "Mode",
@@ -334,7 +351,7 @@ cat <<EOF
           ]
         },
 EOF
-for ch in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+for (( ch=1 ; $ch <= $LEDs ; ++ch))
 do
   cat <<EOF
         {
@@ -354,7 +371,7 @@ do
               "bit": $((($ch-1)%8))
             }
           ]
-        }$( commaIf $ch != 32)
+        }$( commaIf $ch != $LEDs)
 EOF
 done
 cat <<EOF
@@ -385,7 +402,7 @@ cat <<EOF
           ]
         },
 EOF
-for ch in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+for (( ch=1 ; $ch <= $LEDs ; ++ch ))
 do
   cat <<EOF
         {
@@ -405,7 +422,7 @@ do
               "bit": $((($ch-1)%8))
             }
           ]
-        }$( commaIf $ch != 32)
+        }$( commaIf $ch != $LEDs)
 EOF
 done
 cat <<EOF
