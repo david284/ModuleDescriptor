@@ -43,7 +43,7 @@ case $ver in
     ;;
   4C)
     ;;
-  5A)
+  5a)
     moduleName="CANPAN3"
     ;;
   *)
@@ -92,7 +92,7 @@ EOF
         {"label": "3 - Set all taught states to OFF", "value": 3}
 EOF
 ;;
-5A)
+5a)
   # Described by Ian Hogg
   cat <<EOF
         {"label": "0 - Restore switch states", "value": 0},
@@ -104,9 +104,9 @@ EOF
 esac
 cat <<EOF
       ]
-    }$( commaIf "$ver" = "5A" )
+    }$( commaIf "$ver" = "5a" )
 EOF
-if [ "$ver" = "5A" ]
+if [ "$ver" = "5a" ]
 then
 cat <<EOF
     {
@@ -161,7 +161,7 @@ cat <<EOF
   "eventVariables": [
     {
 EOF
-if [ $ver != "5A" ]
+if [ $ver != "5a" ]
 then
 cat <<EOF
       "displayTitle": "Event Type",
@@ -190,7 +190,7 @@ cat <<EOF
       "displayTitle": "Produced Event",
       "type": "EventVariableGroup",
 EOF
-if [ $ver != "5A" ]
+if [ $ver != "5a" ]
 then
 cat <<EOF
       "visibilityLogic": {
@@ -224,8 +224,8 @@ cat <<EOF
           "bitMask": 15,
           "options": [
 EOF
-# TODO: For 5A make EV3 visible if EV2 != 0
-if [ $ver != "5A" ]
+# TODO: For 5a make EV3 visible if EV2 != 0
+if [ $ver != "5a" ]
 then
 cat <<EOF
             { "value": 0, "label": "None" },
@@ -246,9 +246,9 @@ EOF
 fi
 cat <<EOF
           ]
-        }$( commaIf $ver != "5A" )
+        }$( commaIf $ver != "5a" )
 EOF
-if [ $ver != "5A" ]
+if [ $ver != "5a" ]
 then
 cat <<EOF
         {
@@ -270,7 +270,7 @@ cat <<EOF
       ]
     },
 EOF
-if [ $ver != "5A" ]
+if [ $ver != "5a" ]
 then
 cat <<EOF
     {
@@ -327,7 +327,7 @@ cat <<EOF
       "displayTitle": "LEDs",
       "type": "EventVariableGroup",
 EOF
-if [ $ver != "5A" ]
+if [ $ver != "5a" ]
 then
 cat <<EOF
       "visibilityLogic": {
@@ -376,9 +376,9 @@ EOF
 done
 cat <<EOF
       ]
-    }$( commaIf $ver != "5A" )
+    }$( commaIf $ver != "5a" )
 EOF
-if [ $ver != "5A" ]
+if [ $ver != "5a" ]
 then
 cat <<EOF
     {
