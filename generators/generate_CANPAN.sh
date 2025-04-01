@@ -223,28 +223,12 @@ cat <<EOF
           "eventVariableIndex": 3,
           "bitMask": 15,
           "options": [
-EOF
-# TODO: For 5a make EV3 visible if EV2 != 0
-if [ $ver != "5a" ]
-then
-cat <<EOF
             { "value": 0, "label": "None" },
             { "value": 1, "label": "ON/OFF" },
             { "value": 3, "label": "OFF/ON (inverted)" },
             { "value": 4, "label": "ON only" },
             { "value": 6, "label": "OFF only" },
             { "value": 8, "label": "ON/OFF push button" }
-EOF
-else
-cat <<EOF
-            { "value": 0, "label": "ON/OFF" },
-            { "value": 2, "label": "OFF/ON (inverted)" },
-            { "value": 4, "label": "ON only" },
-            { "value": 6, "label": "OFF only" },
-            { "value": 8, "label": "ON/OFF push button" }
-EOF
-fi
-cat <<EOF
           ]
         }$( commaIf $ver != "5a" )
 EOF
