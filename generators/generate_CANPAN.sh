@@ -159,11 +159,11 @@ fi
 cat <<EOF
   ],
   "eventVariables": [
-    {
 EOF
 if [ $ver != "5a" ]
 then
 cat <<EOF
+    {
       "displayTitle": "Event Type",
       "type": "EventVariableSelect",
       "eventVariableIndex": 1,
@@ -172,20 +172,20 @@ cat <<EOF
         { "value": 1, "label": "Produced Event" },
         { "value": 2, "label": "Start of Day" },
         { "value": 3, "label": "Self SoD" }
+      ]
+    },
 EOF
 else
 cat <<EOF
-      "displayTitle": "Startup Action",
-      "type": "EventVariableSelect",
+    {
+      "displayTitle": "Start of Day",
+      "type": "EventVariableBitSingle",
       "eventVariableIndex": 1,
-      "options": [
-        { "value": 0, "label": "Nothing" },
-        { "value": 2, "label": "Start of Day" }
+      "bit": 1
+    },
 EOF
 fi
 cat <<EOF
-      ]
-    },
     {
       "displayTitle": "Produced Event",
       "type": "EventVariableGroup",
