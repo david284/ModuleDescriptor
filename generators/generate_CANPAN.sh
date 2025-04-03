@@ -228,7 +228,7 @@ cat <<EOF
             { "value": 3, "label": "OFF/ON (inverted)" },
             { "value": 4, "label": "ON only" },
             { "value": 6, "label": "OFF only" },
-            { "value": 8, "label": "ON/OFF push button" }
+            { "value": 8, "label": "Push ON/Push OFF" }
           ]
         }$( commaIf $ver != "5a" )
 EOF
@@ -292,7 +292,7 @@ cat <<EOF
             { "value": 3, "label": "OFF/ON (inverted)" },
             { "value": 4, "label": "ON only" },
             { "value": 6, "label": "OFF only" },
-            { "value": 8, "label": "ON/OFF push button" }
+            { "value": 8, "label": "Push ON/Push OFF" }
           ]
         },
         {
@@ -343,7 +343,7 @@ do
           "type": "EventVariableGroup",
           "groupItems": [
             {
-              "displayTitle": "Turn ON",
+              "displayTitle": "Active",
               "type": "EventVariableBitSingle",
               "eventVariableIndex": $((5+($ch-1)/8)),
               "bit": $((($ch-1)%8))
@@ -394,7 +394,7 @@ do
           "type": "EventVariableGroup",
           "groupItems": [
             {
-              "displayTitle": "Turn ON",
+              "displayTitle": "Active",
               "type": "EventVariableBitSingle",
               "eventVariableIndex": $((5+($ch-1)/8)),
               "bit": $((($ch-1)%8))
