@@ -110,6 +110,12 @@ if [ "$ver" = "5a" ]
 then
 cat <<EOF
     {
+      "displayTitle": "Startup Event Delay",
+      "type": "NodeVariableNumber",
+      "nodeVariableIndex": 67,
+      "displayUnits": "seconds"
+    },
+    {
       "displayTitle": "LED Flash rate",
       "type": "NodeVariableSlider",
       "nodeVariableIndex": 2,
@@ -211,9 +217,15 @@ EOF
 for (( sw=1 ; $sw <= $switches ; ++sw ))
 do
   cat <<EOF
-            {"label": "Switch $sw", "value": $sw}$( commaIf $sw -lt $switches )
+            {"label": "Switch $sw", "value": $sw}$( commaIf $sw -lt $switches -o $ver = "5a" )
 EOF
 done
+if [ $ver = "5a" ]
+then
+  cat <<EOF
+            {"label": "Start up event", "value": $(($switches + 1))}
+EOF
+fi
 cat <<EOF
           ]
         },
