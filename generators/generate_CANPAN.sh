@@ -241,7 +241,11 @@ cat <<EOF
             { "value": 4, "label": "ON only" },
             { "value": 6, "label": "OFF only" },
             { "value": 8, "label": "Push ON/Push OFF" }
-          ]
+          ],
+          "visibilityLogic": { "JLL": { "and" : [
+            { ">" : [ {"EV" : 2 }, 0 ]},
+            { "<" : [ {"EV" : 2 }, 32 ]}
+          ]}}
         }$( commaIf $ver != "5a" )
 EOF
 if [ $ver != "5a" ]
@@ -305,7 +309,11 @@ cat <<EOF
             { "value": 4, "label": "ON only" },
             { "value": 6, "label": "OFF only" },
             { "value": 8, "label": "Push ON/Push OFF" }
-          ]
+          ],
+          "visibilityLogic": { "JLL": { "or" : [
+            { ">" : [ {"EV" : 2 }, 0 ]},
+            { "<" : [ {"EV" : 2 }, 32 ]}
+          ]}}
         },
         {
           "displayTitle": "Send Short Event",
@@ -364,7 +372,8 @@ do
               "displayTitle": "Invert",
               "type": "EventVariableBitSingle",
               "eventVariableIndex": $((9+($ch-1)/8)),
-              "bit": $((($ch-1)%8))
+              "bit": $((($ch-1)%8)),
+              "visibilityLogic": { "JLL": { "==" : [ { "EVbit": [ $((5+($ch-1)/8)), $((($ch-1)%8)) ]}, true ]}}
             }
           ]
         }$( commaIf $ch != $LEDs)
