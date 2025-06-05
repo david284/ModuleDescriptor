@@ -69,6 +69,15 @@
                 {"bitPosition": 6, "label": "Channel 15"},
                 {"bitPosition": 7, "label": "Channel 16"}
               ]
+            },
+	    {
+              "type": "NodeVariableBitArray",
+              "nodeVariableIndex": 10,
+              "displayTitle": "Module flags",
+              "displaySubTitle": "",
+              "bitCollection":[
+                {"bitPosition": 0, "label": "Prevent default event creation"}
+              ]
             }
           ]
         },
