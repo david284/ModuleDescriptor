@@ -75,9 +75,14 @@ case $ver in
     hasAnalogue=1
     hasServo180=1
     ;;
-  4a|4b)
+  4a)
     hasAnalogue=1
     hasServo180=1
+    ;;
+  4b)
+    hasAnalogue=1
+    hasServo180=1
+    canPreventDefaultEvents=1
     ;;
   *)
     echo "$0: Unknown version '$ver'"
@@ -223,6 +228,21 @@ EOF
                 {"bitPosition": 1, "label": "Channel 10"},
                 {"bitPosition": 4, "label": "Channel 11"},
                 {"bitPosition": 5, "label": "Channel 12"}
+              ]
+            }
+EOF
+    fi
+    if [ -n "$canPreventDefaultEvents" ]
+    then
+      cat <<EOF
+            ,
+            {
+              "type": "NodeVariableBitArray",
+              "nodeVariableIndex": 10,
+              "displayTitle": "Module flags",
+              "displaySubTitle": "",
+              "bitCollection":[
+                {"bitPosition": 0, "label": "Prevent default event creation"}
               ]
             }
 EOF
