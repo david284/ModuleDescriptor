@@ -424,7 +424,8 @@ do
               "displayTitle": "Invert",
               "type": "EventVariableBitSingle",
               "eventVariableIndex": $((9+($ch-1)/8)),
-              "bit": $((($ch-1)%8))
+              "bit": $((($ch-1)%8)),
+              "visibilityLogic": { "JLL": { "==" : [ { "EVbit": [ $((5+($ch-1)/8)), $((($ch-1)%8)) ]}, true ]}}
             }
           ]
         }$( commaIf $ch != $LEDs)
