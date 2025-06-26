@@ -52,6 +52,7 @@ $gen_dir/generate_CANMIO.sh -t XIO -p22 -v 4b | writeIfUpdated "$merg_dir"/CANXI
 # CANPAN
 $gen_dir/generate_CANPAN.sh -v 1Y | writeIfUpdated "$merg_dir"/CANPAN-A51D-1Y.json
 $gen_dir/generate_CANPAN.sh -v 4C | writeIfUpdated "$merg_dir"/CANPAN-A51D-4C.json
+$gen_dir/generate_CANPAN.sh -p23 -v 5a | writeIfUpdated "$merg_dir"/CANPAN-A51D-5a.json
 
 # CANCMD and successors
 $gen_dir/generate_CANCMD.sh -v 4d | writeIfUpdated "$merg_dir"/CANCMD-A50A-4d.json
