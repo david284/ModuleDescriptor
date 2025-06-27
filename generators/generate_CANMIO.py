@@ -1,3 +1,11 @@
+# Generate descriptor file for CANMIO-Universal modules.
+# Use this script to avoid duplication and reduce maintenance.
+
+# Version 3d adds:
+#  * Support for PIC18F26K80 which supports the ANALOGUE and MAGNET I/O types.
+# Version 3e adds:
+#  * Support for 180 degree servo movement.
+
 import json
 import sys
 from sys import argv
@@ -451,7 +459,66 @@ for ch in range(1, channels + 1):
 data["nodeVariables"] = nodeVariables
 
 eventVariables = [
+    {
+        "type": "EventVariableSelect",
+        "eventVariableIndex": 1,
+        "displayTitle": "Produced event",
+        "displaySubTitle": "EV1",
+        "options": [
+            {"value": 0, "label": "no event (0)"},
+            {"value": 1, "label": "Startup event (1)"},
+        ],
+        "comment": "end of EV1"
+    }
 ]
+for ch in range(1, channels + 1):
+    eventVariables[0]["options"].append({
+        "value": 4 + ch * 4,
+        "overload": {
+            "nv": 9 + ch * 7,
+            "labels": [
+                {"value": 0, "label": f"CH{ch} - Input Changed"},
+                {"value": 1, "label": f"CH{ch} - Output Changed"},
+                {"value": 2, "label": f"CH{ch} - Reached OFF"},
+                {"value": 3, "label": f"CH{ch} - Output Changed"},
+                {"value": 4, "label": f"CH{ch} - AT1"},
+                {"value": 5, "label": f"CH{ch} - Threshold"},
+                {"value": 6, "label": f"CH{ch} - Lower Threshold"}
+            ]
+        }
+    })
+    eventVariables[0]["options"].append({
+        "value": 5 + ch * 4,
+        "overload": {
+            "nv": 9 + ch * 7,
+            "labels": [
+                {"value": 0, "label": f"CH{ch} - TWO_ON"},
+                {"value": 2, "label": f"CH{ch} - Reached MID"},
+                {"value": 4, "label": f"CH{ch} - AT2"},
+                {"value": 6, "label": f"CH{ch} - Upper Threshold"}
+            ]
+        }
+    })
+    eventVariables[0]["options"].append({
+        "value": 6 + ch * 4,
+        "overload": {
+            "nv": 9 + ch * 7,
+            "labels": [
+                {"value": 2, "label": f"CH{ch} - Reached ON"},
+                {"value": 4, "label": f"CH{ch} - AT3"}
+            ]
+        }
+    })
+    eventVariables[0]["options"].append({
+        "value": 7 + ch * 4,
+        "overload": {
+            "nv": 9 + ch * 7,
+            "labels": [
+                {"value": 4, "label": f"CH{ch} - AT4"}
+            ]
+        }
+    })
+
 data["eventVariables"] = eventVariables
 
 json.dump(data, sys.stdout, indent=2)
