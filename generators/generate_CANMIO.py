@@ -89,7 +89,7 @@ for ch in range(1, channels + 1):
         {"label": "BOUNCE", "value": 3},
         {"label": "MULTI", "value": 4}
     ]
-    if ch >= 9 and ch <= channels and ch != 12:
+    if 9 <= ch <= channels and ch != 12:
         ioTypes.append({"label": "ANALOGUE", "value": 5})
         ioTypes.append({"label": "MAGNET", "value": 6})
     channelDef = {
@@ -518,6 +518,95 @@ for ch in range(1, channels + 1):
             ]
         }
     })
+
+for ev in range(2, 20 + 1):
+    evDef = {
+        "displayTitle": f"Consumed Event - EV{ev}",
+        "type": "EventVariableGroup",
+        "groupItems": [
+            {
+                "type": "EventVariableSelect",
+                "bitMask": 127,
+                "eventVariableIndex": ev,
+                "displayTitle": "Action",
+                "options": [
+                    {"value": 0, "label": "no action"},
+                    {"value": 1, "label": "Consumed SOD"},
+                    {"value": 2, "label": "Wait 0.5s"},
+                    {"value": 3, "label": "Wait 1s"},
+                    {"value": 4, "label": "Wait 2s"},
+                    {"value": 5, "label": "Wait 5s"},
+                    {"value": 7, "label": "Stop Processing"}
+                ],
+                "comment": f"end of EV{ev}"
+            },
+            {
+                "displayTitle": "Simultaneous",
+                "type": "EventVariableBitSingle",
+                "eventVariableIndex": ev,
+                "bit": 7
+            }
+        ]
+    }
+    for ch in range(1, channels + 1):
+        evDef["groupItems"][0]["options"].append({
+            "value": 3 + ch * 5,
+            "overload": {
+                "nv": 9 + ch * 7,
+                "labels": [
+                    {"value": 1, "label": f"CH{ch} - Change"},
+                    {"value": 2, "label": f"CH{ch} - Change"},
+                    {"value": 3, "label": f"CH{ch} - Change"},
+                    {"value": 4, "label": f"CH{ch} - AT1"}
+                ]
+            }
+        })
+        evDef["groupItems"][0]["options"].append({
+            "value": 4+ch*5,
+            "overload": {
+                "nv": 9+ch*7,
+                "labels": [
+                    {"value": 1, "label": f"CH{ch} - ON"},
+                    {"value": 2, "label": f"CH{ch} - ON"},
+                    {"value": 3, "label": f"CH{ch} - ON"},
+                    {"value": 4, "label": f"CH{ch} - AT2"}
+                ]
+            }
+        })
+        evDef["groupItems"][0]["options"].append({
+            "value": 5 + ch * 5,
+            "overload": {
+                "nv": 9 + ch * 7,
+                "labels": [
+                    {"value": 1, "label": f"CH{ch} - OFF"},
+                    {"value": 2, "label": f"CH{ch} - OFF"},
+                    {"value": 3, "label": f"CH{ch} - OFF"},
+                    {"value": 4, "label": f"CH{ch} - AT3"}
+                ]
+            }
+        })
+        evDef["groupItems"][0]["options"].append({
+            "value": 6 + ch * 5,
+            "overload": {
+                "nv": 9 + ch * 7,
+                "labels": [
+                    {"value": 1, "label": f"CH{ch} - FLASH"},
+                    {"value": 4, "label": f"CH{ch} - AT4"}
+                ]
+            }
+        })
+        evDef["groupItems"][0]["options"].append({
+            "value": 7 + ch * 5,
+            "overload": {
+                "nv": 9 + ch * 7,
+                "labels": [
+                    {"value": 1, "label": f"CH{ch} - !Change"},
+                    {"value": 2, "label": f"CH{ch} - !Change"},
+                    {"value": 3, "label": f"CH{ch} - !Change"}
+                ]
+            }
+        })
+    eventVariables.append(evDef)
 
 data["eventVariables"] = eventVariables
 
