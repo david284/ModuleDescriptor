@@ -33,7 +33,7 @@ elif args.version == "4a":
 elif args.version == "4b":
     hasAnalogue = True
     hasServo180 = True
-    canPreventDefaultEvents=True
+    canPreventDefaultEvents = True
 else:
     print(f"Unknown version '{args.version}'")
     exit(1)
@@ -122,7 +122,7 @@ for ch in range(1, channels + 1):
         {"label": "BOUNCE", "value": 3},
         {"label": "MULTI", "value": 4}
     ]
-    if 9 <= ch <= channels and ch != 12:
+    if hasAnalogue and 9 <= ch <= channels and ch != 12:
         ioTypes.append({"label": "ANALOGUE", "value": 5})
         ioTypes.append({"label": "MAGNET", "value": 6})
     channelDef = {
@@ -193,15 +193,6 @@ for ch in range(1, channels + 1):
                 ]
             },
             {
-                "displayTitle": "magnet setup",
-                "displaySubTitle": "ADC offset",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 11 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
                 "type": "NodeVariableSlider",
                 "comment": "input type only",
                 "visibilityLogic": {"nv": 9 + ch * 7, "equals": 0},
@@ -252,25 +243,6 @@ for ch in range(1, channels + 1):
                 "outputOnWrite": True
             },
             {
-                "displayTitle": "Threshold",
-                "displaySubTitle": "analog specific",
-                "comment": "analog type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayUnits": "Volts",
-                "displayScale": 0.0196
-            },
-            {
-                "displayTitle": "Threshold",
-                "displaySubTitle": "magnet specific",
-                "comment": "analog type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
                 "type": "NodeVariableSlider",
                 "comment": "servo type only",
                 "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
@@ -298,25 +270,6 @@ for ch in range(1, channels + 1):
                 "displaySubTitle": "multi specific",
                 "displayUnits": "steps",
                 "outputOnWrite": True
-            },
-            {
-                "displayTitle": "Hysteresis",
-                "displaySubTitle": "analogue specific",
-                "comment": "analogue type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayUnits": "Volts",
-                "displayScale": 0.0196
-            },
-            {
-                "displayTitle": "Hysteresis",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
             },
             {
                 "type": "NodeVariableSlider",
@@ -349,15 +302,6 @@ for ch in range(1, channels + 1):
                 "outputOnWrite": True
             },
             {
-                "displayTitle": "Offset H",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 14 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
                 "type": "NodeVariableSlider",
                 "comment": "bounce type only",
                 "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
@@ -376,6 +320,67 @@ for ch in range(1, channels + 1):
                 "displaySubTitle": "multi specific",
                 "displayUnits": "steps",
                 "outputOnWrite": True
+            }
+        ],
+        "comment": f"end of channel {ch}"
+    }
+    if hasAnalogue:
+        analogueItems = [
+            {
+                "displayTitle": "magnet setup",
+                "displaySubTitle": "ADC offset",
+                "comment": "magnet type only",
+                "type": "NodeVariableSlider",
+                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                "nodeVariableIndex": 11 + ch * 7,
+                "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+                "displayTitle": "Threshold",
+                "displaySubTitle": "analog specific",
+                "comment": "analog type only",
+                "type": "NodeVariableSlider",
+                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
+                "nodeVariableIndex": 12 + ch * 7,
+                "displayUnits": "Volts",
+                "displayScale": 0.0196
+            },
+            {
+                "displayTitle": "Threshold",
+                "displaySubTitle": "magnet specific",
+                "comment": "analog type only",
+                "type": "NodeVariableSlider",
+                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                "nodeVariableIndex": 12 + ch * 7,
+                "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+                "displayTitle": "Hysteresis",
+                "displaySubTitle": "analogue specific",
+                "comment": "analogue type only",
+                "type": "NodeVariableSlider",
+                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
+                "nodeVariableIndex": 13 + ch * 7,
+                "displayUnits": "Volts",
+                "displayScale": 0.0196
+            },
+            {
+                "displayTitle": "Hysteresis",
+                "displaySubTitle": "magnet specific",
+                "comment": "magnet type only",
+                "type": "NodeVariableSlider",
+                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                "nodeVariableIndex": 13 + ch * 7,
+                "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+                "displayTitle": "Offset H",
+                "displaySubTitle": "magnet specific",
+                "comment": "magnet type only",
+                "type": "NodeVariableSlider",
+                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                "nodeVariableIndex": 14 + ch * 7,
+                "displayUnits": "ADC units, in 1.22mV steps"
             },
             {
                 "displayTitle": "Offset L",
@@ -385,111 +390,117 @@ for ch in range(1, channels + 1):
                 "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
                 "nodeVariableIndex": 15 + ch * 7,
                 "displayUnits": "ADC units, in 1.22mV steps"
+            }
+        ]
+        channelDef["items"].extend(analogueItems)
+
+    channelDef["items"].sort(key=lambda item: (
+        item["nodeVariableIndex"],
+        item["visibilityLogic"]["equals"] if "visibilityLogic" in item else 0))
+
+    # Flags shall be last
+    channelDef["items"].append({
+        "type": "NodeVariableBitArray",
+        "nodeVariableIndex": 10 + ch * 7,
+        "displayTitle": "Flags",
+        "bitCollection": [
+            {
+                "bitPosition": 0,
+                "overload": {
+                    "nv": 9 + ch * 7,
+                    "labels": [
+                        {"value": 0, "label": "TRIGGER_INVERTED"},
+                        {"value": 1, "label": "TRIGGER_INVERTED"},
+                        {"value": 2, "label": "TRIGGER_INVERTED"},
+                        {"value": 3, "label": "TRIGGER_INVERTED"},
+                        {"value": 4, "label": "TRIGGER_INVERTED"}
+                    ]
+                }
             },
             {
-                "type": "NodeVariableBitArray",
-                "nodeVariableIndex": 10 + ch * 7,
-                "displayTitle": "Flags",
-                "bitCollection": [
+                "bitPosition": 1,
+                "overload": {
+                    "nv": 9 + ch * 7,
+                    "labels": [
+                        {"value": 2, "label": "CUTOFF"},
+                        {"value": 3, "label": "CUTOFF"},
+                        {"value": 4, "label": "CUTOFF"}
+                    ]
+                }
+            },
+            {
+                "bitPosition": 2,
+                "overload": {
+                    "nv": 9 + ch * 7,
+                    "labels": [
+                        {"value": 1, "label": "STARTUP"},
+                        {"value": 2, "label": "STARTUP"},
+                        {"value": 3, "label": "STARTUP"},
+                        {"value": 4, "label": "STARTUP"}
+                    ]
+                }
+            },
+            {
+                "bitPosition": 3,
+                "overload": {
+                    "nv": 9 + ch * 7,
+                    "labels": [
+                        {"value": 0, "label": "DISABLE_OFF"},
+                        {"value": 1, "label": "DISABLE_OFF"}
+                    ] + ([
+                        {"value": 5, "label": "DISABLE_OFF"},
+                        {"value": 6, "label": "DISABLE_OFF"}
+                    ] if hasAnalogue else [])
+                }
+            },
+            {
+                "bitPosition": 4,
+                "overload": {
+                    "nv": 9 + ch * 7,
+                    "labels": [
+                        {"value": 0, "label": "TOGGLE"},
+                        {"value": 2, "label": "PULLUP"},
+                        {"value": 3, "label": "PULLUP"},
+                        {"value": 4, "label": "PULLUP"}
+                    ]
+                }
+            },
+            {
+                "bitPosition": 5,
+                "overload": {
+                    "nv": 9 + ch * 7,
+                    "labels": [
+                        {"value": 0, "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                        {"value": 1, "label": "ACTION_INVERTED"},
+                        {"value": 2, "label": "ACTION_INVERTED"},
+                        {"value": 3, "label": "ACTION_INVERTED"},
+                        {"value": 4, "label": "ACTION_INVERTED"}
+                    ] + ([
+                        {"value": 5, "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                        {"value": 6, "label": "INPUT_DISABLE_SOD_RESPONSE"}
+                    ] if hasAnalogue else [])
+                }
+            },
+            {
+                "bitPosition": 6,
+                "label": "EVENT_INVERTED"
+            },
+            {
+                "bitPosition": 7,
+                "overload":
                     {
-                        "bitPosition": 0,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 0, "label": "TRIGGER_INVERTED"},
-                                {"value": 1, "label": "TRIGGER_INVERTED"},
-                                {"value": 2, "label": "TRIGGER_INVERTED"},
-                                {"value": 3, "label": "TRIGGER_INVERTED"},
-                                {"value": 4, "label": "TRIGGER_INVERTED"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 1,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 2, "label": "CUTOFF"},
-                                {"value": 3, "label": "CUTOFF"},
-                                {"value": 4, "label": "CUTOFF"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 2,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 1, "label": "STARTUP"},
-                                {"value": 2, "label": "STARTUP"},
-                                {"value": 3, "label": "STARTUP"},
-                                {"value": 4, "label": "STARTUP"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 3,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 0, "label": "DISABLE_OFF"},
-                                {"value": 1, "label": "DISABLE_OFF"},
-                                {"value": 5, "label": "DISABLE_OFF"},
-                                {"value": 6, "label": "DISABLE_OFF"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 4,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 0, "label": "TOGGLE"},
-                                {"value": 2, "label": "PULLUP"},
-                                {"value": 3, "label": "PULLUP"},
-                                {"value": 4, "label": "PULLUP"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 5,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 0, "label": "INPUT_DISABLE_SOD_RESPONSE"},
-                                {"value": 1, "label": "ACTION_INVERTED"},
-                                {"value": 2, "label": "ACTION_INVERTED"},
-                                {"value": 3, "label": "ACTION_INVERTED"},
-                                {"value": 4, "label": "ACTION_INVERTED"},
-                                {"value": 5, "label": "INPUT_DISABLE_SOD_RESPONSE"},
-                                {"value": 6, "label": "INPUT_DISABLE_SOD_RESPONSE"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 6,
-                        "label": "EVENT_INVERTED"
-                    },
-                    {
-                        "bitPosition": 7,
-                        "overload":
-                            {
-                                "nv": 9 + ch * 7,
-                                "labels": [
-                                    {"value": 1, "label": "ACTION_EXPEDITED"}
-                                ] if not hasServo180 else [
-                                    {"value": 1, "label": "ACTION_EXPEDITED"},
-                                    {"value": 2, "label": "EXTENDED 180 DEGREE RANGE"},
-                                    {"value": 3, "label": "EXTENDED 180 DEGREE RANGE"},
-                                    {"value": 4, "label": "EXTENDED 180 DEGREE RANGE"}
-                                ]
-                            }
+                        "nv": 9 + ch * 7,
+                        "labels": [
+                            {"value": 1, "label": "ACTION_EXPEDITED"}
+                        ] + ([
+                            {"value": 2, "label": "EXTENDED 180 DEGREE RANGE"},
+                            {"value": 3, "label": "EXTENDED 180 DEGREE RANGE"},
+                            {"value": 4, "label": "EXTENDED 180 DEGREE RANGE"}
+                        ] if hasServo180 else [])
                     }
-                ]
             }
-        ],
-        "comment": f"end of channel {ch}"
-    }
+        ]
+    })
     nodeVariables[0]["tabPanels"].append(channelDef)
 data["nodeVariables"] = nodeVariables
 
@@ -517,9 +528,10 @@ for ch in range(1, channels + 1):
                 {"value": 2, "label": f"CH{ch} - Reached OFF"},
                 {"value": 3, "label": f"CH{ch} - Output Changed"},
                 {"value": 4, "label": f"CH{ch} - AT1"},
+            ] + ([
                 {"value": 5, "label": f"CH{ch} - Threshold"},
                 {"value": 6, "label": f"CH{ch} - Lower Threshold"}
-            ]
+            ] if hasAnalogue else [])
         }
     })
     eventVariables[0]["options"].append({
@@ -530,8 +542,9 @@ for ch in range(1, channels + 1):
                 {"value": 0, "label": f"CH{ch} - TWO_ON"},
                 {"value": 2, "label": f"CH{ch} - Reached MID"},
                 {"value": 4, "label": f"CH{ch} - AT2"},
+            ] + ([
                 {"value": 6, "label": f"CH{ch} - Upper Threshold"}
-            ]
+            ] if hasAnalogue else [])
         }
     })
     eventVariables[0]["options"].append({
