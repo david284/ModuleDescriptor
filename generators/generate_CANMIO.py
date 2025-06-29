@@ -19,9 +19,10 @@ args = parser.parse_args()
 hasAnalogue = False
 hasServo180 = False
 canPreventDefaultEvents = False
-# if args.version == "3a" or args.version == "3b":
 
-if args.version == "3d":
+if args.version == "3a" or args.version == "3b":
+    nothing = True
+elif args.version == "3d":
     hasAnalogue = True
 elif args.version == "3e":
     hasAnalogue = True
@@ -475,6 +476,8 @@ for ch in range(1, channels + 1):
                             {
                                 "nv": 9 + ch * 7,
                                 "labels": [
+                                    {"value": 1, "label": "ACTION_EXPEDITED"}
+                                ] if not hasServo180 else [
                                     {"value": 1, "label": "ACTION_EXPEDITED"},
                                     {"value": 2, "label": "EXTENDED 180 DEGREE RANGE"},
                                     {"value": 3, "label": "EXTENDED 180 DEGREE RANGE"},
