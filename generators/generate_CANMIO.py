@@ -473,28 +473,21 @@ for ch in range(1, channels + 1):
                 "displayUnits": "ADC units, in 1.22mV steps"
             },
             {
-                "displayTitle": "Offset H",
+                "displayTitle": "Offset",
                 "displaySubTitle": "magnet specific",
                 "comment": "magnet type only",
-                "type": "NodeVariableSlider",
+                "type": "NodeVariableDual",
                 "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 14 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
-                "displayTitle": "Offset L",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 15 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
+                "nodeVariableIndexHigh": 14 + ch * 7,
+                "nodeVariableIndexLow": 15 + ch * 7,
+                "max": 65535,
+                "displayUnits": "ADC units, in 7.63uV steps"
             }
         ]
         channelDef["items"].extend(analogueItems)
 
     channelDef["items"].sort(key=lambda item: (
-        item["nodeVariableIndex"],
+        item["nodeVariableIndex"] if "nodeVariableIndex" in item else item["nodeVariableIndexHigh"],
         item["visibilityLogic"]["equals"] if "visibilityLogic" in item else 0))
 
     # Flags shall be last
