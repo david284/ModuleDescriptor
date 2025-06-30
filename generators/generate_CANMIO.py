@@ -122,6 +122,16 @@ nodeVariables = [
     }
 ]
 if processorSeries == "K":
+    if moduleType == "XIO":
+        nodeVariables[0]["tabPanels"][0]["items"].append({
+            "type": "NodeVariableBitArray",
+            "nodeVariableIndex": 6,
+            "displayTitle": "Flags",
+            "displaySubTitle": "",
+            "bitCollection":[
+                {"bitPosition": 0, "label": "ch17-24 pullups enabled"}
+            ]
+        })
     nodeVariables[0]["tabPanels"][0]["items"].append({
         "type": "NodeVariableBitArray",
         "nodeVariableIndex": 4,
@@ -169,6 +179,23 @@ elif processorSeries == "Q":
             ]
         }
     ])
+    if moduleType == "XIO":
+        nodeVariables[0]["tabPanels"][0]["items"].append({
+            "type": "NodeVariableBitArray",
+            "nodeVariableIndex": 8,
+            "displayTitle": "Pullups for channels 17-24",
+            "displaySubTitle": "",
+            "bitCollection":[
+                {"bitPosition": 0, "label": "Channel 17"},
+                {"bitPosition": 1, "label": "Channel 18"},
+                {"bitPosition": 2, "label": "Channel 19"},
+                {"bitPosition": 3, "label": "Channel 20"},
+                {"bitPosition": 4, "label": "Channel 21"},
+                {"bitPosition": 5, "label": "Channel 22"},
+                {"bitPosition": 6, "label": "Channel 23"},
+                {"bitPosition": 7, "label": "Channel 24"}
+            ]
+        })
 if canPreventDefaultEvents:
     nodeVariables[0]["tabPanels"][0]["items"].append({
         "type": "NodeVariableBitArray",
@@ -183,11 +210,15 @@ if canPreventDefaultEvents:
 for ch in range(1, channels + 1):
     ioTypes = [
         {"label": "INPUT", "value": 0},
-        {"label": "OUTPUT", "value": 1},
-        {"label": "SERVO", "value": 2},
-        {"label": "BOUNCE", "value": 3},
-        {"label": "MULTI", "value": 4}
+        {"label": "OUTPUT", "value": 1}
     ]
+    if ch <= 16:
+        # CANXIO does not have timers for channels 17-24 thus cannot have servos on these pins.
+        ioTypes.extend([
+            {"label": "SERVO", "value": 2},
+            {"label": "BOUNCE", "value": 3},
+            {"label": "MULTI", "value": 4}
+        ])
     if hasAnalogue and (processorSeries == "Q" or (9 <= ch <= channels and ch != 12)):
         ioTypes.extend([
             {"label": "ANALOGUE", "value": 5},
