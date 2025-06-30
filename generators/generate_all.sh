@@ -36,18 +36,22 @@ python $gen_dir/generate_CANMIO.py -v 3d | writeIfUpdated "$merg_dir"/CANMIO-A52
 python $gen_dir/generate_CANMIO.py -v 3e | writeIfUpdated "$merg_dir"/CANMIO-A520-3e.json
 python $gen_dir/generate_CANMIO.py -v 4a | writeIfUpdated "$merg_dir"/CANMIO-A520-4a.json
 python $gen_dir/generate_CANMIO.py -v 4b | writeIfUpdated "$merg_dir"/CANMIO-A520-4b.json
+python $gen_dir/generate_CANMIO.py -v 4c | writeIfUpdated "$merg_dir"/CANMIO-A520-4c.json
 
 # Processor P18F27Q83
 python $gen_dir/generate_CANMIO.py -p23 -v 4a | writeIfUpdated "$merg_dir"/CANMIO-A520-4a--P23.json
 python $gen_dir/generate_CANMIO.py -p23 -v 4b | writeIfUpdated "$merg_dir"/CANMIO-A520-4b--P23.json
+python $gen_dir/generate_CANMIO.py -p23 -v 4c | writeIfUpdated "$merg_dir"/CANMIO-A520-4c--P23.json
 
 # Extended CANMIO
 # Default processor PIC18F46K80
 python $gen_dir/generate_CANMIO.py -t XIO -v 3e | writeIfUpdated "$merg_dir"/CANXIO-A540-3e.json
 python $gen_dir/generate_CANMIO.py -t XIO -v 4a | writeIfUpdated "$merg_dir"/CANXIO-A540-4a.json
 python $gen_dir/generate_CANMIO.py -t XIO -v 4b | writeIfUpdated "$merg_dir"/CANXIO-A540-4b.json
+python $gen_dir/generate_CANMIO.py -t XIO -v 4c | writeIfUpdated "$merg_dir"/CANXIO-A540-4c.json
 python $gen_dir/generate_CANMIO.py -t XIO -p22 -v 4a | writeIfUpdated "$merg_dir"/CANXIO-A540-4a--P21.json
 python $gen_dir/generate_CANMIO.py -t XIO -p22 -v 4b | writeIfUpdated "$merg_dir"/CANXIO-A540-4b--P21.json
+python $gen_dir/generate_CANMIO.py -t XIO -p22 -v 4c | writeIfUpdated "$merg_dir"/CANXIO-A540-4c--P21.json
 
 # CANPAN
 $gen_dir/generate_CANPAN.sh -v 1Y | writeIfUpdated "$merg_dir"/CANPAN-A51D-1Y.json

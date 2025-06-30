@@ -64,6 +64,9 @@ elif args.version == "4a":
 elif args.version == "4b":
     hasAnalogue = True
     hasServo180 = True
+elif args.version == "4c":
+    hasAnalogue = True
+    hasServo180 = True
     canPreventDefaultEvents = True
 else:
     print(f"Unknown version '{args.version}'")
