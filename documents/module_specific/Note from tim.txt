@@ -1,0 +1,14 @@
+ On the topic of modules.
+
+With the exception of the older stuff and CANXIO excepted all 16 channel modules can run the same firmware, so actually there is no way to distinguish between a CANVSERVO and a CANMIO if they are both running the same firmware. That said sales quantities don't really come into it. If the MMC can support the main firmware versions then all is good.
+Main ones are
+
+CANMIO-SVO4s
+CANMIO-UNIVERSAL
+CANMIO-OUT
+CANMIO Bip-OUT
+
+The CANPAN is unique however you must note that it is due an upgrade (Speak to Ian Hogg)
+The CANCMD is similarly due an upgrade, the firmware is a tweaked version of Pete's CANCSB so I would speak to him or Simon West for full details
+
+The CANXIO is an offshoot of CANMIO-UNIVERSAL so either Pete Or Ian for that one.

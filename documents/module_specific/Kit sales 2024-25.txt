@@ -1,0 +1,14 @@
+Kit Sales Ranking
+Our most popular kits by sales numbers (not value) for the year 2024-25 are as follows:
+
+Rank	Kit No	Description	Qty
+1=	75	Servo4 servo driver	441
+1=	681	Point motor servo mount	441
+3	50	DTC2 2-channel Block Detector	416
+4	56A	DTC8A 8-channel Block Detector	354
+5	77R	Servo1R servo driver with relay	342
+6	4807	PMK7 DCC Train Detector	328
+7	4818	PMK18 EzyPoints	264
+8	683	Microswitch pack	232
+9	4822	PMK22 Laser Train Detector	217
+10	13	CANVSERVO Servo driver	215
