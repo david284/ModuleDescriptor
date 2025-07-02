@@ -54,9 +54,9 @@ python $gen_dir/generate_CANMIO.py -t XIO -p22 -v 4b | writeIfUpdated "$merg_dir
 python $gen_dir/generate_CANMIO.py -t XIO -p22 -v 4c | writeIfUpdated "$merg_dir"/CANXIO-A540-4c--P21.json
 
 # CANPAN
-$gen_dir/generate_CANPAN.sh -v 1Y | writeIfUpdated "$merg_dir"/CANPAN-A51D-1Y.json
-$gen_dir/generate_CANPAN.sh -v 4C | writeIfUpdated "$merg_dir"/CANPAN-A51D-4C.json
-$gen_dir/generate_CANPAN.sh -p23 -v 5a | writeIfUpdated "$merg_dir"/CANPAN-A51D-5a.json
+python $gen_dir/generate_CANPAN.py -v 1Y | writeIfUpdated "$merg_dir"/CANPAN-A51D-1Y.json
+python $gen_dir/generate_CANPAN.py -v 4C | writeIfUpdated "$merg_dir"/CANPAN-A51D-4C.json
+python $gen_dir/generate_CANPAN.py -p23 -v 5a | writeIfUpdated "$merg_dir"/CANPAN-A51D-5a.json
 
 # CANCMD and successors
 $gen_dir/generate_CANCMD.sh -v 4d | writeIfUpdated "$merg_dir"/CANCMD-A50A-4d.json
