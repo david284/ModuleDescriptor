@@ -427,71 +427,68 @@ for ch in range(1, channels + 1):
                 "displayUnits": "steps",
                 "outputOnWrite": True
             }
-        ],
+        ] + ([
+              {
+                  "displayTitle": "magnet setup",
+                  "displaySubTitle": "ADC offset",
+                  "comment": "magnet type only",
+                  "type": "NodeVariableSlider",
+                  "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                  "nodeVariableIndex": 11 + ch * 7,
+                  "displayUnits": "ADC units, in 1.22mV steps"
+              },
+              {
+                  "displayTitle": "Threshold",
+                  "displaySubTitle": "analog specific",
+                  "comment": "analog type only",
+                  "type": "NodeVariableSlider",
+                  "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
+                  "nodeVariableIndex": 12 + ch * 7,
+                  "displayUnits": "Volts",
+                  "displayScale": 0.0196
+              },
+              {
+                  "displayTitle": "Threshold",
+                  "displaySubTitle": "magnet specific",
+                  "comment": "analog type only",
+                  "type": "NodeVariableSlider",
+                  "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                  "nodeVariableIndex": 12 + ch * 7,
+                  "displayUnits": "ADC units, in 1.22mV steps"
+              },
+              {
+                  "displayTitle": "Hysteresis",
+                  "displaySubTitle": "analogue specific",
+                  "comment": "analogue type only",
+                  "type": "NodeVariableSlider",
+                  "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
+                  "nodeVariableIndex": 13 + ch * 7,
+                  "displayUnits": "Volts",
+                  "displayScale": 0.0196
+              },
+              {
+                  "displayTitle": "Hysteresis",
+                  "displaySubTitle": "magnet specific",
+                  "comment": "magnet type only",
+                  "type": "NodeVariableSlider",
+                  "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                  "nodeVariableIndex": 13 + ch * 7,
+                  "displayUnits": "ADC units, in 1.22mV steps"
+              },
+              {
+                  "displayTitle": "Offset",
+                  "displaySubTitle": "magnet specific",
+                  "comment": "magnet type only",
+                  "type": "NodeVariableDual",
+                  "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                  "nodeVariableIndexHigh": 14 + ch * 7,
+                  "nodeVariableIndexLow": 15 + ch * 7,
+                  "max": 65535,
+                  "displayUnits": "ADC units, in 7.63uV steps"
+              }
+        ] if hasAnalogue else []),
         "comment": f"end of channel {ch}"
     }
-    if hasAnalogue:
-        analogueItems = [
-            {
-                "displayTitle": "magnet setup",
-                "displaySubTitle": "ADC offset",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 11 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
-                "displayTitle": "Threshold",
-                "displaySubTitle": "analog specific",
-                "comment": "analog type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayUnits": "Volts",
-                "displayScale": 0.0196
-            },
-            {
-                "displayTitle": "Threshold",
-                "displaySubTitle": "magnet specific",
-                "comment": "analog type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
-                "displayTitle": "Hysteresis",
-                "displaySubTitle": "analogue specific",
-                "comment": "analogue type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayUnits": "Volts",
-                "displayScale": 0.0196
-            },
-            {
-                "displayTitle": "Hysteresis",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
-                "displayTitle": "Offset",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableDual",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndexHigh": 14 + ch * 7,
-                "nodeVariableIndexLow": 15 + ch * 7,
-                "max": 65535,
-                "displayUnits": "ADC units, in 7.63uV steps"
-            }
-        ]
-        channelDef["items"].extend(analogueItems)
 
     channelDef["items"].sort(key=lambda item: (
         item["nodeVariableIndex"] if "nodeVariableIndex" in item else item["nodeVariableIndexHigh"],

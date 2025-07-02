@@ -129,30 +129,25 @@ if args.version == "5a":
 data["nodeVariables"] = nodeVariables
 
 eventVariables = [
+    {
+        "displayTitle": "Event Type",
+        "type": "EventVariableSelect",
+        "eventVariableIndex": 1,
+        "options": [
+            { "value": 0, "label": "Consumed Event" },
+            { "value": 1, "label": "Produced Event" },
+            { "value": 2, "label": "Start of Day" },
+            { "value": 3, "label": "Self SoD" }
+        ]
+    }
+] if args.version != "5a" else [
+    {
+        "displayTitle": "Start of Day",
+        "type": "EventVariableBitSingle",
+        "eventVariableIndex": 1,
+        "bit": 1
+    }
 ]
-if args.version != "5a":
-    eventVariables.append(
-        {
-            "displayTitle": "Event Type",
-            "type": "EventVariableSelect",
-            "eventVariableIndex": 1,
-            "options": [
-                { "value": 0, "label": "Consumed Event" },
-                { "value": 1, "label": "Produced Event" },
-                { "value": 2, "label": "Start of Day" },
-                { "value": 3, "label": "Self SoD" }
-            ]
-        }
-    )
-else:
-    eventVariables.append(
-        {
-            "displayTitle": "Start of Day",
-            "type": "EventVariableBitSingle",
-            "eventVariableIndex": 1,
-            "bit": 1
-        }
-    )
 prodEvent = {
     "displayTitle": "Produced Event",
     "type": "EventVariableGroup"
@@ -192,23 +187,21 @@ prodEvent["groupItems"] = [
             {"<": [{"EV": 2}, 32]}
         ]}}
     }
-]
-if args.version != "5a":
-    prodEvent["groupItems"].extend([
-        {
-            "displayTitle": "Set LEDs",
-            "type": "EventVariableBitSingle",
-            "eventVariableIndex": 3,
-            "bit": 4
-        },
-        {
-            "displayTitle": "Send Short Event",
-            "displaySubTitle": "Set this when teaching a produced short events",
-            "type": "EventVariableBitSingle",
-            "eventVariableIndex": 3,
-            "bit": 5
-        }
-    ])
+] + ([
+    {
+        "displayTitle": "Set LEDs",
+        "type": "EventVariableBitSingle",
+        "eventVariableIndex": 3,
+        "bit": 4
+    },
+    {
+        "displayTitle": "Send Short Event",
+        "displaySubTitle": "Set this when teaching a produced short events",
+        "type": "EventVariableBitSingle",
+        "eventVariableIndex": 3,
+        "bit": 5
+    }
+] if args.version != "5a" else [])
 eventVariables.append(prodEvent)
 
 if args.version != "5a":
@@ -243,9 +236,9 @@ if args.version != "5a":
                         { "value": 6, "label": "OFF only" },
                         { "value": 8, "label": "Push ON/Push OFF" }
                     ],
-                    "visibilityLogic": { "JLL": { "or" : [
-                        { ">" : [ {"EV" : 2 }, 0 ]},
-                        { "<" : [ {"EV" : 2 }, 32 ]}
+                    "visibilityLogic": {"JLL": {"or": [
+                        {">": [{"EV": 2}, 0]},
+                        {"<": [{"EV": 2}, 32]}
                     ]}}
                 },
                 {
