@@ -81,10 +81,8 @@ data = {
     "timestamp": datestring,
     "moduleName": moduleName,
     "numberOfChannels": channels,
-    "channelNames": {}
+    "channelNames": {str(ch): f"Channel {ch}" for ch in range(1, channels + 1)}
 }
-for ch in range(1, channels + 1):
-    data["channelNames"][str(ch)] = f"Channel {ch}"
 
 nodeVariables = [
     {

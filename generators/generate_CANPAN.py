@@ -40,12 +40,9 @@ data = {
     "timestamp": datestring,
     "moduleName": moduleName,
     "numberOfChannels": LEDs + switches,
-    "channelNames": {}
+    "channelNames": {str(ch): f"LED {ch}" for ch in range(1, LEDs + 1)} | 
+                    {str(ch + LEDs): f"Switch {ch}" for ch in range(1, switches + 1)}
 }
-for ch in range(1, LEDs + 1):
-    data["channelNames"][str(ch)] = f"LED {ch}"
-for ch in range(1, switches + 1):
-    data["channelNames"][str(ch + LEDs)] = f"Switch {ch}"
 
 startupActions = []
 if args.version == "1Y":
@@ -90,42 +87,32 @@ if args.version == "5a":
             "nodeVariableIndex": 2,
             "displayUnits": "ms",
             "displayScale": 16.13
-        }
-    ])
-    ledItems = []
-    for led in range(1, LEDs + 1):
-        ledItems.append(
-            {
-                "displayTitle": f"${{channel{led}}}",
-                "type": "NodeVariableSlider",
-                "nodeVariableIndex": 2 + led,
-                "max": 31
-            }
-        )
-    nodeVariables.append(
+        },
         {
             "displayTitle": "LED Brightness",
             "type": "NodeVariableGroup",
-            "groupItems": ledItems
-        }
-    )
-    switchPairItems = []
-    for sw in range(1, switches, 2):
-        switchPairItems.append(
-            {
-                "displayTitle": f"${{channel{LEDs + sw}}} & ${{channel{LEDs + sw + 1}}}",
-                "type": "NodeVariableBitSingle",
-                "nodeVariableIndex": 2 + LEDs +sw,
-                "bit": 0
-            }
-        )
-    nodeVariables.append(
+            "groupItems": [
+                {
+                    "displayTitle": f"${{channel{led}}}",
+                    "type": "NodeVariableSlider",
+                    "nodeVariableIndex": 2 + led,
+                    "max": 31
+                } for led in range(1, LEDs + 1)
+            ]
+        },
         {
             "displayTitle": "Switch Pairing",
             "type": "NodeVariableGroup",
-            "groupItems": switchPairItems
+            "groupItems": [
+                {
+                    "displayTitle": f"${{channel{LEDs + sw}}} & ${{channel{LEDs + sw + 1}}}",
+                    "type": "NodeVariableBitSingle",
+                    "nodeVariableIndex": 2 + LEDs +sw,
+                    "bit": 0
+                } for sw in range(1, switches, 2)
+            ]
         }
-    )
+    ])
 data["nodeVariables"] = nodeVariables
 
 eventVariables = [
@@ -139,165 +126,163 @@ eventVariables = [
             { "value": 2, "label": "Start of Day" },
             { "value": 3, "label": "Self SoD" }
         ]
-    }
-] if args.version != "5a" else [
+    } if args.version != "5a" else
     {
         "displayTitle": "Start of Day",
         "type": "EventVariableBitSingle",
         "eventVariableIndex": 1,
         "bit": 1
-    }
-]
-prodEvent = {
-    "displayTitle": "Produced Event",
-    "type": "EventVariableGroup"
-}
-if args.version != "5a":
-    prodEvent["visibilityLogic"] = {
-        "ev": 1,
-        "equals": 1
-    }
-switchOptions = [{"label": "None", "value": 0}]
-for sw in range(1, switches+1):
-    switchOptions.append({"label": f"${{channel{LEDs + sw}}}", "value": sw})
-if args.version == "5a":
-    switchOptions.append({"label": "Start up event", "value": switches + 1})
-prodEvent["groupItems"] = [
-    {
-        "displayTitle": "Switch",
-        "type": "EventVariableSelect",
-        "eventVariableIndex": 2,
-        "options": switchOptions,
     },
     {
-        "displayTitle": "Mode",
-        "type": "EventVariableSelect",
-        "eventVariableIndex": 3,
-        "bitMask": 15,
-        "options": [
-            {"value": 0, "label": "None"},
-            {"value": 1, "label": "ON/OFF"},
-            {"value": 3, "label": "OFF/ON (inverted)"},
-            {"value": 4, "label": "ON only"},
-            {"value": 6, "label": "OFF only"},
-            {"value": 8, "label": "Push ON/Push OFF"}
-        ],
-        "visibilityLogic": {"JLL": {"and": [
-            {">": [{"EV": 2}, 0]},
-            {"<": [{"EV": 2}, 32]}
-        ]}}
-    }
-] + ([
-    {
-        "displayTitle": "Set LEDs",
-        "type": "EventVariableBitSingle",
-        "eventVariableIndex": 3,
-        "bit": 4
-    },
-    {
-        "displayTitle": "Send Short Event",
-        "displaySubTitle": "Set this when teaching a produced short events",
-        "type": "EventVariableBitSingle",
-        "eventVariableIndex": 3,
-        "bit": 5
-    }
-] if args.version != "5a" else [])
-eventVariables.append(prodEvent)
-
-if args.version != "5a":
-    selfSodEventOptions = [{"label": "None", "value": 0}]
-    for sw in range(1, switches + 1):
-        selfSodEventOptions.append({"label": f"${{channel{LEDs + sw}}}", "value": sw})
-    eventVariables.extend([
+        "displayTitle": "Produced Event",
+        "type": "EventVariableGroup"
+    } | (
         {
-            "displayTitle": "Produced Self SoD Event",
-            "type": "EventVariableGroup",
             "visibilityLogic": {
                 "ev": 1,
-                "equals": 3
-            },
-            "groupItems": [
-                {
-                    "displayTitle": "Switch",
-                    "type": "EventVariableSelect",
-                    "eventVariableIndex": 2,
-                    "options": selfSodEventOptions
-                },
-                {
-                    "displayTitle": "Mode",
-                    "type": "EventVariableSelect",
-                    "eventVariableIndex": 3,
-                    "bitMask": 15,
-                    "options": [
-                        { "value": 0, "label": "None" },
-                        { "value": 1, "label": "ON/OFF" },
-                        { "value": 3, "label": "OFF/ON (inverted)" },
-                        { "value": 4, "label": "ON only" },
-                        { "value": 6, "label": "OFF only" },
-                        { "value": 8, "label": "Push ON/Push OFF" }
-                    ],
-                    "visibilityLogic": {"JLL": {"or": [
-                        {">": [{"EV": 2}, 0]},
-                        {"<": [{"EV": 2}, 32]}
-                    ]}}
-                },
-                {
-                    "displayTitle": "Send Short Event",
-                    "displaySubTitle": "Set this when teaching a produced short events",
-                    "type": "EventVariableBitSingle",
-                    "eventVariableIndex": 3,
-                    "bit": 5
-                }
-            ]
-        }
-    ])
-
-ledEvents = {
-    "displayTitle": "LEDs",
-    "type": "EventVariableGroup"
-}
-if args.version != "5a":
-    ledEvents["visibilityLogic"] = {
-        "evBit": {"index": 3, "bit": 4},
-        "equals": 1
-    }
-ledEvents["groupItems"] = [
+                "equals": 1
+            }
+        } if args.version != "5a" else {}
+    ) |
     {
-        "displayTitle": "LED Action",
-        "type": "EventVariableSelect",
-        "eventVariableIndex": 13,
-        "options": [
-            {"value":   0, "label": "Undefined (0)"},
-            {"value": 255, "label": "Normal"},
-            {"value": 254, "label": "ON Only"},
-            {"value": 253, "label": "OFF Only"},
-            {"value": 248, "label": "Flash"}
+        "groupItems": [
+                          {
+                              "displayTitle": "Switch",
+                              "type": "EventVariableSelect",
+                              "eventVariableIndex": 2,
+                              "options": [{"label": "None", "value": 0}] +
+                                         [{"label": f"${{channel{LEDs + sw}}}", "value": sw} for sw in
+                                          range(1, switches + 1)] +
+                                         ([{"label": "Start up event",
+                                            "value": switches + 1}] if args.version == "5a" else [])
+                          },
+                          {
+                              "displayTitle": "Mode",
+                              "type": "EventVariableSelect",
+                              "eventVariableIndex": 3,
+                              "bitMask": 15,
+                              "options": [
+                                  {"value": 0, "label": "None"},
+                                  {"value": 1, "label": "ON/OFF"},
+                                  {"value": 3, "label": "OFF/ON (inverted)"},
+                                  {"value": 4, "label": "ON only"},
+                                  {"value": 6, "label": "OFF only"},
+                                  {"value": 8, "label": "Push ON/Push OFF"}
+                              ],
+                              "visibilityLogic": {"JLL": {"and": [
+                                  {">": [{"EV": 2}, 0]},
+                                  {"<": [{"EV": 2}, 32]}
+                              ]}}
+                          }
+                      ] + ([
+                               {
+                                   "displayTitle": "Set LEDs",
+                                   "type": "EventVariableBitSingle",
+                                   "eventVariableIndex": 3,
+                                   "bit": 4
+                               },
+                               {
+                                   "displayTitle": "Send Short Event",
+                                   "displaySubTitle": "Set this when teaching a produced short events",
+                                   "type": "EventVariableBitSingle",
+                                   "eventVariableIndex": 3,
+                                   "bit": 5
+                               }
+                           ] if args.version != "5a" else [])
+    }
+] + (
+[
+    {
+        "displayTitle": "Produced Self SoD Event",
+        "type": "EventVariableGroup",
+        "visibilityLogic": {
+            "ev": 1,
+            "equals": 3
+        },
+        "groupItems": [
+            {
+                "displayTitle": "Switch",
+                "type": "EventVariableSelect",
+                "eventVariableIndex": 2,
+                "options": ([{"label": "None", "value": 0}] +
+                            ([{"label": f"${{channel{LEDs + sw}}}", "value": sw} for sw in range(1, switches + 1)]))
+            },
+            {
+                "displayTitle": "Mode",
+                "type": "EventVariableSelect",
+                "eventVariableIndex": 3,
+                "bitMask": 15,
+                "options": [
+                    {"value": 0, "label": "None"},
+                    {"value": 1, "label": "ON/OFF"},
+                    {"value": 3, "label": "OFF/ON (inverted)"},
+                    {"value": 4, "label": "ON only"},
+                    {"value": 6, "label": "OFF only"},
+                    {"value": 8, "label": "Push ON/Push OFF"}
+                ],
+                "visibilityLogic": {"JLL": {"or": [
+                    {">": [{"EV": 2}, 0]},
+                    {"<": [{"EV": 2}, 32]}
+                ]}}
+            },
+            {
+                "displayTitle": "Send Short Event",
+                "displaySubTitle": "Set this when teaching a produced short events",
+                "type": "EventVariableBitSingle",
+                "eventVariableIndex": 3,
+                "bit": 5
+            }
         ]
     }
-]
-for led in range(1, LEDs + 1):
-    ledEvents["groupItems"].append(
+] if args.version != "5a" else []) + [
+    {
+        "displayTitle": "LEDs",
+        "type": "EventVariableGroup"
+    } | (
         {
-            "displayTitle": f"${{channel{led}}}",
-            "type": "EventVariableGroup",
-            "groupItems": [
-                {
-                    "displayTitle": "Active",
-                    "type": "EventVariableBitSingle",
-                    "eventVariableIndex": 5+int((led-1)/8),
-                    "bit": (led - 1) % 8
-                },
-                {
-                    "displayTitle": "Invert",
-                    "type": "EventVariableBitSingle",
-                    "eventVariableIndex": 9 + int((led - 1) / 8),
-                    "bit": (led - 1) % 8,
-                    "visibilityLogic": {"JLL": {"==": [{"EVbit": [5 + int((led - 1) / 8), (led - 1) % 8]}, True]}}
-                }
-            ]
-        }
-    )
-eventVariables.append(ledEvents)
+            "visibilityLogic": {
+                "evBit": {"index": 3, "bit": 4},
+                "equals": 1
+            }
+        } if args.version != "5a" else {}
+    ) | {
+        "groupItems": [
+                          {
+                              "displayTitle": "LED Action",
+                              "type": "EventVariableSelect",
+                              "eventVariableIndex": 13,
+                              "options": [
+                                  {"value": 0, "label": "Undefined (0)"},
+                                  {"value": 255, "label": "Normal"},
+                                  {"value": 254, "label": "ON Only"},
+                                  {"value": 253, "label": "OFF Only"},
+                                  {"value": 248, "label": "Flash"}
+                              ]
+                          }
+                      ] + [
+
+                          {
+                              "displayTitle": f"${{channel{led}}}",
+                              "type": "EventVariableGroup",
+                              "groupItems": [
+                                  {
+                                      "displayTitle": "Active",
+                                      "type": "EventVariableBitSingle",
+                                      "eventVariableIndex": 5 + int((led - 1) / 8),
+                                      "bit": (led - 1) % 8
+                                  },
+                                  {
+                                      "displayTitle": "Invert",
+                                      "type": "EventVariableBitSingle",
+                                      "eventVariableIndex": 9 + int((led - 1) / 8),
+                                      "bit": (led - 1) % 8,
+                                      "visibilityLogic": {
+                                          "JLL": {"==": [{"EVbit": [5 + int((led - 1) / 8), (led - 1) % 8]}, True]}}
+                                  }
+                              ]
+                          } for led in range(1, LEDs + 1)]
+    }
+    ]
 
 if args.version != "5a":
     consEvents = {
@@ -320,10 +305,7 @@ if args.version != "5a":
                     {"value": 248, "label": "Flash"}
                 ]
             }
-        ]
-    }
-    for led in range(1, LEDs + 1):
-        consEvents["groupItems"].append(
+        ] + [
             {
                 "displayTitle": f"${{channel{led}}}",
                 "type": "EventVariableGroup",
@@ -342,8 +324,9 @@ if args.version != "5a":
                         "visibilityLogic": {"JLL": {"==": [{"EVbit": [5 + int((led - 1) / 8), (led - 1) % 8]}, True]}}
                     }
                 ]
-            }
-        )
+            } for led in range(1, LEDs + 1)
+        ]
+    }
     eventVariables.append(consEvents)
 
 data["eventVariables"] = eventVariables
