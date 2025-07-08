@@ -81,6 +81,7 @@
               "NodeVariableNumber",
               "NodeVariableSlider",
               "NodeVariableSelect",
+              "NodeVariableButtons",
               "NodeVariableTabs"
             ]
           },
@@ -128,6 +129,17 @@
                 }
               }
             }
+          },
+          "buttonCollection": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {"type": "string"},
+                "value": { "type": "integer", "minimum": 0, "maximum": 255 }
+              },
+              "required": ["label", "value"]
+            }
           }
         },
         "additionalProperties": false,
@@ -139,6 +151,10 @@
           {
             "if": { "properties": { "type": { "const": "NodeVariableSlider" }}},
             "then": { "required": [ "nodeVariableIndex" ]}
+          },
+          {
+            "if": { "properties": { "type": { "const": "NodeVariableButtons" }}},
+            "then": { "required": [ "buttonCollection" ]}
           },
           {
             "if": { "properties": { "type": { "const": "NodeVariableBitSingle" }}},

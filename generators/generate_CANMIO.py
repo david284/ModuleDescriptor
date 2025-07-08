@@ -433,13 +433,16 @@ for ch in range(1, channels + 1):
             }
         ] + ([
               {
-                  "displayTitle": "magnet setup",
+                  "displayTitle": "Magnet Setup",
                   "displaySubTitle": "ADC offset",
                   "comment": "magnet type only",
-                  "type": "NodeVariableSlider",
+                  "type": "NodeVariableButtons",
                   "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
                   "nodeVariableIndex": 11 + ch * 7,
-                  "displayUnits": "ADC units, in 1.22mV steps"
+                  "buttonCollection": [
+                      {"label": "Report", "value": 0},
+                      {"label": "Report and Save", "value": 128}
+                  ]
               },
               {
                   "displayTitle": "Threshold",
