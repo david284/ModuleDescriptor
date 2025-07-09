@@ -81,529 +81,533 @@ data = {
     "timestamp": datestring,
     "moduleName": moduleName,
     "numberOfChannels": channels,
-    "channelNames": {str(ch): f"Channel {ch}" for ch in range(1, channels + 1)}
-}
-
-nodeVariables = [
-    {
-        "type": "NodeVariableTabs",
-        "tabPanels": [
-            {
-                "displayTitle": "Globals",
-                "items": [
-                    {
-                        "type": "NodeVariableSlider",
-                        "nodeVariableIndex": 1,
-                        "displayTitle": "Produced startup event Delay",
-                        "displaySubTitle": "0.1 second steps, starting at 2",
-                        "displayUnits": "seconds",
-                        "displayScale": 0.1,
-                        "displayOffset": 2
-                    },
-                    {
-                        "type": "NodeVariableNumber",
-                        "nodeVariableIndex": 2,
-                        "displayTitle": "Heartbeat Delay",
-                        "displaySubTitle": "not yet implemented",
-                        "displayUnits": "milliseconds"
-                    },
-                    {
-                        "type": "NodeVariableSlider",
-                        "nodeVariableIndex": 5,
-                        "displayTitle": "Time delay between response messages",
-                        "displaySubTitle": "1 millisecond steps",
-                        "displayUnits": "milliseconds"
-                    },
-                    {
-                        "type": "NodeVariableNumber",
-                        "nodeVariableIndex": 3,
-                        "displayTitle": "Multi Servo speed",
-                        "displaySubTitle": "If >234 moves this amount every 100ms. If <= 234 number of 20ms periods per step",
-                        "displayUnits": "milliseconds"
-                    }
-                ] + (
-                [
-                    {
-                        "type": "NodeVariableBitArray",
-                        "nodeVariableIndex": 6,
-                        "displayTitle": "Flags",
-                        "displaySubTitle": "",
-                        "bitCollection":[
-                            {"bitPosition": 0, "label": "ch17-24 pullups enabled"}
-                        ]
-                    }
-                ] if processorSeries == "K" and moduleType == "XIO" else []
-                ) + (
-                [
-                    {
-                        "type": "NodeVariableBitArray",
-                        "nodeVariableIndex": 4,
-                        "displayTitle": "PORTB Pullups",
-                        "displaySubTitle": "",
-                        "bitCollection": [
-                            {"bitPosition": 0, "label": "${channel9}"},
-                            {"bitPosition": 1, "label": "${channel10}"},
-                            {"bitPosition": 4, "label": "${channel11}"},
-                            {"bitPosition": 5, "label": "${channel12}"}
-                        ]
-                    }
-                ] if processorSeries == "K" else []
-                ) + (
-                [
-                    {
-                        "type": "NodeVariableBitArray",
-                        "nodeVariableIndex": 6,
-                        "displayTitle": "Pullups for channels 1-8",
-                        "displaySubTitle": "",
-                        "bitCollection":[
-                            {"bitPosition": 0, "label": "${channel1}"},
-                            {"bitPosition": 1, "label": "${channel2}"},
-                            {"bitPosition": 2, "label": "${channel3}"},
-                            {"bitPosition": 3, "label": "${channel4}"},
-                            {"bitPosition": 4, "label": "${channel5}"},
-                            {"bitPosition": 5, "label": "${channel6}"},
-                            {"bitPosition": 6, "label": "${channel7}"},
-                            {"bitPosition": 7, "label": "${channel8}"}
-                        ]
-                    },
-                    {
-                        "type": "NodeVariableBitArray",
-                        "nodeVariableIndex": 7,
-                        "displayTitle": "Pullups for channels 9-16",
-                        "displaySubTitle": "",
-                        "bitCollection":[
-                            {"bitPosition": 0, "label": "${channel9}"},
-                            {"bitPosition": 1, "label": "${channel10}"},
-                            {"bitPosition": 2, "label": "${channel11}"},
-                            {"bitPosition": 3, "label": "${channel12}"},
-                            {"bitPosition": 4, "label": "${channel13}"},
-                            {"bitPosition": 5, "label": "${channel14}"},
-                            {"bitPosition": 6, "label": "${channel15}"},
-                            {"bitPosition": 7, "label": "${channel16}"}
-                        ]
-                    }
-                ] if processorSeries == "Q" else []
-                ) + (
-                [
-                    {
-                        "type": "NodeVariableBitArray",
-                        "nodeVariableIndex": 8,
-                        "displayTitle": "Pullups for channels 17-24",
-                        "displaySubTitle": "",
-                        "bitCollection":[
-                            {"bitPosition": 0, "label": "${channel17}"},
-                            {"bitPosition": 1, "label": "${channel18}"},
-                            {"bitPosition": 2, "label": "${channel19}"},
-                            {"bitPosition": 3, "label": "${channel20}"},
-                            {"bitPosition": 4, "label": "${channel21}"},
-                            {"bitPosition": 5, "label": "${channel22}"},
-                            {"bitPosition": 6, "label": "${channel23}"},
-                            {"bitPosition": 7, "label": "${channel24}"}
-                        ]
-                    }
-                ] if processorSeries == "Q" and moduleType == "XIO" else []
-                ) +
-                (
-                [
-                    {
-                        "type": "NodeVariableBitArray",
-                        "nodeVariableIndex": 10,
-                        "displayTitle": "Module flags",
-                        "displaySubTitle": "",
-                        "bitCollection": [
-                            {"bitPosition": 0, "label": "Prevent default event creation"}
-                        ]
-                    }
-                ] if canPreventDefaultEvents else []
-                )
-            }
-        ]
-    }
-]
-
-for ch in range(1, channels + 1):
-    channelDef = {
-        "displayTitle": f"${{channel{ch}}}",
-        "items": [
-            {
-                "type": "NodeVariableSelect",
-                "nodeVariableIndex": 9 + ch * 7,
-                "displayTitle": "I/O type",
-                "displaySubTitle": "",
-                "options": [
-                    {"label": "INPUT", "value": 0},
-                    {"label": "OUTPUT", "value": 1}
-                ] + (
-                [
-                    {"label": "SERVO", "value": 2},
-                    {"label": "BOUNCE", "value": 3},
-                    {"label": "MULTI", "value": 4}
-                ] if ch <= 16 else []
-                ) + (
-                [
-                    {"label": "ANALOGUE", "value": 5},
-                    {"label": "MAGNET", "value": 6}
-                ] if hasAnalogue and (processorSeries == "Q" or (9 <= ch <= channels and ch != 12)) else []),
-                "linkedVariables": {
-                    "NV": list(range(10 + ch * 7, 16 + ch * 7))
+    "channelNames": {str(ch): f"Channel {ch}" for ch in range(1, channels + 1)},
+    "nodeVariables": [
+        {
+            "type": "NodeVariableTabs",
+            "tabPanels": [
+                {
+                    "displayTitle": "Globals",
+                    "items": [
+                        {
+                            "type": "NodeVariableSlider",
+                            "nodeVariableIndex": 1,
+                            "displayTitle": "Produced startup event Delay",
+                            "displaySubTitle": "0.1 second steps, starting at 2",
+                            "displayUnits": "seconds",
+                            "displayScale": 0.1,
+                            "displayOffset": 2
+                        },
+                                 {
+                                     "type": "NodeVariableNumber",
+                                     "nodeVariableIndex": 2,
+                                     "displayTitle": "Heartbeat Delay",
+                                     "displaySubTitle": "not yet implemented",
+                                     "displayUnits": "milliseconds"
+                                 },
+                                 {
+                                     "type": "NodeVariableSlider",
+                                     "nodeVariableIndex": 5,
+                                     "displayTitle": "Time delay between response messages",
+                                     "displaySubTitle": "1 millisecond steps",
+                                     "displayUnits": "milliseconds"
+                                 },
+                                 {
+                                     "type": "NodeVariableNumber",
+                                     "nodeVariableIndex": 3,
+                                     "displayTitle": "Multi Servo speed",
+                                     "displaySubTitle": "If >234 moves this amount every 100ms. If <= 234 number of 20ms periods per step",
+                                     "displayUnits": "milliseconds"
+                                 }
+                             ] + (
+                                 [
+                                     {
+                                         "type": "NodeVariableBitArray",
+                                         "nodeVariableIndex": 6,
+                                         "displayTitle": "Flags",
+                                         "displaySubTitle": "",
+                                         "bitCollection": [
+                                             {"bitPosition": 0, "label": "ch17-24 pullups enabled"}
+                                         ]
+                                     }
+                                 ] if processorSeries == "K" and moduleType == "XIO" else []
+                             ) + (
+                                 [
+                                     {
+                                         "type": "NodeVariableBitArray",
+                                         "nodeVariableIndex": 4,
+                                         "displayTitle": "PORTB Pullups",
+                                         "displaySubTitle": "",
+                                         "bitCollection": [
+                                             {"bitPosition": 0, "label": "${channel9}"},
+                                             {"bitPosition": 1, "label": "${channel10}"},
+                                             {"bitPosition": 4, "label": "${channel11}"},
+                                             {"bitPosition": 5, "label": "${channel12}"}
+                                         ]
+                                     }
+                                 ] if processorSeries == "K" else []
+                             ) + (
+                                 [
+                                     {
+                                         "type": "NodeVariableBitArray",
+                                         "nodeVariableIndex": 6,
+                                         "displayTitle": "Pullups for channels 1-8",
+                                         "displaySubTitle": "",
+                                         "bitCollection": [
+                                             {"bitPosition": 0, "label": "${channel1}"},
+                                             {"bitPosition": 1, "label": "${channel2}"},
+                                             {"bitPosition": 2, "label": "${channel3}"},
+                                             {"bitPosition": 3, "label": "${channel4}"},
+                                             {"bitPosition": 4, "label": "${channel5}"},
+                                             {"bitPosition": 5, "label": "${channel6}"},
+                                             {"bitPosition": 6, "label": "${channel7}"},
+                                             {"bitPosition": 7, "label": "${channel8}"}
+                                         ]
+                                     },
+                                     {
+                                         "type": "NodeVariableBitArray",
+                                         "nodeVariableIndex": 7,
+                                         "displayTitle": "Pullups for channels 9-16",
+                                         "displaySubTitle": "",
+                                         "bitCollection": [
+                                             {"bitPosition": 0, "label": "${channel9}"},
+                                             {"bitPosition": 1, "label": "${channel10}"},
+                                             {"bitPosition": 2, "label": "${channel11}"},
+                                             {"bitPosition": 3, "label": "${channel12}"},
+                                             {"bitPosition": 4, "label": "${channel13}"},
+                                             {"bitPosition": 5, "label": "${channel14}"},
+                                             {"bitPosition": 6, "label": "${channel15}"},
+                                             {"bitPosition": 7, "label": "${channel16}"}
+                                         ]
+                                     }
+                                 ] if processorSeries == "Q" else []
+                             ) + (
+                                 [
+                                     {
+                                         "type": "NodeVariableBitArray",
+                                         "nodeVariableIndex": 8,
+                                         "displayTitle": "Pullups for channels 17-24",
+                                         "displaySubTitle": "",
+                                         "bitCollection": [
+                                             {"bitPosition": 0, "label": "${channel17}"},
+                                             {"bitPosition": 1, "label": "${channel18}"},
+                                             {"bitPosition": 2, "label": "${channel19}"},
+                                             {"bitPosition": 3, "label": "${channel20}"},
+                                             {"bitPosition": 4, "label": "${channel21}"},
+                                             {"bitPosition": 5, "label": "${channel22}"},
+                                             {"bitPosition": 6, "label": "${channel23}"},
+                                             {"bitPosition": 7, "label": "${channel24}"}
+                                         ]
+                                     }
+                                 ] if processorSeries == "Q" and moduleType == "XIO" else []
+                             ) +
+                             (
+                                 [
+                                     {
+                                         "type": "NodeVariableBitArray",
+                                         "nodeVariableIndex": 10,
+                                         "displayTitle": "Module flags",
+                                         "displaySubTitle": "",
+                                         "bitCollection": [
+                                             {"bitPosition": 0, "label": "Prevent default event creation"}
+                                         ]
+                                     }
+                                 ] if canPreventDefaultEvents else []
+                             )
                 }
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "input type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 0},
-                "nodeVariableIndex": 11 + ch * 7,
-                "displayTitle": "ON delay",
-                "displaySubTitle": "input specific",
-                "displayUnits": "milliseconds",
-                "displayScale": 5
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "output type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 1},
-                "nodeVariableIndex": 11 + ch * 7,
-                "displayTitle": "Pulse duration",
-                "displaySubTitle": "output specific",
-                "displayUnits": "seconds",
-                "displayScale": 0.1
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "servo type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
-                "nodeVariableIndex": 11 + ch * 7,
-                "displayTitle": "OFF position",
-                "displaySubTitle": "servo specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "bounce type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
-                "nodeVariableIndex": 11 + ch * 7,
-                "displayTitle": "UPPER position",
-                "displaySubTitle": "bounce specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "displayTitle": "number of positions",
-                "displaySubTitle": "multi specific",
-                "comment": "multi type only",
-                "type": "NodeVariableSelect",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
-                "nodeVariableIndex": 11 + ch * 7,
-                "options": [
-                    {"label": "1 position", "value": 1},
-                    {"label": "2 positions", "value": 2},
-                    {"label": "3 positions", "value": 3},
-                    {"label": "4 positions", "value": 4}
-                ]
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "input type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 0},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayTitle": "OFF delay",
-                "displaySubTitle": "input specific",
-                "displayUnits": "milliseconds",
-                "displayScale": 5
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "output type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 1},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayTitle": "Flash period",
-                "displaySubTitle": "output specific",
-                "displayUnits": "seconds",
-                "displayScale": 0.1
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "servo type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayTitle": "ON position",
-                "displaySubTitle": "servo specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "bounce type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayTitle": "LOWER position",
-                "displaySubTitle": "bounce specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "multi type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayTitle": "pos 1",
-                "displaySubTitle": "multi specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "servo type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayTitle": "OFF to ON speed",
-                "displaySubTitle": "servo specific",
-                "displayUnits": "",
-                "min": 230
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "bounce type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayTitle": "Bounce coefficient",
-                "displaySubTitle": "bounce specific",
-                "displayUnits": " %"
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "multi type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayTitle": "pos 2",
-                "displaySubTitle": "multi specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "servo type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
-                "nodeVariableIndex": 14 + ch * 7,
-                "displayTitle": "ON to OFF speed",
-                "displaySubTitle": "servo specific",
-                "displayUnits": "",
-                "min": 230
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "bounce type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
-                "nodeVariableIndex": 14 + ch * 7,
-                "displayTitle": "Pull speed",
-                "displaySubTitle": "bounce specific",
-                "displayUnits": "milliseconds",
-                "displayScale": 20
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "multi type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
-                "nodeVariableIndex": 14 + ch * 7,
-                "displayTitle": "pos 3",
-                "displaySubTitle": "multi specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "bounce type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
-                "nodeVariableIndex": 15 + ch * 7,
-                "displayTitle": "Pull pause",
-                "displaySubTitle": "bounce specific",
-                "displayUnits": "milliseconds",
-                "displayScale": 20
-            },
-            {
-                "type": "NodeVariableSlider",
-                "comment": "multi type only",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
-                "nodeVariableIndex": 15 + ch * 7,
-                "displayTitle": "pos 4",
-                "displaySubTitle": "multi specific",
-                "displayUnits": "steps",
-                "outputOnWrite": True
-            }
-        ] + (
-        [
-            {
-                "displayTitle": "Magnet Setup",
-                "displaySubTitle": "ADC offset",
-                "comment": "magnet type only",
-                "type": "NodeVariableButtons",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 11 + ch * 7,
-                "buttonCollection": [
-                    {"label": "Report", "value": 0},
-                    {"label": "Report and Save", "value": 128}
-                ]
-            },
-            {
-                "displayTitle": "Threshold",
-                "displaySubTitle": "analog specific",
-                "comment": "analog type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayUnits": "Volts",
-                "displayScale": 0.0196
-            },
-            {
-                "displayTitle": "Threshold",
-                "displaySubTitle": "magnet specific",
-                "comment": "analog type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 12 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
-                "displayTitle": "Hysteresis",
-                "displaySubTitle": "analogue specific",
-                "comment": "analogue type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayUnits": "Volts",
-                "displayScale": 0.0196
-            },
-            {
-                "displayTitle": "Hysteresis",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableSlider",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndex": 13 + ch * 7,
-                "displayUnits": "ADC units, in 1.22mV steps"
-            },
-            {
-                "displayTitle": "Offset",
-                "displaySubTitle": "magnet specific",
-                "comment": "magnet type only",
-                "type": "NodeVariableDual",
-                "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
-                "nodeVariableIndexHigh": 14 + ch * 7,
-                "nodeVariableIndexLow": 15 + ch * 7,
-                "max": 65535,
-                "displayUnits": "ADC units, in 7.63uV steps"
-            }
-        ] if hasAnalogue else []) +
-        [
-            {
-                "type": "NodeVariableBitArray",
-                "nodeVariableIndex": 10 + ch * 7,
-                "displayTitle": "Flags",
-                "bitCollection": [
-                    {
-                        "bitPosition": 0,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 0, "label": "TRIGGER_INVERTED"},
-                                {"value": 1, "label": "TRIGGER_INVERTED"},
-                                {"value": 2, "label": "TRIGGER_INVERTED"},
-                                {"value": 3, "label": "TRIGGER_INVERTED"},
-                                {"value": 4, "label": "TRIGGER_INVERTED"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 1,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 2, "label": "CUTOFF"},
-                                {"value": 3, "label": "CUTOFF"},
-                                {"value": 4, "label": "CUTOFF"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 2,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 1, "label": "STARTUP"},
-                                {"value": 2, "label": "STARTUP"},
-                                {"value": 3, "label": "STARTUP"},
-                                {"value": 4, "label": "STARTUP"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 3,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                          {"value": 0, "label": "DISABLE_OFF"},
-                                          {"value": 1, "label": "DISABLE_OFF"}
-                                      ] + ([
-                                               {"value": 5, "label": "DISABLE_OFF"},
-                                               {"value": 6, "label": "DISABLE_OFF"}
-                                           ] if hasAnalogue else [])
-                        }
-                    },
-                    {
-                        "bitPosition": 4,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                {"value": 0, "label": "TOGGLE"},
-                                {"value": 2, "label": "PULLUP"},
-                                {"value": 3, "label": "PULLUP"},
-                                {"value": 4, "label": "PULLUP"}
-                            ]
-                        }
-                    },
-                    {
-                        "bitPosition": 5,
-                        "overload": {
-                            "nv": 9 + ch * 7,
-                            "labels": [
-                                          {"value": 0, "label": "INPUT_DISABLE_SOD_RESPONSE"},
-                                          {"value": 1, "label": "ACTION_INVERTED"},
-                                          {"value": 2, "label": "ACTION_INVERTED"},
-                                          {"value": 3, "label": "ACTION_INVERTED"},
-                                          {"value": 4, "label": "ACTION_INVERTED"}
-                                      ] + ([
-                                               {"value": 5, "label": "INPUT_DISABLE_SOD_RESPONSE"},
-                                               {"value": 6, "label": "INPUT_DISABLE_SOD_RESPONSE"}
-                                           ] if hasAnalogue else [])
-                        }
-                    },
-                    {
-                        "bitPosition": 6,
-                        "label": "EVENT_INVERTED"
-                    },
-                    {
-                        "bitPosition": 7,
-                        "overload":
-                            {
-                                "nv": 9 + ch * 7,
-                                "labels": [
-                                              {"value": 1, "label": "ACTION_EXPEDITED"}
-                                          ] + ([
-                                                   {"value": 2, "label": "EXTENDED 180 DEGREE RANGE"},
-                                                   {"value": 3, "label": "EXTENDED 180 DEGREE RANGE"},
-                                                   {"value": 4, "label": "EXTENDED 180 DEGREE RANGE"}
-                                               ] if hasServo180 else [])
+            ] + 
+            [
+                {
+                    "displayTitle": f"${{channel{ch}}}",
+                    "items": [
+                        {
+                            "type": "NodeVariableSelect",
+                            "nodeVariableIndex": 9 + ch * 7,
+                            "displayTitle": "I/O type",
+                            "displaySubTitle": "",
+                            "options": [
+                                           {"label": "INPUT", "value": 0},
+                                           {"label": "OUTPUT", "value": 1}
+                                       ] + (
+                                           [
+                                               {"label": "SERVO", "value": 2},
+                                               {"label": "BOUNCE", "value": 3},
+                                               {"label": "MULTI", "value": 4}
+                                           ] if ch <= 16 else []
+                                       ) + (
+                                           [
+                                               {"label": "ANALOGUE", "value": 5},
+                                               {"label": "MAGNET", "value": 6}
+                                           ] if hasAnalogue and (processorSeries == "Q" or (
+                                                   9 <= ch <= channels and ch != 12)) else []),
+                            "linkedVariables": {
+                                "NV": list(range(10 + ch * 7, 16 + ch * 7))
                             }
-                    }
-                ]
-            }
-        ],
-        "comment": f"end of channel {ch}"
-    }
-
-    nodeVariables[0]["tabPanels"].append(channelDef)
-data["nodeVariables"] = nodeVariables
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "input type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 0},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "displayTitle": "ON delay",
+                            "displaySubTitle": "input specific",
+                            "displayUnits": "milliseconds",
+                            "displayScale": 5
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "output type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 1},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "displayTitle": "Pulse duration",
+                            "displaySubTitle": "output specific",
+                            "displayUnits": "seconds",
+                            "displayScale": 0.1
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "servo type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "displayTitle": "OFF position",
+                            "displaySubTitle": "servo specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "bounce type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "displayTitle": "UPPER position",
+                            "displaySubTitle": "bounce specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "displayTitle": "number of positions",
+                            "displaySubTitle": "multi specific",
+                            "comment": "multi type only",
+                            "type": "NodeVariableSelect",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "options": [
+                                {"label": "1 position", "value": 1},
+                                {"label": "2 positions", "value": 2},
+                                {"label": "3 positions", "value": 3},
+                                {"label": "4 positions", "value": 4}
+                            ]
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "input type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 0},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayTitle": "OFF delay",
+                            "displaySubTitle": "input specific",
+                            "displayUnits": "milliseconds",
+                            "displayScale": 5
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "output type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 1},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayTitle": "Flash period",
+                            "displaySubTitle": "output specific",
+                            "displayUnits": "seconds",
+                            "displayScale": 0.1
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "servo type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayTitle": "ON position",
+                            "displaySubTitle": "servo specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "bounce type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayTitle": "LOWER position",
+                            "displaySubTitle": "bounce specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "multi type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayTitle": "pos 1",
+                            "displaySubTitle": "multi specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "servo type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
+                            "nodeVariableIndex": 13 + ch * 7,
+                            "displayTitle": "OFF to ON speed",
+                            "displaySubTitle": "servo specific",
+                            "displayUnits": "",
+                            "min": 230
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "bounce type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
+                            "nodeVariableIndex": 13 + ch * 7,
+                            "displayTitle": "Bounce coefficient",
+                            "displaySubTitle": "bounce specific",
+                            "displayUnits": " %"
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "multi type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
+                            "nodeVariableIndex": 13 + ch * 7,
+                            "displayTitle": "pos 2",
+                            "displaySubTitle": "multi specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "servo type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 2},
+                            "nodeVariableIndex": 14 + ch * 7,
+                            "displayTitle": "ON to OFF speed",
+                            "displaySubTitle": "servo specific",
+                            "displayUnits": "",
+                            "min": 230
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "bounce type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
+                            "nodeVariableIndex": 14 + ch * 7,
+                            "displayTitle": "Pull speed",
+                            "displaySubTitle": "bounce specific",
+                            "displayUnits": "milliseconds",
+                            "displayScale": 20
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "multi type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
+                            "nodeVariableIndex": 14 + ch * 7,
+                            "displayTitle": "pos 3",
+                            "displaySubTitle": "multi specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "bounce type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 3},
+                            "nodeVariableIndex": 15 + ch * 7,
+                            "displayTitle": "Pull pause",
+                            "displaySubTitle": "bounce specific",
+                            "displayUnits": "milliseconds",
+                            "displayScale": 20
+                        },
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "multi type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 4},
+                            "nodeVariableIndex": 15 + ch * 7,
+                            "displayTitle": "pos 4",
+                            "displaySubTitle": "multi specific",
+                            "displayUnits": "steps",
+                            "outputOnWrite": True
+                        }
+                    ] + (
+                    [
+                        {
+                            "displayTitle": "Magnet Setup",
+                            "displaySubTitle": "ADC offset",
+                            "comment": "magnet type only",
+                            "type": "NodeVariableButtons",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "buttonCollection": [
+                                {"label": "Report", "value": 0},
+                                {"label": "Report and Save", "value": 128}
+                            ]
+                        },
+                        {
+                            "displayTitle": "Threshold",
+                            "displaySubTitle": "analog specific",
+                            "comment": "analog type only",
+                            "type": "NodeVariableSlider",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayUnits": "Volts",
+                            "displayScale": 0.0196
+                        },
+                        {
+                            "displayTitle": "Threshold",
+                            "displaySubTitle": "magnet specific",
+                            "comment": "analog type only",
+                            "type": "NodeVariableSlider",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                            "nodeVariableIndex": 12 + ch * 7,
+                            "displayUnits": "ADC units, in 1.22mV steps"
+                        },
+                        {
+                            "displayTitle": "Hysteresis",
+                            "displaySubTitle": "analogue specific",
+                            "comment": "analogue type only",
+                            "type": "NodeVariableSlider",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 5},
+                            "nodeVariableIndex": 13 + ch * 7,
+                            "displayUnits": "Volts",
+                            "displayScale": 0.0196
+                        },
+                        {
+                            "displayTitle": "Hysteresis",
+                            "displaySubTitle": "magnet specific",
+                            "comment": "magnet type only",
+                            "type": "NodeVariableSlider",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                            "nodeVariableIndex": 13 + ch * 7,
+                            "displayUnits": "ADC units, in 1.22mV steps"
+                        },
+                        {
+                            "displayTitle": "Offset",
+                            "displaySubTitle": "magnet specific",
+                            "comment": "magnet type only",
+                            "type": "NodeVariableDual",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 6},
+                            "nodeVariableIndexHigh": 14 + ch * 7,
+                            "nodeVariableIndexLow": 15 + ch * 7,
+                            "max": 65535,
+                            "displayUnits": "ADC units, in 7.63uV steps"
+                        }
+                    ] if hasAnalogue else []) +
+                    [
+                        {
+                            "type": "NodeVariableBitArray",
+                            "nodeVariableIndex": 10 + ch * 7,
+                            "displayTitle": "Flags",
+                            "bitCollection": [
+                                {
+                                    "bitPosition": 0,
+                                    "overload": {
+                                        "nv": 9 + ch * 7,
+                                        "labels": [
+                                            {"value": 0, "label": "TRIGGER_INVERTED"},
+                                            {"value": 1, "label": "TRIGGER_INVERTED"},
+                                            {"value": 2, "label": "TRIGGER_INVERTED"},
+                                            {"value": 3, "label": "TRIGGER_INVERTED"},
+                                            {"value": 4, "label": "TRIGGER_INVERTED"}
+                                        ]
+                                    }
+                                },
+                                {
+                                    "bitPosition": 1,
+                                    "overload": {
+                                        "nv": 9 + ch * 7,
+                                        "labels": [
+                                            {"value": 2, "label": "CUTOFF"},
+                                            {"value": 3, "label": "CUTOFF"},
+                                            {"value": 4, "label": "CUTOFF"}
+                                        ]
+                                    }
+                                },
+                                {
+                                    "bitPosition": 2,
+                                    "overload": {
+                                        "nv": 9 + ch * 7,
+                                        "labels": [
+                                            {"value": 1, "label": "STARTUP"},
+                                            {"value": 2, "label": "STARTUP"},
+                                            {"value": 3, "label": "STARTUP"},
+                                            {"value": 4, "label": "STARTUP"}
+                                        ]
+                                    }
+                                },
+                                {
+                                    "bitPosition": 3,
+                                    "overload": {
+                                        "nv": 9 + ch * 7,
+                                        "labels": [
+                                                      {"value": 0, "label": "DISABLE_OFF"},
+                                                      {"value": 1, "label": "DISABLE_OFF"}
+                                                  ] + ([
+                                                           {"value": 5, "label": "DISABLE_OFF"},
+                                                           {"value": 6, "label": "DISABLE_OFF"}
+                                                       ] if hasAnalogue else [])
+                                    }
+                                },
+                                {
+                                    "bitPosition": 4,
+                                    "overload": {
+                                        "nv": 9 + ch * 7,
+                                        "labels": [
+                                            {"value": 0, "label": "TOGGLE"},
+                                            {"value": 2, "label": "PULLUP"},
+                                            {"value": 3, "label": "PULLUP"},
+                                            {"value": 4, "label": "PULLUP"}
+                                        ]
+                                    }
+                                },
+                                {
+                                    "bitPosition": 5,
+                                    "overload": {
+                                        "nv": 9 + ch * 7,
+                                        "labels": [
+                                                      {"value": 0,
+                                                       "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                                                      {"value": 1, "label": "ACTION_INVERTED"},
+                                                      {"value": 2, "label": "ACTION_INVERTED"},
+                                                      {"value": 3, "label": "ACTION_INVERTED"},
+                                                      {"value": 4, "label": "ACTION_INVERTED"}
+                                                  ] + ([
+                                                           {"value": 5,
+                                                            "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                                                           {"value": 6,
+                                                            "label": "INPUT_DISABLE_SOD_RESPONSE"}
+                                                       ] if hasAnalogue else [])
+                                    }
+                                },
+                                {
+                                    "bitPosition": 6,
+                                    "label": "EVENT_INVERTED"
+                                },
+                                {
+                                    "bitPosition": 7,
+                                    "overload":
+                                        {
+                                            "nv": 9 + ch * 7,
+                                            "labels": [
+                                                          {"value": 1,
+                                                           "label": "ACTION_EXPEDITED"}
+                                                      ] + ([
+                                                               {"value": 2,
+                                                                "label": "EXTENDED 180 DEGREE RANGE"},
+                                                               {"value": 3,
+                                                                "label": "EXTENDED 180 DEGREE RANGE"},
+                                                               {"value": 4,
+                                                                "label": "EXTENDED 180 DEGREE RANGE"}
+                                                           ] if hasServo180 else [])
+                                        }
+                                }
+                            ]
+                        }
+                    ],
+                    "comment": f"end of channel {ch}"
+                } for ch in range(1, channels + 1)
+            ]
+        }
+    ]
+}
 
 eventVariables = [
     {
