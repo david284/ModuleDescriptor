@@ -33,13 +33,12 @@ data = {
     "timestamp": datestring,
     "moduleName": moduleType,
     "NVsetNeedsLearnMode": True,
-    # "numberOfChannels": servos,
-    # "channelNames": {str(ch): f"LED {ch}" for ch in range(1, LEDs + 1)} |
-    #                 {str(ch + LEDs): f"Switch {ch}" for ch in range(1, switches + 1)},
+    "numberOfChannels": servos,
+    "channelNames": {str(ch): f"Servo {ch}" for ch in range(1, servos + 1)},
     "nodeVariables": [
         {
             "type": "NodeVariableGroup",
-            "displayTitle": f"Servo {ch}",
+            "displayTitle": f"${{channel {ch}}}",
             "groupItems": [
                 {
                     "displayTitle": "ON end position",
@@ -126,7 +125,7 @@ data = {
             },
             "groupItems": [
                  {
-                    "displayTitle": "Mode",
+                     "displayTitle": "Mode",
                      "type": "EventVariableSelect",
                      "eventVariableIndex": 3,
                      "bitMask": 3,
@@ -137,7 +136,7 @@ data = {
                  }
             ] + [
                 {
-                    "displayTitle": f"Servo {ch}",
+                    "displayTitle": f"${{channel {ch}}}",
                     "type": "EventVariableGroup",
                     "visibilityLogic": {
                         "evBit": {"index": 3, "bit": 1},
