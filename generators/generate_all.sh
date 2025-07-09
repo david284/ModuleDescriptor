@@ -25,8 +25,8 @@ function writeIfUpdated()
 $gen_dir/generate_CANLEVER.sh | writeIfUpdated "$merg_dir"/CANLEVER-0D20-1a.json
 
 # CANMIO-SVO - Default firmware shipped with CANMIO boards.
-$gen_dir/generate_CANMIO-SVO.sh | writeIfUpdated "$merg_dir"/CANMIO-SVO-A532-4S.json
-$gen_dir/generate_CANMIO-SVO.sh -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-4S.json
+python $gen_dir/generate_CANMIO-SVO.py | writeIfUpdated "$merg_dir"/CANMIO-SVO-A532-4S.json
+python $gen_dir/generate_CANMIO-SVO.py -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-4S.json
 
 # CANMIO
 # Default processor is PIC18F26K80
