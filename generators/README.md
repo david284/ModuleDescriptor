@@ -4,13 +4,23 @@ This folder contains scripts for some modules that will generate a module descri
 A generator is useful where there is repeated information, e.g. the same content for channels 1 to 8, with tokens for simple substitution like variable number.
 
 # Requirements
-The generators are shell scripts.
+The generators are shell and python scripts.
+Older generators uses shell scripts.
+They are being converted to Python.
+
+## Python Scripts
+You need Python installed on your system to run these generators. 
+Python is generally available on most Linux systems and easy to 
+install on other systems.
+
+## Shell Scripts
 To run them you need ```bash``` which is provided with Linux systems.
-For Windows system ```bash``` can be provided by [Cygwin](https://www.cygwin.com) and [Git Bash](https://git-scm.com/).
+For Windows systems ```bash``` can be provided by [Cygwin](https://www.cygwin.com) and [Git Bash](https://git-scm.com/).
 
 # Generating Module Descriptor Files
-It is recommended the script is run with the output to the 'output' folder - as this is folder is ignored by source control
-e.g. :
+The generator scripts produce the MDF content as the standard output.
+When running the generators redirect this output to the desired target file.
+E.g. :
 
 ```sh generators/generate_CANPAN.sh > output/CANPAN-0D20-9z.json```
 
@@ -30,7 +40,15 @@ for items to be filled in with variable content.
 This style makes it easy to find the correct place in the generator script to fix 
 any problems detected in the generated JSON file.
 
-## Structure of the generator script
+## Python generators
+The Python generators build up a datastructure of dictionaries and lists that
+make up the resulting MDF contents. 
+
+Conditional and repeating contents are handled with dictionary and list comprehension.
+This means that any conditions and loop constructs are shown below the
+data elements rather than before as is done with conditional and looping code.
+
+## Shell script generators
 Most of the generators are built around "Here documents" which allow expansion of
 variables within a text block. 
 A "Here document" is an embedded piece of text that is fed as standard input to
@@ -54,44 +72,10 @@ EOF
 done
 ```
 
-## Comma separated lists
+### Comma separated lists in shell scripts
 JSON is strict on commas between items in a list and there may not be any trailing comma.
 There are many ways to solve this. 
-The method used here is a trick with variable expansion which requires little code
-in the "Here document".
-
-An example with four channels may have elements generated this way:
-```
-ending[0]=','
-ending[1]=''
-cat <<EOF
-"elements" : [
-EOF
-for channel in 1 2 3 4
-do 
-  cat << EOF
-   { 
-     ...
-   }${ending[$(($channel == 4))]}
-EOF
-done
-cat <<EOF
-]
-EOF
-```
-```ending``` is an array of two elements. The first is a comma and the second is empty.
-The element for the channel is followed by selecting one of these elements. 
-If ```channel``` is 4, i.e. the last channel, the expression is true which translates
-to the number 1. 
-This 1 is used as the index to the ```ending``` array which refers to the empty element. 
-If ```channel``` is something else, then the expression is false and the index is zero
-and the first element of ```ending``` is used, i.e. the element with a comma.
-
-Note that for this construct we need to know the value of the last channel and put that
-into the expression used as index into ```ending```.
-
-### Alternative
-Another way is to use a function that takes a condition (same syntax as
+The method used here is to use a function that takes a condition (same syntax as
 the builtin [] command) and returns a comma if this condition is true
 and returns nothing if the condition is false. This needs to be executed in
 a command substitution construct like this example:
