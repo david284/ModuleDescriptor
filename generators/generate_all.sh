@@ -59,10 +59,10 @@ python $gen_dir/generate_CANPAN.py -v 4C | writeIfUpdated "$merg_dir"/CANPAN-A51
 python $gen_dir/generate_CANPAN.py -p23 -v 5a | writeIfUpdated "$merg_dir"/CANPAN-A51D-5a.json
 
 # CANCMD and successors
-$gen_dir/generate_CANCMD.sh -v 4d | writeIfUpdated "$merg_dir"/CANCMD-A50A-4d.json
-$gen_dir/generate_CANCMD.sh -v 4f | writeIfUpdated "$merg_dir"/CANCMD-A50A-4f.json
+python $gen_dir/generate_CANCMD.py -t CMD -v 4d | writeIfUpdated "$merg_dir"/CANCMD-A50A-4d.json
+python $gen_dir/generate_CANCMD.py -t CMD -v 4f | writeIfUpdated "$merg_dir"/CANCMD-A50A-4f.json
 
-$gen_dir/generate_CANCMD.sh -t CSB -v 4d | writeIfUpdated "$merg_dir"/CANCSB-A537-4d.json
-$gen_dir/generate_CANCMD.sh -t CSB -v 4f | writeIfUpdated "$merg_dir"/CANCSB-A537-4f.json
+python $gen_dir/generate_CANCMD.py -t CSB -v 4d | writeIfUpdated "$merg_dir"/CANCSB-A537-4d.json
+python $gen_dir/generate_CANCMD.py -t CSB -v 4f | writeIfUpdated "$merg_dir"/CANCSB-A537-4f.json
 
-$gen_dir/generate_CANCMD.sh -t CMDB -v 4f | writeIfUpdated "$merg_dir"/CANCMDB-A553-4f.json
+python $gen_dir/generate_CANCMD.py -t CMDB -v 4f | writeIfUpdated "$merg_dir"/CANCMDB-A553-4f.json
