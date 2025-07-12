@@ -1,6 +1,6 @@
 {
-  "timestamp": "202411152027",
-  "moduleName":"CANACC4",
+  "timestamp": "202507121732",
+  "moduleName": "CANACC4",
   "nodeVariables": [
     {
       "type": "NodeVariableGroup",
@@ -128,27 +128,51 @@
     }
   ],
   "eventVariables": [
-      {
-        "type": "EventVariableBitArray",
-        "eventVariableIndex": 1,
-        "displayTitle": "Output pairs active",
-        "bitCollection":[
-          {"bitPosition": 0, "label": "pair 1&2"},
-          {"bitPosition": 1, "label": "pair 3&4"},
-          {"bitPosition": 2, "label": "pair 5&6"},
-          {"bitPosition": 3, "label": "pair 7&8"}
-        ]
-      },
-      {
-        "type": "EventVariableBitArray",
-        "eventVariableIndex": 2,
-        "displayTitle": "Reverse Polarity",
-        "bitCollection":[
-          {"bitPosition": 0, "label": "pair 1&2"},
-          {"bitPosition": 1, "label": "pair 3&4"},
-          {"bitPosition": 2, "label": "pair 5&6"},
-          {"bitPosition": 3, "label": "pair 7&8"}
-        ]
-      }
+    {
+      "type": "EventVariableBitArray",
+      "eventVariableIndex": 1,
+      "displayTitle": "Output pairs active",
+      "bitCollection": [
+        {
+          "bitPosition": 0,
+          "label": "pair 1&2"
+        },
+        {
+          "bitPosition": 1,
+          "label": "pair 3&4"
+        },
+        {
+          "bitPosition": 2,
+          "label": "pair 5&6"
+        },
+        {
+          "bitPosition": 3,
+          "label": "pair 7&8"
+        }
+      ]
+    },
+    {
+      "type": "EventVariableBitArray",
+      "eventVariableIndex": 2,
+      "displayTitle": "Reverse Polarity",
+      "bitCollection": [
+        {
+          "bitPosition": 0,
+          "label": "pair 1&2"
+        },
+        {
+          "bitPosition": 1,
+          "label": "pair 3&4"
+        },
+        {
+          "bitPosition": 2,
+          "label": "pair 5&6"
+        },
+        {
+          "bitPosition": 3,
+          "label": "pair 7&8"
+        }
+      ]
+    }
   ]
 }
