@@ -21,108 +21,18 @@ data = {
     "nodeVariables": [
         {
             "type": "NodeVariableGroup",
-            "displayTitle": "Output 1",
+            "displayTitle": f"Output {ch}",
             "groupItems": [
                 {
                     "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 1,
+                    "nodeVariableIndex": ch,
                     "displayTitle": "Pulse Duration",
                     "displayScale": 10,
                     "displayUnits": "Milli Seconds"
                 }
             ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 2",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 2,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 3",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 3,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 4",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 4,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 5",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 5,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 6",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 6,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 7",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 7,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
-        {
-            "type": "NodeVariableGroup",
-            "displayTitle": "Output 8",
-            "groupItems": [
-                {
-                    "type": "NodeVariableSlider",
-                    "nodeVariableIndex": 8,
-                    "displayTitle": "Pulse Duration",
-                    "displayScale": 10,
-                    "displayUnits": "Milli Seconds"
-                }
-            ]
-        },
+        } for ch in range(1, 8 + 1)
+    ] + [
         {
             "type": "NodeVariableGroup",
             "displayTitle": "General Settings",
@@ -151,21 +61,9 @@ data = {
             "displayTitle": "Output pairs active",
             "bitCollection": [
                 {
-                    "bitPosition": 0,
-                    "label": "pair 1&2"
-                },
-                {
-                    "bitPosition": 1,
-                    "label": "pair 3&4"
-                },
-                {
-                    "bitPosition": 2,
-                    "label": "pair 5&6"
-                },
-                {
-                    "bitPosition": 3,
-                    "label": "pair 7&8"
-                }
+                    "bitPosition": pos,
+                    "label": f"pair {pos*2+1}&{pos*2+2}"
+                } for pos in range(0, 4)
             ]
         },
         {
@@ -174,21 +72,9 @@ data = {
             "displayTitle": "Reverse Polarity",
             "bitCollection": [
                 {
-                    "bitPosition": 0,
-                    "label": "pair 1&2"
-                },
-                {
-                    "bitPosition": 1,
-                    "label": "pair 3&4"
-                },
-                {
-                    "bitPosition": 2,
-                    "label": "pair 5&6"
-                },
-                {
-                    "bitPosition": 3,
-                    "label": "pair 7&8"
-                }
+                    "bitPosition": pos,
+                    "label": f"pair {pos*2+1}&{pos*2+2}"
+                } for pos in range(0, 4)
             ]
         }
     ]
