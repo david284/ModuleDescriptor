@@ -72,27 +72,25 @@ data = {
     ],
     "eventVariables": [
         {
-            "type": "EventVariableBitArray",
-            "eventVariableIndex": 1,
-            "displayTitle": "Output pairs active",
-            "bitCollection": [
+            "displayTitle": f"${{channel {ch}}}",
+            "type": "EventVariableGroup",
+            "groupItems": [
                 {
-                    "bitPosition": pos,
-                    "label": f"${{channel {pos+1}}}"
-                } for pos in range(0, 4)
-            ]
-        },
-        {
-            "type": "EventVariableBitArray",
-            "eventVariableIndex": 2,
-            "displayTitle": "Reverse Polarity",
-            "bitCollection": [
+                    "displayTitle": "Active",
+                    "type": "EventVariableBitSingle",
+                    "eventVariableIndex": 1,
+                    "bit": ch - 1
+                },
                 {
-                    "bitPosition": pos,
-                    "label": f"${{channel {pos+1}}}"
-                } for pos in range(0, 4)
+                    "displayTitle": "Invert",
+                    "type": "EventVariableBitSingle",
+                    "eventVariableIndex": 2,
+                    "bit": ch - 1,
+                    "visibilityLogic": {
+                        "JLL": {"==": [{"EVbit": [1, ch - 1]}, True]}}
+                }
             ]
-        }
+        } for ch in range(1, solenoids + 1)
     ]
 }
 
