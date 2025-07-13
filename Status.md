@@ -12,13 +12,17 @@ The following files are complete and need a final review before moving to
 the production directory.
 
 | Filename                | Kit Source                                           | Status                               |
-|-------------------------|------------------------------------------------------|-------------------------|
+|-------------------------|------------------------------------------------------|--------------------------------------|
+| CANACC4-A501-2Q.json    | Discontinued                                         | Functionally same as CANACC4_2       |
+| CANACC4_2-A508-2N.json  | Discontinued                                         | Tested by Sven Rosvall               |
+| CANACC4_2-A508-2Q.json  | Discontinued                                         | Tested by Sven Rosvall               |
+| CANSOL-A522-1B.json     | Kit Locker Basic                                     | Tested by Sven Rosvall               | 
 | CANACC5-A502-2U.json    | Kit Locker Classic                                   | Functionally same as 2V              |
 | CANACC5-A502-2V.json    | Kit Locker Classic                                   | tested by David Ellis                |
 | CANACC8-A503-2V.json    | Discontinued                                         | uses same code base as CANACC5       |
-| CANACE8C-A505-2n.json   | Kit Locker Classic                | Functionally same as 2q              |
-| CANACE8C-A505-2p.json   | Kit Locker Classic                | Functionally same as 2q              |
-| CANACE8C-A505-2q.json   | Kit Locker Classic                | Tested by Sven Rosvall               |
+| CANACE8C-A505-2n.json   | Kit Locker Classic                                   | Functionally same as 2q              |
+| CANACE8C-A505-2p.json   | Kit Locker Classic                                   | Functionally same as 2q              |
+| CANACE8C-A505-2q.json   | Kit Locker Classic                                   | Tested by Sven Rosvall               |
 | CANCMD-A50A-4d.json     | MERG Kitlocker                                       | Tested by Sven Rosvall               |
 | CANCMD-A50A-4f.json     | MERG Kitlocker                                       | Tested by Simon West                 |
 | CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                    |
@@ -27,7 +31,7 @@ the production directory.
 | CANMIO-A520-xx.json     | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall               |
 | CANMIO-OUT-A534-5b.json | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | uses same code base as CANACC5       |
 | CANMIO-SVO-A532-4S.json | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall               |
-| CANSERVO8C-A513-4S.json | CANMIO build option.              | Tested by Greg Palmer.               |
+| CANSERVO8C-A513-4S.json | CANMIO build option.                                 | Tested by Greg Palmer.               |
 | CANPAN-A51D-xx.json     | MERG Kitlocker                                       | Tested by Sven Rosvall & Greg Palmer |
 | CANXIO-A540-xx.json     | RME UK                                               | Similar to CANMIO with more i/o      |
 
@@ -45,8 +49,6 @@ but have not been tested.
 | Filename                | Kit Source                                  | Status                 |
 |-------------------------|---------------------------------------------|------------------------|
 | CAN1IN1OUT-0D63-1a.json | Example included in Arduino CBUS Library.   | |
-| CANACC4-A501-2Q.json    | Discontinued                                | |
-| CANACC4_2-A508-2Q.json  | Discontinued                                | |
 | CANCSB-A537-4d          | copy of CANCMD-A50A-4d.json                 | |
 | CANLED64-A507-2G.json   | Discontinued                                | |
 | CANSERVO-A50B-2H.json   | CANMIO build option. Replaced by CANSERVO8C. | |
@@ -77,7 +79,6 @@ do not yet have any Module Descriptor File.
 | Module   | Kit Source          | Status                         |
 |----------|---------------------|--------------------------------|
 | CANOUT   | Kit Locker Basic    |                                | 
-| CANSOL   | Kit Locker Basic    |                                | 
 | CANVINP  | Kit Locker Advanced | Works with Universal firmware. | 
 | CANV4BIP | Kit Locker Advanced | Works with Universal firmware. |
 | CANCDU   | RME UK              |                                |
