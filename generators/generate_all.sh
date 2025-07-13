@@ -85,7 +85,10 @@ do
     ;;
 
   CANSOL)
+    python $gen_dir/generate_CANSOL.py -t ACC4 -v 2N | writeIfUpdated "$merg_dir"/CANACC4_2-A508-2N.json
     python $gen_dir/generate_CANSOL.py -t ACC4 -v 2Q | writeIfUpdated "$merg_dir"/CANACC4_2-A508-2Q.json
+
+    python $gen_dir/generate_CANSOL.py -t SOL -v 1B | writeIfUpdated "$merg_dir"/CANSOL-A522-1B.json
     ;;
 
   *)

@@ -7,9 +7,21 @@ from sys import argv
 from datetime import datetime, timezone
 import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", "--version", help="Firmware version")
+parser.add_argument("-t", "--type", help="Module type")
+args = parser.parse_args()
+
 # default capabilities
 moduleName = "CANACC4"
 solenoids = 4
+hasFireDelay = True
+
+if args.type == "SOL":
+    moduleName = "CANSOL"
+
+if args.version == "2N":
+    hasFireDelay = False
 
 now = datetime.now(timezone.utc)
 datestring = f"{now.year}{now.month:02}{now.day:02}{now.hour:02}{now.minute:02}"
@@ -46,7 +58,8 @@ data = {
                     "displayTitle": "Recharge timer",
                     "displayScale": 10,
                     "displayUnits": "Milli Seconds"
-                },
+                }
+            ] + ([
                 {
                     "type": "NodeVariableSlider",
                     "nodeVariableIndex": 10,
@@ -54,7 +67,7 @@ data = {
                     "displayScale": 10,
                     "displayUnits": "Milli Seconds"
                 }
-            ]
+            ] if hasFireDelay else [])
         }
     ],
     "eventVariables": [
