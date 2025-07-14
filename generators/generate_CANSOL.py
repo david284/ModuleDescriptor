@@ -36,17 +36,24 @@ data = {
     "nodeVariables": [
         {
             "type": "NodeVariableGroup",
-            "displayTitle": f"${{channel {ch}}} {chr(ord('A') + side)}",
+            "displayTitle": f"${{channel {ch}}}",
             "groupItems": [
                 {
                     "type": "NodeVariableSlider",
-                    "nodeVariableIndex": ch*2-1+side,
-                    "displayTitle": "Pulse Duration",
+                    "nodeVariableIndex": ch*2-1,
+                    "displayTitle": "Side A Pulse Duration",
+                    "displayScale": 10,
+                    "displayUnits": "Milli Seconds"
+                },
+                {
+                    "type": "NodeVariableSlider",
+                    "nodeVariableIndex": ch*2,
+                    "displayTitle": "Side B Pulse Duration",
                     "displayScale": 10,
                     "displayUnits": "Milli Seconds"
                 }
             ]
-        } for ch in range(1, solenoids + 1) for side in (0, 1)
+        } for ch in range(1, solenoids + 1)
     ] + [
         {
             "type": "NodeVariableGroup",
