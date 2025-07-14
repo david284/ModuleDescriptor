@@ -66,6 +66,13 @@ data = {
                     "displayTitle": "Fire Delay",
                     "displayScale": 10,
                     "displayUnits": "Milli Seconds"
+                },
+                {
+                    "type": "NodeVariableSlider",
+                    "nodeVariableIndex": 11,
+                    "displayTitle": "CDU Enable Delay",
+                    "displayScale": 10,
+                    "displayUnits": "Milli Seconds"
                 }
             ] if hasFireDelay else [])
         }
