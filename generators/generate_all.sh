@@ -4,7 +4,7 @@
 
 if [ $# -eq 0 ]
 then
-  groups=(CANLEVER CANSERVO CANMIO CANPAN CANCMD)
+  groups=(CANLEVER CANSERVO CANMIO CANPAN CANCMD CANSOL)
 else
   groups="$@"
 fi
@@ -82,6 +82,15 @@ do
     python $gen_dir/generate_CANCMD.py -t CSB -v 4f | writeIfUpdated "$merg_dir"/CANCSB-A537-4f.json
     
     python $gen_dir/generate_CANCMD.py -t CMDB -v 4f | writeIfUpdated "$merg_dir"/CANCMDB-A553-4f.json
+    ;;
+
+  CANSOL)
+    python $gen_dir/generate_CANSOL.py -t ACC4 -v 2Q | writeIfUpdated "$merg_dir"/CANACC4-A501-2Q.json
+
+    python $gen_dir/generate_CANSOL.py -t ACC4 -v 2N | writeIfUpdated "$merg_dir"/CANACC4_2-A508-2N.json
+    python $gen_dir/generate_CANSOL.py -t ACC4 -v 2Q | writeIfUpdated "$merg_dir"/CANACC4_2-A508-2Q.json
+
+    python $gen_dir/generate_CANSOL.py -t SOL -v 1B | writeIfUpdated "$merg_dir"/CANSOL-A522-1B.json
     ;;
 
   *)
