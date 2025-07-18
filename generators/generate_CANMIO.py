@@ -26,6 +26,7 @@ channels = 16
 processorSeries = "K"
 hasAnalogue = False
 hasServo180 = False
+hasLEDSW = False
 canPreventDefaultEvents = False
 
 if args.type == "MIO":
@@ -67,6 +68,12 @@ elif args.version == "4b":
 elif args.version == "4c":
     hasAnalogue = True
     hasServo180 = True
+    canPreventDefaultEvents = True
+elif args.version == "4d":
+    hasAnalogue = True
+    hasServo180 = True
+    if processorSeries == "Q":
+        hasLEDSW = True
     canPreventDefaultEvents = True
 else:
     print(f"Unknown version '{args.version}'")
@@ -244,7 +251,10 @@ data = {
                                 {"label": "ANALOGUE", "value": 5},
                                 {"label": "MAGNET", "value": 6}
                             ] if hasAnalogue and (processorSeries == "Q" or (
-                                    9 <= ch <= channels and ch != 12)) else []),
+                                    9 <= ch <= channels and ch != 12)) else []) + (
+                            [
+                                {"label": "LEDSW", "value": 9}
+                            ] if (hasLEDSW) else []),
                             "linkedVariables": {
                                 "NV": list(range(10 + ch * 7, 16 + ch * 7))
                             }
@@ -495,7 +505,30 @@ data = {
                             "max": 65535,
                             "displayUnits": "ADC units, in 7.63uV steps"
                         }
-                    ] if hasAnalogue else []) +
+                    ] if hasAnalogue else []) + (
+                    [
+                        {
+                          "displayTitle": "Threshold",
+                          "displaySubTitle": "switch specific",
+                          "comment":"ledsw type only",
+                          "type": "NodeVariableSlider",
+                          "visibilityLogic":{ "nv": 9 + ch * 7, "equals": 9 },
+                          "nodeVariableIndex": 11 + ch * 7,
+                          "displayUnits": "Volts",
+                          "displayScale": 0.0196
+                        },
+                        {
+                          "type": "NodeVariableSlider",
+                          "comment":"ledsw type only",
+                          "visibilityLogic":{ "nv": 9 + ch * 7, "equals": 9 },
+                          "nodeVariableIndex": 12 + ch * 7,
+                          "displayTitle": "Flash period",
+                          "displaySubTitle": "output specific",
+                          "displayUnits": "seconds",
+                          "displayScale": 0.1
+                        },
+
+                    ] if hasLEDSW else []) +
                     [
                         {
                             "type": "NodeVariableBitArray",
@@ -512,7 +545,10 @@ data = {
                                             {"value": 2, "label": "TRIGGER_INVERTED"},
                                             {"value": 3, "label": "TRIGGER_INVERTED"},
                                             {"value": 4, "label": "TRIGGER_INVERTED"}
-                                        ]
+                                        ] + (
+                                        [
+                                            {"value": 9, "label": "TRIGGER_INVERTED"}
+                                        ] if hasLEDSW else [])
                                     }
                                 },
                                 {
@@ -548,7 +584,9 @@ data = {
                                         ] + ([
                                             {"value": 5, "label": "DISABLE_OFF"},
                                             {"value": 6, "label": "DISABLE_OFF"}
-                                        ] if hasAnalogue else [])
+                                        ] if hasAnalogue else []) + ([
+                                            {"value": 9, "label": "DISABLE_OFF"}
+                                        ] if hasLEDSW else [])
                                     }
                                 },
                                 {
@@ -560,7 +598,9 @@ data = {
                                             {"value": 2, "label": "PULLUP"},
                                             {"value": 3, "label": "PULLUP"},
                                             {"value": 4, "label": "PULLUP"}
-                                        ]
+                                        ] + ([
+                                            {"value": 9, "label": "TOGGLE"}
+                                        ] if hasLEDSW else [])
                                     }
                                 },
                                 {
@@ -576,7 +616,9 @@ data = {
                                         ] + ([
                                             {"value": 5, "label": "INPUT_DISABLE_SOD_RESPONSE"},
                                             {"value": 6, "label": "INPUT_DISABLE_SOD_RESPONSE"}
-                                        ] if hasAnalogue else [])
+                                        ] if hasAnalogue else []) + ([
+                                            {"value": 9, "label": "INPUT_DISABLE_SOD_RESPONSE"}
+                                        ] if hasLEDSW else [])
                                     }
                                 },
                                 {
@@ -630,7 +672,10 @@ data = {
                         [
                             {"value": 5, "label": f"${{channel{ch}}} - Threshold"},
                             {"value": 6, "label": f"${{channel{ch}}} - Lower Threshold"}
-                        ] if hasAnalogue else [])
+                        ] if hasAnalogue else []) + (
+                        [
+                            {"value": 9, "label": f"${{channel{ch}}} - Switch Changed"}
+                        ] if hasLEDSW else [])
                     }
                 },
                 {
@@ -698,7 +743,10 @@ data = {
                                     {"value": 2, "label": f"${{channel{ch}}} - Change"},
                                     {"value": 3, "label": f"${{channel{ch}}} - Change"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT1"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - Change"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -710,7 +758,10 @@ data = {
                                     {"value": 2, "label": f"${{channel{ch}}} - ON"},
                                     {"value": 3, "label": f"${{channel{ch}}} - ON"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT2"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - ON"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -722,7 +773,10 @@ data = {
                                     {"value": 2, "label": f"${{channel{ch}}} - OFF"},
                                     {"value": 3, "label": f"${{channel{ch}}} - OFF"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT3"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - OFF"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -732,7 +786,10 @@ data = {
                                 "labels": [
                                     {"value": 1, "label": f"${{channel{ch}}} - FLASH"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT4"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - FLASH"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -743,7 +800,10 @@ data = {
                                     {"value": 1, "label": f"${{channel{ch}}} - !Change"},
                                     {"value": 2, "label": f"${{channel{ch}}} - !Change"},
                                     {"value": 3, "label": f"${{channel{ch}}} - !Change"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - !Change"}
+                                ] if hasLEDSW else [])
                             }
                         }
                     ] for ch in range(1, channels + 1)),
