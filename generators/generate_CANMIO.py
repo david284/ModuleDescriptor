@@ -758,7 +758,10 @@ data = {
                                     {"value": 2, "label": f"${{channel{ch}}} - ON"},
                                     {"value": 3, "label": f"${{channel{ch}}} - ON"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT2"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - ON"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -770,7 +773,10 @@ data = {
                                     {"value": 2, "label": f"${{channel{ch}}} - OFF"},
                                     {"value": 3, "label": f"${{channel{ch}}} - OFF"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT3"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - OFF"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -780,7 +786,10 @@ data = {
                                 "labels": [
                                     {"value": 1, "label": f"${{channel{ch}}} - FLASH"},
                                     {"value": 4, "label": f"${{channel{ch}}} - AT4"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - FLASH"}
+                                ] if hasLEDSW else [])
                             }
                         },
                         {
@@ -791,7 +800,10 @@ data = {
                                     {"value": 1, "label": f"${{channel{ch}}} - !Change"},
                                     {"value": 2, "label": f"${{channel{ch}}} - !Change"},
                                     {"value": 3, "label": f"${{channel{ch}}} - !Change"}
-                                ]
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - !Change"}
+                                ] if hasLEDSW else [])
                             }
                         }
                     ] for ch in range(1, channels + 1)),
