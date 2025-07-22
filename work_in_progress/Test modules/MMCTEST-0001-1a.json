@@ -1,8 +1,8 @@
 {
-  "timestamp": "202507161720",
+  "timestamp": "202507221804",
   "moduleName": "MMCTEST",
   "comment": "this MDF is used to test specific aspects of MMC, and not intended to represent any specific module",
-  "nodeVariableInformation": "You can place any text here to help explain the context of the node variables...",
+  "nodeVariableInformation": "This is an MDF to test combinations of controls, it is not intended to represent any specific module",
   "numberOfChannels": 8,
   "channelNames": {
     "1": "MFD name 1",
@@ -91,14 +91,38 @@
       "type": "NodeVariableButtons",
       "nodeVariableIndex": 22,
       "buttonCollection": [
-        {"label": "Min", "value": 0},
-        {"label": "Centre", "value": 127},
-        {"label": "Max", "value": 255},
-        {"overload":{"nv": 10, "labels": [
-          {"value": 0, "label": "overload 0 (5)"},
-          {"value": 1, "label": "overload 1 (5)"},
-          {"value": 2, "label": "overload 2 (5)"}]}, 
-        "value": 5}
+        {
+          "label": "Min",
+          "value": 0
+        },
+        {
+          "label": "Centre",
+          "value": 127
+        },
+        {
+          "label": "Max",
+          "value": 255
+        },
+        {
+          "overload": {
+            "nv": 10,
+            "labels": [
+              {
+                "value": 0,
+                "label": "overload 0 (5)"
+              },
+              {
+                "value": 1,
+                "label": "overload 1 (5)"
+              },
+              {
+                "value": 2,
+                "label": "overload 2 (5)"
+              }
+            ]
+          },
+          "value": 5
+        }
       ]
     },
     {
@@ -131,6 +155,530 @@
           "value": 3
         }
       ]
+    },
+    {
+      "type": "NodeChannelList",
+      "channels":{
+        "1": 
+        {
+          "channelType": 
+          {
+            "overload": {
+              "nv": 16,
+              "labels": [
+                { "value": 0, "label": "INPUT" },
+                { "value": 1, "label": "OUTPUT" },
+                { "value": 2, "label": "SERVO" },
+                { "value": 3, "label": "BOUNCE" },
+                { "value": 4, "label": "MULTI" },
+                { "value": 5, "label": "ANALOGUE" },
+                { "value": 6, "label": "MAGNET" }
+              ]
+            }
+          },
+          "information":[
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 0]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 0, "label": "TRIGGER_INVERTED"},
+                    {"value": 1, "label": "TRIGGER_INVERTED"},
+                    {"value": 2, "label": "TRIGGER_INVERTED"},
+                    {"value": 3, "label": "TRIGGER_INVERTED"},
+                    {"value": 4, "label": "TRIGGER_INVERTED"}
+                  ]
+                }
+              }
+            },
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 1]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 2, "label": "CUTOFF"},
+                    {"value": 3, "label": "CUTOFF"},
+                    {"value": 4, "label": "CUTOFF"}
+                  ]
+                }
+              }
+            },
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 2]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 1, "label": "STARTUP"},
+                    {"value": 2, "label": "STARTUP"},
+                    {"value": 3, "label": "STARTUP"},
+                    {"value": 4, "label": "STARTUP"}
+                  ]
+                }
+              }
+            },
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 3]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 0, "label": "DISABLE_OFF"},
+                    {"value": 1, "label": "DISABLE_OFF"},
+                    {"value": 5, "label": "DISABLE_OFF"},
+                    {"value": 6, "label": "DISABLE_OFF"}
+                  ]
+                }
+              }
+            },
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 4]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 0, "label": "TOGGLE"},
+                    {"value": 2, "label": "PULLUP"},
+                    {"value": 3, "label": "PULLUP"},
+                    {"value": 4, "label": "PULLUP"}
+                  ]
+                }
+              }
+            },
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 5]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 0, "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                    {"value": 1, "label": "ACTION_INVERTED"},
+                    {"value": 2, "label": "ACTION_INVERTED"},
+                    {"value": 3, "label": "ACTION_INVERTED"},
+                    {"value": 4, "label": "ACTION_INVERTED"},
+                    {"value": 5, "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                    {"value": 6, "label": "INPUT_DISABLE_SOD_RESPONSE"}
+                  ]
+                }
+              }
+            },
+            {
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 6]}, true] } },
+              "label": "EVENT_INVERTED "
+            },
+            { 
+              "type":"text",
+              "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[17, 7]}, true] } },
+              "label": {"overload":{"nv": 16, "labels": [
+                    {"value": 1, "label": "ACTION_EXPEDITED"},
+                    {"value": 2, "label": "EXTENDED 180 DEGREE RANGE"},
+                    {"value": 3, "label": "EXTENDED 180 DEGREE RANGE"},
+                    {"value": 4, "label": "EXTENDED 180 DEGREE RANGE"}
+                  ]
+                }
+              }
+            }
+          ],
+          "channelVariables": [    
+            {
+              "type": "NodeVariableSelect",
+              "nodeVariableIndex": 16,
+              "displayTitle": "I/O type",
+              "displaySubTitle": "",
+              "options": [{"label": "INPUT", "value": 0},
+                {"label": "OUTPUT", "value": 1},
+                {"label": "SERVO", "value": 2},
+                {"label": "BOUNCE", "value": 3},
+                {"label": "MULTI", "value": 4},
+                {"label": "ANALOGUE", "value": 5},
+                {"label": "MAGNET", "value": 6}],
+              "linkedVariables": {
+                "NV": [17, 18, 19, 20, 21, 22]
+              }
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"input type only",
+              "visibilityLogic":{ "nv":16, "equals": 0 },
+              "nodeVariableIndex": 18,
+              "displayTitle": "ON delay",
+              "displaySubTitle": "input specific",
+              "displayUnits": "milliseconds",
+              "displayScale": 5
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"output type only",
+              "visibilityLogic":{ "nv":16, "equals": 1 },
+              "nodeVariableIndex": 18,
+              "displayTitle": "Pulse duration",
+              "displaySubTitle": "output specific",
+              "displayUnits": "seconds",
+              "displayScale": 0.1
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"servo type only",
+              "visibilityLogic":{ "nv":16, "equals": 2 },
+              "nodeVariableIndex": 18,
+              "displayTitle": "OFF position",
+              "displaySubTitle": "servo specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"bounce type only",
+              "visibilityLogic":{ "nv":16, "equals": 3 },
+              "nodeVariableIndex": 18,
+              "displayTitle": "UPPER position",
+              "displaySubTitle": "bounce specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "displayTitle": "number of positions",
+              "displaySubTitle": "multi specific",
+              "comment":"multi type only",
+              "type": "NodeVariableSelect",
+              "visibilityLogic":{ "nv":16, "equals": 4 },
+              "nodeVariableIndex": 18,
+              "options": [
+                {"label": "1 position", "value": 1},
+                {"label": "2 positions", "value": 2},
+                {"label": "3 positions", "value": 3},
+                {"label": "4 positions", "value": 4}
+              ]
+            },
+            {
+              "displayTitle": "magnet setup",
+              "displaySubTitle": "ADC offset",
+              "comment":"magnet type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 6 },
+              "nodeVariableIndex": 18,
+              "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"input type only",
+              "visibilityLogic":{ "nv":16, "equals": 0 },
+              "nodeVariableIndex": 19,
+              "displayTitle": "OFF delay",
+              "displaySubTitle": "input specific",
+              "displayUnits": "milliseconds",
+              "displayScale": 5
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"output type only",
+              "visibilityLogic":{ "nv":16, "equals": 1 },
+              "nodeVariableIndex": 19,
+              "displayTitle": "Flash period",
+              "displaySubTitle": "output specific",
+              "displayUnits": "seconds",
+              "displayScale": 0.1
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"servo type only",
+              "visibilityLogic":{ "nv":16, "equals": 2 },
+              "nodeVariableIndex": 19,
+              "displayTitle": "ON position",
+              "displaySubTitle": "servo specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"bounce type only",
+              "visibilityLogic":{ "nv":16, "equals": 3 },
+              "nodeVariableIndex": 19,
+              "displayTitle": "LOWER position",
+              "displaySubTitle": "bounce specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"multi type only",
+              "visibilityLogic":{ "nv":16, "equals": 4 },
+              "nodeVariableIndex": 19,
+              "displayTitle": "pos 1",
+              "displaySubTitle": "multi specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "displayTitle": "Threshold",
+              "displaySubTitle": "analog specific",
+              "comment":"analog type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 5 },
+              "nodeVariableIndex": 19,
+              "displayUnits": "Volts",
+              "displayScale": 0.0196
+            },
+            {
+              "displayTitle": "Threshold",
+              "displaySubTitle": "magnet specific",
+              "comment":"analog type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 6 },
+              "nodeVariableIndex": 19,
+              "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"servo type only",
+              "visibilityLogic":{ "nv":16, "equals": 2 },
+              "nodeVariableIndex": 20,
+              "displayTitle": "OFF to ON speed",
+              "displaySubTitle": "servo specific",
+              "displayUnits": "",
+              "min": 230
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"bounce type only",
+              "visibilityLogic":{ "nv":16, "equals": 3 },
+              "nodeVariableIndex": 20,
+              "displayTitle": "Bounce coefficient",
+              "displaySubTitle": "bounce specific",
+              "displayUnits": " %"
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"multi type only",
+              "visibilityLogic":{ "nv":16, "equals": 4 },
+              "nodeVariableIndex": 20,
+              "displayTitle": "pos 2",
+              "displaySubTitle": "multi specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "displayTitle": "Hysteresis",
+              "displaySubTitle": "analogue specific",
+              "comment":"analogue type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 5 },
+              "nodeVariableIndex": 20,
+              "displayUnits": "Volts",
+              "displayScale": 0.0196
+            },
+            {
+              "displayTitle": "Hysteresis",
+              "displaySubTitle": "magnet specific",
+              "comment":"magnet type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 6 },
+              "nodeVariableIndex": 20,
+              "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"servo type only",
+              "visibilityLogic":{ "nv":16, "equals": 2 },
+              "nodeVariableIndex": 21,
+              "displayTitle": "ON to OFF speed",
+              "displaySubTitle": "servo specific",
+              "displayUnits": "",
+              "min": 230
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"bounce type only",
+              "visibilityLogic":{ "nv":16, "equals": 3 },
+              "nodeVariableIndex": 21,
+              "displayTitle": "Pull speed",
+              "displaySubTitle": "bounce specific",
+              "displayUnits": "milliseconds",
+              "displayScale": 20
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"multi type only",
+              "visibilityLogic":{ "nv":16, "equals": 4 },
+              "nodeVariableIndex": 21,
+              "displayTitle": "pos 3",
+              "displaySubTitle": "multi specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "displayTitle": "Offset H",
+              "displaySubTitle": "magnet specific",
+              "comment":"magnet type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 6 },
+              "nodeVariableIndex": 21,
+              "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"bounce type only",
+              "visibilityLogic":{ "nv":16, "equals": 3 },
+              "nodeVariableIndex": 22,
+              "displayTitle": "Pull pause",
+              "displaySubTitle": "bounce specific",
+              "displayUnits": "milliseconds",
+              "displayScale": 20
+            },
+            {
+              "type": "NodeVariableSlider",
+              "comment":"multi type only",
+              "visibilityLogic":{ "nv":16, "equals": 4 },
+              "nodeVariableIndex": 22,
+              "displayTitle": "pos 4",
+              "displaySubTitle": "multi specific",
+              "displayUnits": "steps",
+              "outputOnWrite": true
+            },
+            {
+              "displayTitle": "Offset L",
+              "displaySubTitle": "magnet specific",
+              "comment":"magnet type only",
+              "type": "NodeVariableSlider",
+              "visibilityLogic":{ "nv":16, "equals": 6 },
+              "nodeVariableIndex": 22,
+              "displayUnits": "ADC units, in 1.22mV steps"
+            },
+            {
+              "type": "NodeVariableBitArray",
+              "nodeVariableIndex": 17,
+              "displayTitle": "Flags",
+              "bitCollection":[
+                {"bitPosition": 0, "overload":{"nv": 16, "labels": [
+                      {"value": 0, "label": "TRIGGER_INVERTED"},
+                      {"value": 1, "label": "TRIGGER_INVERTED"},
+                      {"value": 2, "label": "TRIGGER_INVERTED"},
+                      {"value": 3, "label": "TRIGGER_INVERTED"},
+                      {"value": 4, "label": "TRIGGER_INVERTED"}
+                    ]
+                  }
+                },
+                {"bitPosition": 1, "overload":{"nv": 16, "labels": [
+                      {"value": 2, "label": "CUTOFF"},
+                      {"value": 3, "label": "CUTOFF"},
+                      {"value": 4, "label": "CUTOFF"}
+                    ]
+                  }
+                },
+                {"bitPosition": 2, "overload":{"nv": 16, "labels": [
+                      {"value": 1, "label": "STARTUP"},
+                      {"value": 2, "label": "STARTUP"},
+                      {"value": 3, "label": "STARTUP"},
+                      {"value": 4, "label": "STARTUP"}
+                    ]
+                  }
+                },
+                {"bitPosition": 3, "overload":{"nv": 16, "labels": [
+                      {"value": 0, "label": "DISABLE_OFF"},
+                      {"value": 1, "label": "DISABLE_OFF"},
+                      {"value": 5, "label": "DISABLE_OFF"},
+                      {"value": 6, "label": "DISABLE_OFF"}
+                    ]
+                  }
+                },
+                {"bitPosition": 4, "overload":{"nv": 16, "labels": [
+                      {"value": 0, "label": "TOGGLE"},
+                      {"value": 2, "label": "PULLUP"},
+                      {"value": 3, "label": "PULLUP"},
+                      {"value": 4, "label": "PULLUP"}
+                    ]
+                  }
+                },
+                {"bitPosition": 5, "overload":{"nv": 16, "labels": [
+                      {"value": 0, "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                      {"value": 1, "label": "ACTION_INVERTED"},
+                      {"value": 2, "label": "ACTION_INVERTED"},
+                      {"value": 3, "label": "ACTION_INVERTED"},
+                      {"value": 4, "label": "ACTION_INVERTED"},
+                      {"value": 5, "label": "INPUT_DISABLE_SOD_RESPONSE"},
+                      {"value": 6, "label": "INPUT_DISABLE_SOD_RESPONSE"}
+                    ]
+                  }
+                },
+                {"bitPosition": 6, "label": "EVENT_INVERTED"},
+                {"bitPosition": 7, "overload":{"nv": 16, "labels": [
+                      {"value": 1, "label": "ACTION_EXPEDITED"},
+                      {"value": 2, "label": "EXTENDED 180 DEGREE RANGE"},
+                      {"value": 3, "label": "EXTENDED 180 DEGREE RANGE"},
+                      {"value": 4, "label": "EXTENDED 180 DEGREE RANGE"}
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "2": {
+          "channelType": "output",
+          "information":[
+            {
+              "type":"text",
+                "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[1, 7]}, true] } },
+                "label": "Repeat enabled "
+            },
+            {
+              "type":"text",
+                "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[10, 0]}, true] } },
+                "label": "Startup action enabled "
+            },
+            {
+              "type":"text",
+                "visibilityLogic":{"JLL":{ "==" :[ {"NVbit":[11, 0]}, true] } },
+                "label": "Startup action ON "
+            }
+          ],
+          "channelVariables": [
+            {
+              "type": "NodeVariableSlider",
+              "nodeVariableIndex": 1,
+              "displayTitle": "Pulse Duration",
+              "displaySubTitle": "Range 0 to 2,540 milliSeconds",
+              "displayScale": 20,
+              "displayUnits": "mS",
+              "startBit": 0,
+              "endBit": 6,
+              "max": 127,
+              "min": 0
+            },
+            {
+              "type": "NodeVariableBitSingle",
+              "nodeVariableIndex": 1,
+              "displayTitle": "Repeat enabled",
+              "bit": 7
+            },
+            {
+              "type": "NodeVariableBitSingle",
+              "nodeVariableIndex": 11,
+              "displayTitle": "Startup action on/off",
+              "bit": 0
+            },
+            {
+              "type": "NodeVariableBitSingle",
+              "nodeVariableIndex": 10,
+              "displayTitle": "Startup action",
+              "displaySubTitle": "Saved action, OFF if not set",
+              "bit": 0
+            }
+          ]
+        },
+        "3": {"channelType": "output", "information":[            
+          {
+            "type":"text",
+            "label": "just some static text"
+          }
+          ], 
+          "channelVariables": [] 
+        },
+        "4": {"channelType": "output"},
+        "5": {"channelType": "output"},
+        "6": {"channelType": "output"},
+        "7": {"channelType": "output"},
+        "8": {"channelType": "output"},
+        "9": {"channelType": "output"},
+        "10": {"channelType": "input"},
+        "11": {"channelType": "input"},
+        "12": {"channelType": "input"},
+        "13": {"channelType": "input"},
+        "14": {"channelType": "input"},
+        "15": {"channelType": "input"},
+        "16": {"channelType": "input"}
+      }      
     },
     {
       "type": "NodeVariableGroup",
@@ -356,7 +904,7 @@
           "min": 0
         }
       ]
-    },    
+    },
     {
       "type": "NodeVariableGroup",
       "displayTitle": "NodeVariableGroup",
