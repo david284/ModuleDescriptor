@@ -4,7 +4,7 @@
 
 if [ $# -eq 0 ]
 then
-  groups=(CANLEVER CANSERVO CANMIO CANPAN CANCMD CANSOL)
+  groups=(CANLEVER CANINP CANSERVO CANMIO CANPAN CANCMD CANSOL)
 else
   groups="$@"
 fi
@@ -34,6 +34,16 @@ do
   case $g in
   CANLEVER)
     $gen_dir/generate_CANLEVER.sh | writeIfUpdated "$merg_dir"/CANLEVER-0D20-1a.json
+    ;;
+
+  CANINP)
+    # CANACE8C, CANACE8CMIO, CANTOTI and CANINP
+    python $gen_dir/generate_CANINP.py -v 2n | writeIfUpdated "$merg_dir"/CANACE8C-A505-2n.json
+    python $gen_dir/generate_CANINP.py -v 2p | writeIfUpdated "$merg_dir"/CANACE8C-A505-2p.json
+    python $gen_dir/generate_CANINP.py -v 2q | writeIfUpdated "$merg_dir"/CANACE8C-A505-2q.json
+    python $gen_dir/generate_CANINP.py -t MIO -v 2q | writeIfUpdated "$merg_dir"/CANACE8MIO-A521-2q.json
+    python $gen_dir/generate_CANINP.py -t TOTI -v 2q | writeIfUpdated "$merg_dir"/CANTOTI-A511-2q.json
+    python $gen_dir/generate_CANINP.py -t INP -v 2s | writeIfUpdated "$merg_dir"/CANINP-A53E-2s.json
     ;;
 
   CANSERVO)
