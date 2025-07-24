@@ -16,7 +16,6 @@ the production directory.
 | CANACC4-A501-2Q.json    | Discontinued                                         | Functionally same as CANACC4_2       |
 | CANACC4_2-A508-2N.json  | Discontinued                                         | Tested by Sven Rosvall               |
 | CANACC4_2-A508-2Q.json  | Discontinued                                         | Tested by Sven Rosvall               |
-| CANSOL-A522-1B.json     | Kit Locker Basic                                     | Tested by Sven Rosvall               | 
 | CANACC5-A502-2U.json    | Kit Locker Classic                                   | Functionally same as 2V              |
 | CANACC5-A502-2V.json    | Kit Locker Classic                                   | tested by David Ellis                |
 | CANACC8-A503-2V.json    | Discontinued                                         | uses same code base as CANACC5       |
@@ -28,11 +27,14 @@ the production directory.
 | CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                    |
 | CANCSD-A537-4d.json     | RME UK                                               | Similar to CANCMD                    |
 | CANCSD-A537-4f.json     | RME UK                                               | Similar to CANCMD                    |
+| CANINP-A53E-2s.json     | Kit locker basic                                     | Same firmware as CANACE8C            |
 | CANMIO-A520-xx.json     | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall               |
 | CANMIO-OUT-A534-5b.json | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | uses same code base as CANACC5       |
 | CANMIO-SVO-A532-4S.json | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall               |
 | CANSERVO8C-A513-4S.json | CANMIO build option.                                 | Tested by Greg Palmer.               |
+| CANSOL-A522-1B.json     | Kit Locker Basic                                     | Tested by Sven Rosvall               | 
 | CANPAN-A51D-xx.json     | MERG Kitlocker                                       | Tested by Sven Rosvall & Greg Palmer |
+| CANTOTI-A511-2q.json    | Runs on CANACE8C                                     | Same firmware as CANACE8C            |
 | CANXIO-A540-xx.json     | RME UK                                               | Similar to CANMIO with more i/o      |
 
 ## Small Changes Required
@@ -56,7 +58,6 @@ but have not been tested.
 | CANSERVO8C-A513-2U.json | CANMIO build option.                        | |
 | CANSERVO8C-A513-4h.json | CANMIO build option.                        | |            
 | CANSLOT-0D03-1a.json    | ??                                          | |
-| CANTOTI-A511-2q.json    | Runs on CANACE8C                            | |
 | SER1IN1OUT-FAFE-1a.json |                                             | |
 
 ## Files without ```eventVariables```
@@ -68,7 +69,6 @@ These files have been created but event variables have not been added yet.
 | CANACE3C-A51E-3a.json   | Discontinued                                         | |
 | CANACE8MIO-A521-2q.json | CANMIO build option.                                 | |
 | CANBIP-OUT-A535-5b.json | RME UK                                               | |
-| CANINP-A53E-2s.json     | Kit locker basic                                     | |
 | CANLEVER-0D20-1a.json   | ??                                                   | |
 | CANSERVO-A50B-2u.json   | CANMIO build option.                                 | |
 
