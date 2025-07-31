@@ -265,9 +265,7 @@ data = {
                         "displayTitle": "Invert",
                         "type": "EventVariableBitSingle",
                         "eventVariableIndex": 9 + int((led - 1) / 8),
-                        "bit": (led - 1) % 8,
-                        "visibilityLogic": {
-                            "JLL": {"==": [{"EVbit": [5 + int((led - 1) / 8), (led - 1) % 8]}, True]}}
+                        "bit": (led - 1) % 8
                     }
                 ]
             } for led in range(1, LEDs + 1)
@@ -310,8 +308,7 @@ data = {
                             "displayTitle": "Invert",
                             "type": "EventVariableBitSingle",
                             "eventVariableIndex": 9 + int((led - 1) / 8),
-                            "bit": (led - 1) % 8,
-                            "visibilityLogic": {"JLL": {"==": [{"EVbit": [5 + int((led - 1) / 8), (led - 1) % 8]}, True]}}
+                            "bit": (led - 1) % 8
                         }
                     ]
                 } for led in range(1, LEDs + 1)
