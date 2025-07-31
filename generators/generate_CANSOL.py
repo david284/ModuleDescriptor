@@ -99,9 +99,7 @@ data = {
                     "displayTitle": "Invert",
                     "type": "EventVariableBitSingle",
                     "eventVariableIndex": 2,
-                    "bit": ch - 1,
-                    "visibilityLogic": {
-                        "JLL": {"==": [{"EVbit": [1, ch - 1]}, True]}}
+                    "bit": ch - 1
                 }
             ]
         } for ch in range(1, solenoids + 1)
