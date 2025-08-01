@@ -1,6 +1,6 @@
 {
-  "timestamp": "202411092105",
-  "moduleName":"BIP-OUT",
+  "timestamp": "202508012016",
+  "moduleName": "BIP-OUT",
   "nodeVariables": [
     {
       "type": "NodeVariableSlider",

@@ -16,12 +16,12 @@ args = parser.parse_args()
 moduleName = "CANACC8"
 channels = 8
 
+if args.type == "OUT":
+    moduleName = "CANOUT"
 if args.type == "MIO":
-    moduleName = "CANACE8MIO"
-if args.type == "INP":
-    moduleName = "CANINP"
-if args.type == "TOTI":
-    moduleName = "CANTOTI"
+    moduleName = "CANMIO-OUT"
+if args.type == "BIP":
+    moduleName = "CANBIP-OUT"
 
 now = datetime.now(timezone.utc)
 datestring = f"{now.year}{now.month:02}{now.day:02}{now.hour:02}{now.minute:02}"
