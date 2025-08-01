@@ -45,6 +45,11 @@ do
     python $gen_dir/generate_CANINP.py -t TOTI -v 2q | writeIfUpdated "$merg_dir"/CANTOTI-A511-2q.json
     python $gen_dir/generate_CANINP.py -t INP -v 2s | writeIfUpdated "$merg_dir"/CANINP-A53E-2s.json
     ;;
+  
+  CANOUT)
+    # CANACC5, CANACC8, CANMIO-OUT and CANBIP-OUT
+    python $gen_dir/generate_CANOUT.py -v 2V | writeIfUpdated "$merg_dir"/CANACC8-A503-2V.json
+    ;;
 
   CANSERVO)
     # CANMIO-SVO - Default firmware shipped with CANMIO boards.
