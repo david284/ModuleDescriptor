@@ -48,7 +48,9 @@ do
   
   CANOUT)
     # CANACC5, CANACC8, CANMIO-OUT and CANBIP-OUT
-    python $gen_dir/generate_CANOUT.py -v 2V | writeIfUpdated "$merg_dir"/CANACC8-A503-2V.json
+    python $gen_dir/generate_CANOUT.py -t ACC5 -v 2U | writeIfUpdated "$merg_dir"/CANACC5-A502-2U.json
+    python $gen_dir/generate_CANOUT.py -t ACC5 -v 2V | writeIfUpdated "$merg_dir"/CANACC5-A502-2V.json
+    python $gen_dir/generate_CANOUT.py -t ACC8 -v 2V | writeIfUpdated "$merg_dir"/CANACC8-A503-2V.json
     python $gen_dir/generate_CANOUT.py -t OUT -v 5c | writeIfUpdated "$merg_dir"/CANOUT-A53F-5c.json
     python $gen_dir/generate_CANOUT.py -t MIO -v 5b | writeIfUpdated "$merg_dir"/CANMIO-OUT-A534-5b.json
     python $gen_dir/generate_CANOUT.py -t BIP -v 5b | writeIfUpdated "$merg_dir"/CANBIP-OUT-A535-5b.json

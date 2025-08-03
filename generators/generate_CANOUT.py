@@ -16,6 +16,10 @@ args = parser.parse_args()
 moduleName = "CANACC8"
 channels = 8
 
+if args.type == "ACC5":
+    moduleName = "CANACC5"
+if args.type == "ACC8":
+    moduleName = "CANACC8"
 if args.type == "OUT":
     moduleName = "CANOUT"
 if args.type == "MIO":
