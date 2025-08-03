@@ -92,28 +92,8 @@ data = {
             "visibilityLogic": {
                 "JLL": {
                     "or": [
-                        {
-                            "==": [
-                                {
-                                    "EVbit": [
-                                        3,
-                                        0
-                                    ]
-                                },
-                                False
-                            ]
-                        },
-                        {
-                            "==": [
-                                {
-                                    "EVbit": [
-                                        3,
-                                        1
-                                    ]
-                                },
-                                False
-                            ]
-                        }
+                        {"==": [{"EVbit": [3, 0]}, False]},
+                        {"==": [{"EVbit": [3, 1]}, False]}
                     ]
                 }
             },
@@ -134,17 +114,7 @@ data = {
             "displayTitle": "Consumed Event",
             "type": "EventVariableGroup",
             "visibilityLogic": {
-                "JLL": {
-                    "==": [
-                        {
-                            "EVbit": [
-                                3,
-                                7
-                            ]
-                        },
-                        False
-                    ]
-                }
+                "JLL": {"==": [{"EVbit": [3, 7]}, False]}
             },
             "groupItems":
             [
@@ -202,17 +172,7 @@ data = {
             "displayTitle": "Produced Event",
             "type": "EventVariableGroup",
             "visibilityLogic": {
-                "JLL": {
-                    "==": [
-                        {
-                            "EVbit": [
-                                3,
-                                7
-                            ]
-                        },
-                        True
-                    ]
-                }
+                "JLL": {"==": [{"EVbit": [3, 7]}, True]}
             },
             "groupItems": [
                 {
