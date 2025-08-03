@@ -142,85 +142,31 @@ data = {
                     ]
                 }
             },
-            "groupItems": [
+            "groupItems":
+            [
                 {
-                    "type": "EventVariableBitArray",
-                    "visibilityLogic": {
-                        "JLL": {
-                            "or": [
-                                {
-                                    "==": [
-                                        {
-                                            "EVbit": [
-                                                3,
-                                                0
-                                            ]
-                                        },
-                                        False
-                                    ]
-                                },
-                                {
-                                    "==": [
-                                        {
-                                            "EVbit": [
-                                                3,
-                                                1
-                                            ]
-                                        },
-                                        False
-                                    ]
-                                }
+                    "displayTitle": f"${{channel {ch}}}",
+                    "type": "EventVariableGroup",
+                    "groupItems": [
+                        {
+                            "displayTitle": "Set Output",
+                            "type": "EventVariableBitSingle",
+                            "eventVariableIndex": 1,
+                            "bit": ch - 1
+                        },
+                        {
+                            "displayTitle": "Polarity",
+                            "type": "EventVariableSelect",
+                            "eventVariableIndex": 2,
+                            "bitMask": 1 << (ch - 1),
+                            "options": [
+                                {"value": 0, "label": "Normal"},
+                                {"value": 1 << (ch - 1), "label": "Invert"}
                             ]
                         }
-                    },
-                    "eventVariableIndex": 1,
-                    "displayTitle": "Output enable",
-                    "bitCollection": [
-                        {
-                            "bitPosition": ch - 1,
-                            "label": f"${{channel {ch}}}"
-                        } for ch in range(1, channels + 1)
                     ]
-                },
-                {
-                    "type": "EventVariableBitArray",
-                    "visibilityLogic": {
-                        "JLL": {
-                            "or": [
-                                {
-                                    "==": [
-                                        {
-                                            "EVbit": [
-                                                3,
-                                                0
-                                            ]
-                                        },
-                                        False
-                                    ]
-                                },
-                                {
-                                    "==": [
-                                        {
-                                            "EVbit": [
-                                                3,
-                                                1
-                                            ]
-                                        },
-                                        False
-                                    ]
-                                }
-                            ]
-                        }
-                    },
-                    "eventVariableIndex": 2,
-                    "displayTitle": "Enable reverse polarity",
-                    "bitCollection": [
-                        {
-                            "bitPosition": ch - 1,
-                            "label": f"${{channel {ch}}}"
-                        } for ch in range(1, channels + 1)
-                    ]
-                },
+                } for ch in range(1, channels + 1)
+            ] + [
                 {
                     "type": "EventVariableSelect",
                     "eventVariableIndex": 3,
