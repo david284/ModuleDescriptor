@@ -151,10 +151,6 @@ data = {
                         },
                         {
                             "displayTitle": "Direction",
-                            "visibilityLogic": {
-                                "evBit": {"index": 1, "bit": ch - 1},
-                                "equals": 1
-                            },
                             "type": "EventVariableSelect",
                             "eventVariableIndex": 2,
                             "bitMask": 1 << (ch - 1),
