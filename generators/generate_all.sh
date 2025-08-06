@@ -58,8 +58,10 @@ do
 
   CANSERVO)
     # CANMIO-SVO - Default firmware shipped with CANMIO boards.
-    python $gen_dir/generate_CANMIO-SVO.py | writeIfUpdated "$merg_dir"/CANMIO-SVO-A532-4S.json
-    python $gen_dir/generate_CANMIO-SVO.py -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-4S.json
+    python $gen_dir/generate_CANSERVO.py | writeIfUpdated "$merg_dir"/CANMIO-SVO-A532-4S.json
+    python $gen_dir/generate_CANSERVO.py -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-2U.json
+    python $gen_dir/generate_CANSERVO.py -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-4h.json
+    python $gen_dir/generate_CANSERVO.py -t CANSERVO8C | writeIfUpdated "$merg_dir"/CANSERVO8C-A513-4S.json
     ;;
 
   CANMIO)

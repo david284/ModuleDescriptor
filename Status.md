@@ -32,6 +32,8 @@ the production directory.
 | CANMIO-OUT-A534-5b.json | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | Uses same code base as CANACC5       |
 | CANMIO-SVO-A532-4S.json | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall               |
 | CANOUT                  | Kit Locker Basic                                     | Uses same code base as CANACC5       | 
+| CANSERVO8C-A513-2U.json | CANMIO build option.                                 | Functionally same as 4S              |
+| CANSERVO8C-A513-4h.json | CANMIO build option.                                 | Functionally same as 4S              |            
 | CANSERVO8C-A513-4S.json | CANMIO build option.                                 | Tested by Greg Palmer.               |
 | CANSOL-A522-1B.json     | Kit Locker Basic                                     | Tested by Sven Rosvall               | 
 | CANPAN-A51D-xx.json     | MERG Kitlocker                                       | Tested by Sven Rosvall & Greg Palmer |
@@ -56,21 +58,19 @@ but have not been tested.
 | CANLED64-A507-2G.json   | Discontinued                                 | |
 | CANSERVO-A50B-2H.json   | CANMIO build option. Replaced by CANSERVO8C. | |
 | CANSERVO-A50B-3H.json   | CANMIO build option. Replaced by CANSERVO8C. | |
-| CANSERVO8C-A513-2U.json | CANMIO build option.                         | |
-| CANSERVO8C-A513-4h.json | CANMIO build option.                         | |            
 | CANSLOT-0D03-1a.json    | ??                                           | |
 | SER1IN1OUT-FAFE-1a.json | Example included in Arduino CBUS Library.    | |
 
 ## Files without ```eventVariables```
 These files have been created but event variables have not been added yet.
 
-| Filename                | Kit Source                                           | Status                 |
-|-------------------------|------------------------------------------------------|------------------------|
-| CANACE3-A504-2G.json    | Discontinued                                         | |
-| CANACE3C-A51E-3a.json   | Discontinued                                         | |
-| CANACE8MIO-A521-2q.json | CANMIO build option.                                 | |
-| CANLEVER-0D20-1a.json   | ??                                                   | |
-| CANSERVO-A50B-2u.json   | CANMIO build option.                                 | |
+| Filename                | Kit Source                                           | Status                      |
+|-------------------------|------------------------------------------------------|-----------------------------|
+| CANACE3-A504-2G.json    | Discontinued                                         |                             |
+| CANACE3C-A51E-3a.json   | Discontinued                                         |                             |
+| CANACE8MIO-A521-2q.json | CANMIO build option.                                 |                             |
+| CANLEVER-0D20-1a.json   | ??                                                   |                             |
+| CANSERVO-A50B-2u.json   | CANMIO build option.                                 | Older version of CANSERVO8C |
 
 ## Missing files
 The following modules are available in the MERG Kitlocker or from RME UK but 
