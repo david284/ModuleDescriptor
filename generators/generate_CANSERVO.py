@@ -181,14 +181,7 @@ data = {
                     "eventVariableIndex": 3,
                     "bitMask": 28,
                     "options": [
-                        {"value": 0, "label": "Servo 1"},
-                        {"value": 4, "label": "Servo 2"},
-                        {"value": 8, "label": "Servo 3"},
-                        {"value": 12, "label": "Servo 4"},
-                        {"value": 16, "label": "Servo 5"},
-                        {"value": 20, "label": "Servo 6"},
-                        {"value": 24, "label": "Servo 7"},
-                        {"value": 28, "label": "Servo 8"}
+                        {"value": (ch - 1) * 4, "label": f"${{channel {ch}"} for ch in range(1, servos + 1)
                     ]
                 },
                 {
