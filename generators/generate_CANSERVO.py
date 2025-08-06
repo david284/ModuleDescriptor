@@ -1,4 +1,4 @@
-# Generate descriptor file for CANMIO-SVO modules.
+# Generate descriptor file for CANSERVO, CANSERVO8C and CANMIO-SVO modules.
 # Use this script to avoid duplication and reduce maintenance.
 
 # Note: This does not use NV37 for testing servos. Instead using the outputOnWrite flag for end positions
