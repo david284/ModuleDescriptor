@@ -177,7 +177,7 @@ data = {
                     "eventVariableIndex": 3,
                     "bitMask": 28,
                     "options": [
-                        {"value": (ch - 1) * 4, "label": f"${{channel {ch}"} for ch in range(1, servos + 1)
+                        {"value": (ch - 1) * 4, "label": f"${{channel {ch}}}"} for ch in range(1, servos + 1)
                     ]
                 },
                 {
