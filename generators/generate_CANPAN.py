@@ -231,7 +231,7 @@ data = {
             ]
         }
     ] if args.version != "5a" else []) + 
-    [
+    ([ # Not for CANSCAN
         {
             "displayTitle": "LEDs",
             "type": "EventVariableGroup"
@@ -278,8 +278,8 @@ data = {
             } for led in range(1, LEDs + 1)
             ]
         }
-    ] + (
-    [ # Not for v5a
+    ] if args.type != "SCAN" else [] ) + (
+    [ # Not for v5a or CANSCAN
         {
             "displayTitle": "Consumed Event",
             "type": "EventVariableGroup",
@@ -287,7 +287,7 @@ data = {
                 "ev": 1,
                 "equals": 0
             },
-            "groupItems": ([
+            "groupItems": [
                 {
                     "displayTitle": "LED Action",
                     "type": "EventVariableSelect",
@@ -300,7 +300,7 @@ data = {
                         {"value": 248, "label": "Flash"}
                     ]
                 }
-            ] if args.type != "SCAN" else []) + [
+            ] + [
                 {
                     "displayTitle": f"${{channel{led}}}",
                     "type": "EventVariableGroup",
@@ -321,7 +321,7 @@ data = {
                 } for led in range(1, LEDs + 1)
             ]
         }
-    ] if args.version != "5a" else [])
+    ] if args.version != "5a" and args.type != "SCAN" else [])
 }
 
 json.dump(data, sys.stdout, indent=2)
