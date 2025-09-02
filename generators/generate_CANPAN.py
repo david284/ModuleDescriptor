@@ -9,6 +9,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", help="Firmware version")
+parser.add_argument("-t", "--type", help="Module type")
 parser.add_argument("-p", "--processor", help="Processor type")
 args = parser.parse_args()
 
@@ -30,6 +31,10 @@ if args.version == "1Y" or args.version == "4C":
 elif args.version == "5a":
     moduleName = "CANPAN3"
 
+if args.type == "SCAN":
+    moduleName = "CANSCAN"
+    LEDs = 0
+    switches = 128
 
 now = datetime.now(timezone.utc)
 datestring = f"{now.year}{now.month:02}{now.day:02}{now.hour:02}{now.minute:02}"
@@ -169,7 +174,9 @@ data = {
                     "type": "EventVariableBitSingle",
                     "eventVariableIndex": 3,
                     "bit": 4
-                },
+                }
+            ] if args.version != "5a" and args.type != "SCAN" else []) 
+            + ([
                 {
                     "displayTitle": "Send Short Event",
                     "displaySubTitle": "Set this when teaching a produced short events",
@@ -237,7 +244,7 @@ data = {
         } if args.version != "5a" else {}
         ) |
         {
-            "groupItems": [
+            "groupItems": ([
             {
                 "displayTitle": "LED Action",
                 "type": "EventVariableSelect",
@@ -250,7 +257,7 @@ data = {
                     {"value": 248, "label": "Flash"}
                 ]
             }
-            ] + [
+            ] if args.type != "SCAN" else []) + [
             {
                 "displayTitle": f"${{channel{led}}}",
                 "type": "EventVariableGroup",
@@ -280,7 +287,7 @@ data = {
                 "ev": 1,
                 "equals": 0
             },
-            "groupItems": [
+            "groupItems": ([
                 {
                     "displayTitle": "LED Action",
                     "type": "EventVariableSelect",
@@ -293,7 +300,7 @@ data = {
                         {"value": 248, "label": "Flash"}
                     ]
                 }
-            ] + [
+            ] if args.type != "SCAN" else []) + [
                 {
                     "displayTitle": f"${{channel{led}}}",
                     "type": "EventVariableGroup",

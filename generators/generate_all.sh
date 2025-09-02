@@ -101,7 +101,7 @@ do
     ;;
   
   CANSCAN)
-    python $gen_dir/generate_CANSCAN.py -v 4b | writeIfUpdated "$merg_dir"/CANSCAN-A531-4b.json
+    python $gen_dir/generate_CANPAN.py -t SCAN -v 4b | writeIfUpdated "$merg_dir"/CANSCAN-A531-4b.json
     ;;
 
   CANCMD)
