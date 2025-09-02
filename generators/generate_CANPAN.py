@@ -175,7 +175,7 @@ data = {
                     "eventVariableIndex": 3,
                     "bit": 4
                 }
-            ] if args.version != "5a" and args.type != "SCAN" else []) 
+            ] if args.version != "5a" and LEDs > 0 else []) 
             + ([
                 {
                     "displayTitle": "Send Short Event",
@@ -257,7 +257,7 @@ data = {
                     {"value": 248, "label": "Flash"}
                 ]
             }
-            ] if args.type != "SCAN" else []) + [
+            ] if LEDs > 0 else []) + [
             {
                 "displayTitle": f"${{channel{led}}}",
                 "type": "EventVariableGroup",
@@ -278,7 +278,7 @@ data = {
             } for led in range(1, LEDs + 1)
             ]
         }
-    ] if args.type != "SCAN" else [] ) + (
+    ] if LEDs > 0 else [] ) + (
     [ # Not for v5a or CANSCAN
         {
             "displayTitle": "Consumed Event",
@@ -321,7 +321,7 @@ data = {
                 } for led in range(1, LEDs + 1)
             ]
         }
-    ] if args.version != "5a" and args.type != "SCAN" else [])
+    ] if args.version != "5a" and LEDs > 0 else [])
 }
 
 json.dump(data, sys.stdout, indent=2)
