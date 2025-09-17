@@ -47,7 +47,7 @@ data = {
     "numberOfChannels": LEDs + switches,
     "channelNames": {str(ch): f"LED {ch}" for ch in range(1, LEDs + 1)} | 
                     {str(ch + LEDs): f"Switch {ch}" for ch in range(1, switches + 1)},
-    "nodeVariables": [
+    "nodeVariables": ([
         {
             "type": "NodeVariableSelect",
             "nodeVariableIndex": 1,
@@ -68,7 +68,27 @@ data = {
                 {"label": "3 - Restore LED states", "value": 3}
             ] if args.version == "5a" else []
         }
-    ] + (
+    ] if args.type != "SCAN" else
+    [ # Only for CANSCAN
+        {
+            "type": "NodeVariableSelect",
+            "nodeVariableIndex": 1,
+            "bitMask": 127,
+            "displayTitle": "Startup Actions",
+            "options": [
+                {"label": "0 - Send all current taught event states", "value": 0},
+                {"label": "1 - Do nothing", "value": 1},
+                {"label": "2 - Set all taught states to according to switches", "value": 2},
+                {"label": "3 - Set all taught states to OFF", "value": 3}
+            ]
+        },
+        {
+            "displayTitle": "Do not send default events",
+            "type": "NodeVariableBitSingle",
+            "nodeVariableIndex": 1,
+            "bit": 7
+        }
+    ]) + (
     [ # Only for v5a
         {
             "displayTitle": "Startup Event Delay",
