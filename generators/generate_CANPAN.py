@@ -9,6 +9,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--version", help="Firmware version")
+parser.add_argument("-t", "--type", help="Module type")
 parser.add_argument("-p", "--processor", help="Processor type")
 args = parser.parse_args()
 
@@ -30,6 +31,10 @@ if args.version == "1Y" or args.version == "4C":
 elif args.version == "5a":
     moduleName = "CANPAN3"
 
+if args.type == "SCAN":
+    moduleName = "CANSCAN"
+    LEDs = 0
+    switches = 128
 
 now = datetime.now(timezone.utc)
 datestring = f"{now.year}{now.month:02}{now.day:02}{now.hour:02}{now.minute:02}"
@@ -42,7 +47,7 @@ data = {
     "numberOfChannels": LEDs + switches,
     "channelNames": {str(ch): f"LED {ch}" for ch in range(1, LEDs + 1)} | 
                     {str(ch + LEDs): f"Switch {ch}" for ch in range(1, switches + 1)},
-    "nodeVariables": [
+    "nodeVariables": ([
         {
             "type": "NodeVariableSelect",
             "nodeVariableIndex": 1,
@@ -63,7 +68,27 @@ data = {
                 {"label": "3 - Restore LED states", "value": 3}
             ] if args.version == "5a" else []
         }
-    ] + (
+    ] if args.type != "SCAN" else
+    [ # Only for CANSCAN
+        {
+            "type": "NodeVariableSelect",
+            "nodeVariableIndex": 1,
+            "bitMask": 127,
+            "displayTitle": "Startup Actions",
+            "options": [
+                {"label": "0 - Send all current taught event states", "value": 0},
+                {"label": "1 - Do nothing", "value": 1},
+                {"label": "2 - Set all taught states to according to switches", "value": 2},
+                {"label": "3 - Set all taught states to OFF", "value": 3}
+            ]
+        },
+        {
+            "displayTitle": "Do not send default events",
+            "type": "NodeVariableBitSingle",
+            "nodeVariableIndex": 1,
+            "bit": 7
+        }
+    ]) + (
     [ # Only for v5a
         {
             "displayTitle": "Startup Event Delay",
@@ -160,7 +185,7 @@ data = {
                     ],
                     "visibilityLogic": {"JLL": {"and": [
                         {">": [{"EV": 2}, 0]},
-                        {"<": [{"EV": 2}, 32]}
+                        {"<=": [{"EV": 2}, switches]}
                     ]}}
                 }
             ] + ([
@@ -169,7 +194,9 @@ data = {
                     "type": "EventVariableBitSingle",
                     "eventVariableIndex": 3,
                     "bit": 4
-                },
+                }
+            ] if args.version != "5a" and LEDs > 0 else []) 
+            + ([
                 {
                     "displayTitle": "Send Short Event",
                     "displaySubTitle": "Set this when teaching a produced short events",
@@ -211,7 +238,7 @@ data = {
                     ],
                     "visibilityLogic": {"JLL": {"or": [
                         {">": [{"EV": 2}, 0]},
-                        {"<": [{"EV": 2}, 32]}
+                        {"<=": [{"EV": 2}, switches]}
                     ]}}
                 },
                 {
@@ -224,7 +251,7 @@ data = {
             ]
         }
     ] if args.version != "5a" else []) + 
-    [
+    ([ # Not for CANSCAN
         {
             "displayTitle": "LEDs",
             "type": "EventVariableGroup"
@@ -237,7 +264,7 @@ data = {
         } if args.version != "5a" else {}
         ) |
         {
-            "groupItems": [
+            "groupItems": ([
             {
                 "displayTitle": "LED Action",
                 "type": "EventVariableSelect",
@@ -250,7 +277,7 @@ data = {
                     {"value": 248, "label": "Flash"}
                 ]
             }
-            ] + [
+            ] if LEDs > 0 else []) + [
             {
                 "displayTitle": f"${{channel{led}}}",
                 "type": "EventVariableGroup",
@@ -271,8 +298,8 @@ data = {
             } for led in range(1, LEDs + 1)
             ]
         }
-    ] + (
-    [ # Not for v5a
+    ] if LEDs > 0 else [] ) + (
+    [ # Not for v5a or CANSCAN
         {
             "displayTitle": "Consumed Event",
             "type": "EventVariableGroup",
@@ -314,7 +341,7 @@ data = {
                 } for led in range(1, LEDs + 1)
             ]
         }
-    ] if args.version != "5a" else [])
+    ] if args.version != "5a" and LEDs > 0 else [])
 }
 
 json.dump(data, sys.stdout, indent=2)
