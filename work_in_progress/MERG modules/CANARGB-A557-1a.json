@@ -1,326 +1,342 @@
 {
   "generated": "Generated manually by Ian Hogg",
-  "timestamp": "202504021223",
+  "timestamp": "202510311029",
   "moduleName": "CANARGB",
   "nodeVariables": [
     {
       "displayTitle": "Palette entry 0",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 1,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 2,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 3,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 1",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 4,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 5,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 6,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 2",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 7,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 8,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 9,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 3",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 10,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 11,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 12,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 4",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 13,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 14,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 15,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 5",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 16,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 17,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 18,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 6",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 19,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 20,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 21,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 7",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 22,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 23,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 24,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 8",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 25,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 26,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 27,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 9",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 28,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 29,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 30,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 10",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 31,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 32,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 33,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 11",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 34,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 35,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 36,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 12",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 37,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 38,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 39,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 13",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 40,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 41,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 42,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 14",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 43,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 44,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 45,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
       "displayTitle": "Palette entry 15",
       "type": "NodeVariableGroup",
       "groupItems": [
-	{
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 46,
           "displayTitle": "Red"
-	},
-	{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 47,
           "displayTitle": "Green"
-	},{
+        },
+        {
           "type": "NodeVariableNumber",
           "nodeVariableIndex": 48,
           "displayTitle": "Blue"
-	}
+        }
       ]
     },
     {
@@ -328,12 +344,30 @@
       "nodeVariableIndex": 49,
       "displayTitle": "Colour order",
       "options": [
-	{ "label": "RGB", "value":1},
-        { "label": "RBG", "value":2},
-        { "label": "GRB", "value":3},
-        { "label": "GBR", "value":4},
-        { "label": "BGR", "value":5},
-        { "label": "BRG", "value":6}
+        {
+          "label": "RGB",
+          "value": 1
+        },
+        {
+          "label": "RBG",
+          "value": 2
+        },
+        {
+          "label": "GRB",
+          "value": 3
+        },
+        {
+          "label": "GBR",
+          "value": 4
+        },
+        {
+          "label": "BGR",
+          "value": 5
+        },
+        {
+          "label": "BRG",
+          "value": 6
+        }
       ]
     }
   ],
@@ -342,7 +376,7 @@
       "displayTitle": "LED Action 1",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -370,33 +404,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 3
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 4,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 4,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 2",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -424,33 +458,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 7
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 8,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 8,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 3",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -478,33 +512,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 11
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 12,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 12,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 4",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -532,33 +566,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 15
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 16,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 16,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 5",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -586,33 +620,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 19
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 20,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 20,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 6",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -640,33 +674,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 23
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 24,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 24,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 7",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -694,33 +728,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 27
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 28,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 28,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 8",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -748,33 +782,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 31
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 32,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 32,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 9",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -802,33 +836,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 35
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 36,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 36,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 10",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -856,33 +890,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 39
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 40,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 40,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 11",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -910,33 +944,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 43
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 44,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 44,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 12",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -964,33 +998,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 47
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 48,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 48,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 13",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1018,33 +1052,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 51
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 52,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 52,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 14",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1072,33 +1106,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 55
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 56,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 56,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 15",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1126,33 +1160,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 59
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 60,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 60,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 16",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1180,33 +1214,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 63
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 64,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 64,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 17",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1234,33 +1268,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 67
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 68,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 68,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 18",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1288,33 +1322,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 71
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 72,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 72,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 19",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1342,33 +1376,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 75
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 76,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 76,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 20",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1396,33 +1430,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 79
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 80,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 80,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 21",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1450,33 +1484,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 83
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 84,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 84,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 22",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1504,33 +1538,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 87
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 88,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 88,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 23",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1558,33 +1592,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 91
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 92,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 92,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 24",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1612,33 +1646,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 95
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 96,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 96,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 25",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1666,33 +1700,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 99
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 100,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 100,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 26",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1720,33 +1754,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 103
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 104,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 104,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 27",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1774,33 +1808,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 107
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 108,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 108,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 28",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1828,33 +1862,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 111
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 112,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 112,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 29",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1882,33 +1916,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 115
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 116,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 116,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 30",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1936,33 +1970,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 119
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 120,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 120,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 31",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -1990,33 +2024,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 123
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 124,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 124,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 32",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2044,33 +2078,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 127
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 128,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 128,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 33",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2098,33 +2132,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 131
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 132,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 132,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 34",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2152,33 +2186,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 135
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 136,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 136,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 35",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2206,33 +2240,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 139
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 140,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 140,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 36",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2260,33 +2294,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 143
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 144,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 144,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 37",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2314,33 +2348,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 147
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 148,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 148,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 38",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2368,33 +2402,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 151
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 152,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 152,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 39",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2422,33 +2456,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 155
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 156,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 156,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 40",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2476,33 +2510,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 159
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 160,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 160,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 41",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2530,33 +2564,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 163
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 164,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 164,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 42",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2584,33 +2618,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 167
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 168,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 168,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 43",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2638,33 +2672,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 171
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 172,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 172,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 44",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2692,33 +2726,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 175
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 176,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 176,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 45",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2746,33 +2780,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 179
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 180,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 180,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 46",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2800,33 +2834,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 183
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 184,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 184,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 47",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2854,33 +2888,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 187
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 188,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 188,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 48",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2908,33 +2942,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 191
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 192,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 192,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 49",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -2962,33 +2996,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 195
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 196,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 196,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 50",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3016,33 +3050,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 199
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 200,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 200,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 51",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3070,33 +3104,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 203
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 204,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 204,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 52",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3124,33 +3158,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 207
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 208,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 208,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 53",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3178,33 +3212,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 211
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 212,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 212,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 54",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3232,33 +3266,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 215
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 216,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 216,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 55",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3286,33 +3320,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 219
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 220,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 220,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 56",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3340,33 +3374,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 223
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 224,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 224,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 57",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3394,33 +3428,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 227
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 228,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 228,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 58",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3448,33 +3482,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 231
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 232,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 232,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 59",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3502,33 +3536,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 235
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 236,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 236,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 60",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3556,33 +3590,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 239
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 240,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 240,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 61",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3610,33 +3644,33 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 243
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 244,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 244,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     },
     {
       "displayTitle": "LED Action 62",
       "type": "EventVariableGroup",
       "groupItems": [
-	{
+        {
           "displayTitle": "Action",
           "type": "EventVariableGroup",
           "groupItems": [
@@ -3664,29 +3698,27 @@
           "type": "EventVariableNumber",
           "eventVariableIndex": 247
         },
-	{
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 248,
-	  "displayTitle": "Flash A",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash A",
+          "displaySubTitle": "Palette index",
           "startBit": 0,
           "endBit": 3,
           "max": 15,
           "min": 0
-	},
-	{
+        },
+        {
           "type": "EventVariableNumber",
           "eventVariableIndex": 248,
-	  "displayTitle": "Flash B",
-	  "displaySubTitle": "Palette index",
+          "displayTitle": "Flash B",
+          "displaySubTitle": "Palette index",
           "startBit": 4,
           "endBit": 7,
           "max": 15,
           "min": 0
-	}
+        }
       ]
     }
-  ],
-  "moduleDescriptorFilename": "CANARGB-A5FC-1a.json",
-  "moduleDescriptorLocation": "USER"
+  ]
 }
