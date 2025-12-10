@@ -27,6 +27,7 @@ processorSeries = "K"
 hasAnalogue = False
 hasServo180 = False
 hasLEDSW = False
+hasCDU = False
 canPreventDefaultEvents = False
 
 if args.type == "MIO":
@@ -35,6 +36,10 @@ elif args.type == "XIO":
     moduleType = "XIO"
     moduleName = "CANXIO"
     channels = 24
+elif args.type == "CDU":
+    hasCDU = True
+    moduleName = "CANCDU_U"
+    channels = 14
 elif args.type is not None:
     print(f"Unknown module type '{args.type}'")
     exit(1)
@@ -217,6 +222,15 @@ data = {
                     ) + (
                     [
                         {
+                            "type": "NodeVariableNumber",
+                            "nodeVariableIndex": 9,
+                            "displayTitle": "Capacitor recharge time",
+                            "displaySubTitle": "milliseconds",
+                        }
+                    ] if hasCDU == True else []
+                    ) + (
+                    [
+                        {
                             "type": "NodeVariableBitArray",
                             "nodeVariableIndex": 10,
                             "displayTitle": "Module flags",
@@ -239,25 +253,28 @@ data = {
                             "displayTitle": "I/O type",
                             "displaySubTitle": "",
                             "options": [
-                                {"label": "INPUT", "value": 0},
-                                {"label": "OUTPUT", "value": 1}
-                            ] + (
-                            [
-                                {"label": "SERVO", "value": 2},
-                                {"label": "BOUNCE", "value": 3},
-                                {"label": "MULTI", "value": 4}
-                            ] if ch <= 16 else []) + (
-                            [
-                                {"label": "ANALOGUE", "value": 5},
-                                {"label": "MAGNET", "value": 6}
-                            ] if hasAnalogue and (processorSeries == "Q" or (
-                                    9 <= ch <= channels and ch != 12)) else []) + (
-                            [
-                                {"label": "LEDSW", "value": 9}
-                            ] if (hasLEDSW) else []),
-                            "linkedVariables": {
-                                "NV": list(range(10 + ch * 7, 16 + ch * 7))
-                            }
+                                    {"label": "CDU", "value": 7}
+                                ] if hasCDU and (ch <= 8) else 
+                                [
+                                    {"label": "INPUT", "value": 0},
+                                    {"label": "OUTPUT", "value": 1}
+                                ] + (
+                                [
+                                    {"label": "SERVO", "value": 2},
+                                    {"label": "BOUNCE", "value": 3},
+                                    {"label": "MULTI", "value": 4}
+                                ] if ch <= 16 else []) + (
+                                [
+                                    {"label": "ANALOGUE", "value": 5},
+                                    {"label": "MAGNET", "value": 6}
+                                ] if hasAnalogue and (processorSeries == "Q" or (
+                                        9 <= ch <= channels and ch != 12)) else []) + (
+                                [
+                                    {"label": "LEDSW", "value": 9}
+                                ] if (hasLEDSW) else []),
+                                "linkedVariables": {
+                                    "NV": list(range(10 + ch * 7, 16 + ch * 7))
+                                }
                         },
                         {
                             "type": "NodeVariableSlider",
@@ -312,7 +329,21 @@ data = {
                                 {"label": "3 positions", "value": 3},
                                 {"label": "4 positions", "value": 4}
                             ]
+                        }
+                    ] + (
+                    [
+                        {
+                            "type": "NodeVariableSlider",
+                            "comment": "cdu type only",
+                            "visibilityLogic": {"nv": 9 + ch * 7, "equals": 7},
+                            "nodeVariableIndex": 11 + ch * 7,
+                            "displayTitle": "Pulse duration",
+                            "displaySubTitle": "output specific",
+                            "displayUnits": "seconds",
+                            "displayScale": 0.01
                         },
+                    ] if hasCDU else []) + (
+                    [
                         {
                             "type": "NodeVariableSlider",
                             "comment": "input type only",
@@ -442,7 +473,7 @@ data = {
                             "displayUnits": "steps",
                             "outputOnWrite": True
                         }
-                    ] + (
+                    ]) + (
                     [
                         {
                             "displayTitle": "Magnet Setup",
@@ -742,8 +773,12 @@ data = {
                                     {"value": 1, "label": f"${{channel{ch}}} - Change"},
                                     {"value": 2, "label": f"${{channel{ch}}} - Change"},
                                     {"value": 3, "label": f"${{channel{ch}}} - Change"},
-                                    {"value": 4, "label": f"${{channel{ch}}} - AT1"}
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT1"},
                                 ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - Change"}
+                                ] if hasCDU else [])
+                                + (
                                 [
                                     {"value": 9, "label": f"${{channel{ch}}} - Change"}
                                 ] if hasLEDSW else [])
@@ -757,8 +792,12 @@ data = {
                                     {"value": 1, "label": f"${{channel{ch}}} - ON"},
                                     {"value": 2, "label": f"${{channel{ch}}} - ON"},
                                     {"value": 3, "label": f"${{channel{ch}}} - ON"},
-                                    {"value": 4, "label": f"${{channel{ch}}} - AT2"}
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT2"},
                                 ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - ON"}
+                                ] if hasCDU else [])
+                                + (
                                 [
                                     {"value": 9, "label": f"${{channel{ch}}} - ON"}
                                 ] if hasLEDSW else [])
@@ -772,8 +811,12 @@ data = {
                                     {"value": 1, "label": f"${{channel{ch}}} - OFF"},
                                     {"value": 2, "label": f"${{channel{ch}}} - OFF"},
                                     {"value": 3, "label": f"${{channel{ch}}} - OFF"},
-                                    {"value": 4, "label": f"${{channel{ch}}} - AT3"}
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT3"},
                                 ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - OFF"}
+                                ] if hasCDU else [])
+                                + (
                                 [
                                     {"value": 9, "label": f"${{channel{ch}}} - OFF"}
                                 ] if hasLEDSW else [])
@@ -799,8 +842,12 @@ data = {
                                 "labels": [
                                     {"value": 1, "label": f"${{channel{ch}}} - !Change"},
                                     {"value": 2, "label": f"${{channel{ch}}} - !Change"},
-                                    {"value": 3, "label": f"${{channel{ch}}} - !Change"}
+                                    {"value": 3, "label": f"${{channel{ch}}} - !Change"},
                                 ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - !Change"}
+                                ] if hasCDU else [])
+                                + (
                                 [
                                     {"value": 9, "label": f"${{channel{ch}}} - !Change"}
                                 ] if hasLEDSW else [])
