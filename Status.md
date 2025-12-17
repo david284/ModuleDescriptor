@@ -23,6 +23,7 @@ the production directory.
 | CANACE8C-A505-2p.json   | Kit Locker Classic                                   | Functionally same as 2q                         |
 | CANACE8C-A505-2q.json   | Kit Locker Classic                                   | Tested by Sven Rosvall                          |
 | CANBIP-OUT-A535-5b.json | RME UK                                               | Uses same code base as CANACC5                  |
+| CANCDU-A524-1c.json     | RME UK                                               | Tested by Neale Brodie                          |
 | CANCMD-A50A-4f.json     | MERG Kitlocker                                       | Tested by Simon West                            |
 | CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                               |
 | CANCSD-A537-4d.json     | RME UK                                               | Similar to CANCMD                               |
@@ -81,7 +82,6 @@ do not yet have any Module Descriptor File.
 |----------|---------------------|--------------------------------|
 | CANVINP  | Kit Locker Advanced | Works with Universal firmware. | 
 | CANV4BIP | Kit Locker Advanced | Works with Universal firmware. |
-| CANCDU   | RME UK              |                                |
 | CANDISP  | RME UK              | Development of CANLED64        |
 
 There are more module firmwares describe in the MERG Knowledgebase.
