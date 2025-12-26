@@ -26,9 +26,11 @@ the production directory.
 | CANCDU-A524-1c.json     | RME UK                                               | Tested by Neale Brodie                          |
 | CANCMD-A50A-4f.json     | MERG Kitlocker                                       | Tested by Simon West                            |
 | CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                               |
-| CANCSD-A537-4d.json     | RME UK                                               | Similar to CANCMD                               |
-| CANCSD-A537-4f.json     | RME UK                                               | Similar to CANCMD                               |
+| CANCSB-A537-4d.json     | RME UK                                               | Similar to CANCMD                               |
+| CANCSB-A537-4f.json     | RME UK                                               | Similar to CANCMD                               |
+| CANDISP-A53B-4D.json    | RME UK                                               | Development of CANLED64                         |
 | CANINP-A53E-2s.json     | Kit locker basic                                     | Same firmware as CANACE8C                       |
+| CANLED64-A507-2G.json   | Discontinued                                         | Tested by Steven Wing                           |
 | CANMIO-A520-xx.json     | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall                          |
 | CANMIO-OUT-A534-5b.json | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | Uses same code base as CANACC5                  |
 | CANMIO-SVO-A532-4S.json | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall                          |
@@ -56,8 +58,6 @@ but have not been tested.
 | Filename                | Kit Source                                   | Status                 |
 |-------------------------|----------------------------------------------|------------------------|
 | CAN1IN1OUT-0D63-1a.json | Example included in Arduino CBUS Library.    | |
-| CANCSB-A537-4d          | copy of CANCMD-A50A-4d.json                  | |
-| CANLED64-A507-2G.json   | Discontinued                                 | |
 | CANSERVO-A50B-2H.json   | CANMIO build option. Replaced by CANSERVO8C. | |
 | CANSERVO-A50B-3H.json   | CANMIO build option. Replaced by CANSERVO8C. | |
 | CANSLOT-0D03-1a.json    | ??                                           | |
@@ -82,7 +82,6 @@ do not yet have any Module Descriptor File.
 |----------|---------------------|--------------------------------|
 | CANVINP  | Kit Locker Advanced | Works with Universal firmware. | 
 | CANV4BIP | Kit Locker Advanced | Works with Universal firmware. |
-| CANDISP  | RME UK              | Development of CANLED64        |
 
 There are more module firmwares describe in the MERG Knowledgebase.
 These will be added to the wish list upon request.
