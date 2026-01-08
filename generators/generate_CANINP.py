@@ -73,13 +73,13 @@ data = {
                 },
                 {
                     "type": "NodeVariableBitSingle",
-                    "nodeVariableIndex": 3,
+                    "nodeVariableIndex": 6,
                     "displayTitle": "Toggle",
                     "bit": ch - 1
                 },
                 {
                     "type": "NodeVariableBitSingle",
-                    "nodeVariableIndex": 6,
+                    "nodeVariableIndex": 3,
                     "displayTitle": "Delay",
                     "bit": ch - 1
                 },
