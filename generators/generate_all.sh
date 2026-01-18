@@ -4,7 +4,7 @@
 
 if [ $# -eq 0 ]
 then
-  groups=(CANINP CANSERVO CANMIO CANPAN CANSCAN CANCMD CANSOL)
+  groups=(CANINP CANSERVO CANMIO CANPAN CANSCAN CANCMD CANSOL CANARGB)
   # NOTE: CANLEVER is not in the list as its generator is out of date.
 else
   groups="$@"
@@ -129,6 +129,10 @@ do
     
     python $gen_dir/generate_CANCMD.py -t CMDB -v 4f | writeIfUpdated "$merg_dir"/CANCMDB-A553-4f.json
     ;;
+  
+  CANARGB)
+    python $gen_dir/generate_CANARGB.py -v 1a | writeIfUpdated "$merg_dir"/CANARGB-A557-1a.json
+    ;;    
 
   *)
     echo "Unknown module group: $g"
