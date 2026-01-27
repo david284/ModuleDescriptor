@@ -31,14 +31,17 @@ the production directory.
 | CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                               |
 | CANCSB-A537-4d.json     | RME UK                                               | Similar to CANCMD                               |
 | CANCSB-A537-4f.json     | RME UK                                               | Similar to CANCMD                               |
-| CANDISP-A53B-4D.json    | RME UK                                               | Development of CANLED64                         |
+| CANDISP-A53B-4D.json    | RME UK                                               | Development of CANLED64. Tested by Stephen Wing |
+| CANGATE-A54B-1b.json    | RME UK                                               | Logic Module                                    |
+| CANGATEX-A56F-1f.json   | RME UK (with custom Arduino code)                    | Logic Module. Tested by Stephen Wing            |
+| CANGATEX-A56F-1g.json   | RME UK (with custom Arduino code)                    | Logic Module. New NV25. Tested by Stephen Wing  |
 | CANINP-A53E-2s.json     | Kit locker basic                                     | Same firmware as CANACE8C                       |
-| CANLED64-A507-2G.json   | Discontinued                                         | Tested by Steven Wing                           |
+| CANLED64-A507-2G.json   | Discontinued                                         | Tested by Stephen Wing                          |
 | CANMIO-A520-xx.json     | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall                          |
 | CANMIO-OUT-A534-5b.json | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | Uses same code base as CANACC5                  |
 | CANMIO-SVO-A532-4S.json | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall                          |
 | CANOUT                  | Kit Locker Basic                                     | Uses same code base as CANACC5                  |
-| CANSCAN                 | RME UK                                               | Develoment of CANACE3C. Tested by Robert Thomas |
+| CANSCAN                 | RME UK                                               | Development of CANACE3C. Tested by Robert Thomas|
 | CANSERVO8C-A513-2U.json | CANMIO build option.                                 | Functionally same as 4S                         |
 | CANSERVO8C-A513-4h.json | CANMIO build option.                                 | Functionally same as 4S                         |
 | CANSERVO8C-A513-4S.json | CANMIO build option.                                 | Tested by Greg Palmer.                          |
