@@ -31,6 +31,7 @@ the production directory.
 | CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                               |
 | CANCSB-A537-4d.json     | RME UK                                               | Similar to CANCMD                               |
 | CANCSB-A537-4f.json     | RME UK                                               | Similar to CANCMD                               |
+| CANDISP-A53B-4C.json    | RME UK                                               | Development of CANLED64. Same as 4D             |
 | CANDISP-A53B-4D.json    | RME UK                                               | Development of CANLED64. Tested by Stephen Wing |
 | CANGATE-A54B-1b.json    | RME UK                                               | Logic Module                                    |
 | CANGATEX-A56F-1f.json   | RME UK (with custom Arduino code)                    | Logic Module. Tested by Stephen Wing            |
