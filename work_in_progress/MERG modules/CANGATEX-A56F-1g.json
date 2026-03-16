@@ -53,8 +53,8 @@
       "type": "NodeVariableDual",
       "displayTitle": "Base Value for DN",
       "displaySubTitle": "for short events",
-      "nodeVariableIndexHigh": 4,
-      "nodeVariableIndexLow": 5
+      "nodeVariableIndexHigh": 22,
+      "nodeVariableIndexLow": 23
     },   
     {
       "type": "NodeVariableGroup",
