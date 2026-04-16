@@ -13,43 +13,44 @@ to the ModuleDescriptor repository.
 The following files are complete and need a final review before moving to
 the production directory.
 
-| Filename                | Kit Source                                           | Status                                          |
-| ----------------------- | ---------------------------------------------------- | ----------------------------------------------- |
-| CANACC4-A501-2Q.json    | Discontinued                                         | Functionally same as CANACC4_2                  |
-| CANACC4_2-A508-2N.json  | Discontinued                                         | Tested by Sven Rosvall                          |
-| CANACC4_2-A508-2Q.json  | Discontinued                                         | Tested by Sven Rosvall                          |
-| CANACC5-A502-2U.json    | Kit Locker Classic                                   | Functionally same as 2V                         |
-| CANACC5-A502-2V.json    | Kit Locker Classic                                   | tested by David Ellis                           |
-| CANACC8-A503-2V.json    | Discontinued                                         | Uses same code base as CANACC5                  |
-| CANACE8C-A505-2n.json   | Kit Locker Classic                                   | Functionally same as 2q                         |
-| CANACE8C-A505-2p.json   | Kit Locker Classic                                   | Functionally same as 2q                         |
-| CANACE8C-A505-2q.json   | Kit Locker Classic                                   | Tested by Sven Rosvall                          |
-| CANBIP-OUT-A535-5b.json | RME UK                                               | Uses same code base as CANACC5                  |
-| CANCDU_U-A558-4d--P23.json     | RME UK                                               | Created by Ian Hogg                          |
-| CANCDU-A524-1c.json     | RME UK                                               | Tested by Neale Brodie                          |
-| CANCMD-A50A-4f.json     | MERG Kitlocker                                       | Tested by Simon West                            |
-| CANCMDB-A553-4f.json    | In development                                       | Similar to CANCMD                               |
-| CANCSB-A537-4d.json     | RME UK                                               | Similar to CANCMD                               |
-| CANCSB-A537-4f.json     | RME UK                                               | Similar to CANCMD                               |
-| CANDISP-A53B-4C.json    | RME UK                                               | Development of CANLED64. Same as 4D             |
-| CANDISP-A53B-4D.json    | RME UK                                               | Development of CANLED64. Tested by Stephen Wing |
-| CANGATE-A54B-1b.json    | RME UK                                               | Logic Module                                    |
-| CANGATEX-A56F-1f.json   | RME UK (with custom Arduino code)                    | Logic Module. Tested by Stephen Wing            |
-| CANGATEX-A56F-1g.json   | RME UK (with custom Arduino code)                    | Logic Module. New NV25. Tested by Stephen Wing  |
-| CANINP-A53E-2s.json     | Kit locker basic                                     | Same firmware as CANACE8C                       |
-| CANLED64-A507-2G.json   | Discontinued                                         | Tested by Stephen Wing                          |
-| CANMIO-A520-xx.json     | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall                          |
-| CANMIO-OUT-A534-5b.json | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | Uses same code base as CANACC5                  |
-| CANMIO-SVO-A532-4S.json | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall                          |
-| CANOUT                  | Kit Locker Basic                                     | Uses same code base as CANACC5                  |
-| CANSCAN                 | RME UK                                               | Development of CANACE3C. Tested by Robert Thomas|
-| CANSERVO8C-A513-2U.json | CANMIO build option.                                 | Functionally same as 4S                         |
-| CANSERVO8C-A513-4h.json | CANMIO build option.                                 | Functionally same as 4S                         |
-| CANSERVO8C-A513-4S.json | CANMIO build option.                                 | Tested by Greg Palmer.                          |
-| CANSOL-A522-1B.json     | Kit Locker Basic                                     | Tested by Sven Rosvall                          |
-| CANPAN-A51D-xx.json     | MERG Kitlocker                                       | Tested by Sven Rosvall & Greg Palmer            |
-| CANTOTI-A511-2q.json    | Runs on CANACE8C                                     | Same firmware as CANACE8C                       |
-| CANXIO-A540-xx.json     | RME UK                                               | Similar to CANMIO with more i/o                 |
+| Filename                   | Kit Source                                           | Status                                           |
+| -------------------------- | ---------------------------------------------------- | ------------------------------------------------ |
+| CANACC4-A501-2Q.json       | Discontinued                                         | Functionally same as CANACC4_2                   |
+| CANACC4_2-A508-2N.json     | Discontinued                                         | Tested by Sven Rosvall                           |
+| CANACC4_2-A508-2Q.json     | Discontinued                                         | Tested by Sven Rosvall                           |
+| CANACC5-A502-2U.json       | Kit Locker Classic                                   | Functionally same as 2V                          |
+| CANACC5-A502-2V.json       | Kit Locker Classic                                   | tested by David Ellis                            |
+| CANACC8-A503-2V.json       | Discontinued                                         | Uses same code base as CANACC5                   |
+| CANACE8C-A505-2n.json      | Kit Locker Classic                                   | Functionally same as 2q                          |
+| CANACE8C-A505-2p.json      | Kit Locker Classic                                   | Functionally same as 2q                          |
+| CANACE8C-A505-2q.json      | Kit Locker Classic                                   | Tested by Sven Rosvall                           |
+| CANBIP-OUT-A535-5b.json    | RME UK                                               | Uses same code base as CANACC5                   |
+| CANCDU_U-A558-4d--P23.json | RME UK                                               | Created by Ian Hogg                              |
+| CANCDU-A524-1c.json        | RME UK                                               | Tested by Neale Brodie                           |
+| CANCMD-A50A-4f.json        | MERG Kitlocker                                       | Tested by Simon West                             |
+| CANCMDB-A553-4f.json       | In development                                       | Similar to CANCMD                                |
+| CANCSB-A537-4d.json        | RME UK                                               | Similar to CANCMD                                |
+| CANCSB-A537-4f.json        | RME UK                                               | Similar to CANCMD                                |
+| CANDISP-A53B-4C.json       | RME UK                                               | Development of CANLED64. Same as 4D              |
+| CANDISP-A53B-4D.json       | RME UK                                               | Development of CANLED64. Tested by Stephen Wing  |
+| CANGATE-A54B-1b.json       | RME UK                                               | Logic Module                                     |
+| CANGATEX-A56F-1f.json      | RME UK (with custom Arduino code)                    | Logic Module. Tested by Stephen Wing             |
+| CANGATEX-A56F-1g.json      | RME UK (with custom Arduino code)                    | Logic Module. New NV25. Tested by Stephen Wing   |
+| CANGATEXL-A55A-2a.json     | RME UK (with custom Arduino code)                    | Logic Module. MDF supplied by Terry Bailey       |
+| CANINP-A53E-2s.json        | Kit locker basic                                     | Same firmware as CANACE8C                        |
+| CANLED64-A507-2G.json      | Discontinued                                         | Tested by Stephen Wing                           |
+| CANMIO-A520-xx.json        | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall                           |
+| CANMIO-OUT-A534-5b.json    | CANMIO-OUT in RME UK; CANVOUT in Kit Locker Advanced | Uses same code base as CANACC5                   |
+| CANMIO-SVO-A532-4S.json    | MERG Kitlocker CANMIO & CANVSERVO                    | Tested by Sven Rosvall                           |
+| CANOUT                     | Kit Locker Basic                                     | Uses same code base as CANACC5                   |
+| CANSCAN                    | RME UK                                               | Development of CANACE3C. Tested by Robert Thomas |
+| CANSERVO8C-A513-2U.json    | CANMIO build option.                                 | Functionally same as 4S                          |
+| CANSERVO8C-A513-4h.json    | CANMIO build option.                                 | Functionally same as 4S                          |
+| CANSERVO8C-A513-4S.json    | CANMIO build option.                                 | Tested by Greg Palmer.                           |
+| CANSOL-A522-1B.json        | Kit Locker Basic                                     | Tested by Sven Rosvall                           |
+| CANPAN-A51D-xx.json        | MERG Kitlocker                                       | Tested by Sven Rosvall & Greg Palmer             |
+| CANTOTI-A511-2q.json       | Runs on CANACE8C                                     | Same firmware as CANACE8C                        |
+| CANXIO-A540-xx.json        | RME UK                                               | Similar to CANMIO with more i/o                  |
 
 ## Small Changes Required
 
