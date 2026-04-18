@@ -309,6 +309,9 @@
     "comment": {"type": "string"},
     "numberOfChannels": { "type": "integer"},
     "channelNames": { "type": "object"},
+    "tokens": {
+      "type": "object"
+    },
     "nodeVariables": {"$ref": "#/$defs/nodeVariablesSchema"},
     "eventVariables": {"$ref": "#/$defs/eventVariablesSchema"},
     "nodeVariableInformation": {"type": "string"},
