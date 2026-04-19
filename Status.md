@@ -36,6 +36,8 @@ the production directory.
 | CANGATE-A54B-1b.json    | RME UK                                               | Logic Module                                    |
 | CANGATEX-A56F-1f.json   | RME UK (with custom Arduino code)                    | Logic Module. Tested by Stephen Wing            |
 | CANGATEX-A56F-1g.json   | RME UK (with custom Arduino code)                    | Logic Module. New NV25. Tested by Stephen Wing  |
+| CANGATEX-A559-2a.json   | RME UK (with custom Arduino code)                    | Initial support of v2.                          |
+| CANGATEXL-A55A-2a.json  | RME UK (with custom Arduino code)                    | XL version. Initial support of v2.              |
 | CANINP-A53E-2s.json     | Kit locker basic                                     | Same firmware as CANACE8C                       |
 | CANLED64-A507-2G.json   | Discontinued                                         | Tested by Stephen Wing                          |
 | CANMIO-A520-xx.json     | Universal firmware for CANMIO & CANVxxx kits.        | Tested by Sven Rosvall                          |
