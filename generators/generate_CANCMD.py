@@ -150,8 +150,8 @@ data = {
                 {
                     "displayTitle": "DCC Accessory Mapped Node",
                     "type": "NodeVariableDual",
-                    "nodeVariableIndexHigh": 11,
-                    "nodeVariableIndexLow": 12
+                    "nodeVariableIndexHigh": 12,
+                    "nodeVariableIndexLow": 11
                 }
             ]
         },
