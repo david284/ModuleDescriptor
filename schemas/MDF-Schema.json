@@ -63,6 +63,26 @@
         }
       }
     },
+    "collectionOptionsSchema": {
+      "type": "array",
+      "items": {
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "value": {             
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "nodeVariablesSchema": {
       "type": "array",
       "items": {
@@ -201,13 +221,18 @@
               "EventVariableNumber",
               "EventVariableSlider",
               "EventVariableSelect",
-              "EventVariableTabs"
+              "EventVariableTabs",
+              "EventVariableCollectionSelect"
             ]
           },
           "comment": { "type": "string"},
           "eventVariableIndex": { "type": "integer", "minimum": 1},
           "eventVariableIndexHigh": { "type": "integer", "minimum": 1},
           "eventVariableIndexLow": { "type": "integer", "minimum": 1},
+          "eventVariableCollection": { 
+            "type": "array", 
+            "items":  { "type":  "integer"}
+          },
           "linkedVariables": {
             "type": "object",
             "properties": {
@@ -232,7 +257,9 @@
             "$ref": "#/$defs/bitCollectionSchema"
           },
           "options": {
-            "$ref": "#/$defs/optionsSchema"
+            "if": { "properties": { "type":  { "const": "EventVariableCollectionSelect"}}},
+            "then": { "$ref": "#/$defs/collectionOptionsSchema"},
+            "else": { "$ref": "#/$defs/optionsSchema" }
           },
           "groupItems" : {
             "$ref": "#/$defs/eventVariablesSchema"            
@@ -283,6 +310,10 @@
           {
             "if": { "properties": { "type": { "const": "EventVariableDual" }}},
             "then": { "required": [ "eventVariableIndexHigh", "eventVariableIndexLow" ]}
+          },
+          {
+            "if": { "properties": { "type": { "const": "EventVariableCollectionSelect" }}},
+            "then": { "required": [ "eventVariableCollection", "options" ]}
           }
         ]
       }
