@@ -424,7 +424,7 @@ data = {
                             "displayTitle": "OFF to ON speed",
                             "displaySubTitle": "servo specific",
                             "displayUnits": "",
-                            "min": 2 if processorSeries == "ESP" else 230
+                            "min": [2] if processorSeries == "ESP" else [230]
                         },
                         {
                             "type": "NodeVariableSlider",
@@ -453,7 +453,7 @@ data = {
                             "displayTitle": "ON to OFF speed",
                             "displaySubTitle": "servo specific",
                             "displayUnits": "",
-                            "min": 2 if processorSeries == "ESP" else 230
+                            "min": [2] if processorSeries == "ESP" else [230]
                         },
                         {
                             "type": "NodeVariableSlider",
@@ -701,81 +701,70 @@ data = {
         }
     ],
     "eventVariables": [
-    ]
-}
-
-advancedEventVariables = [
         {
             "type": "EventVariableSelect",
             "eventVariableIndex": 1,
             "displayTitle": "Produced event",
             "displaySubTitle": "EV1",
             "options": [
-                            {"value": 0, "label": "no event (0)"},
-                            {"value": 1, "label": "Startup event (1)"},
-                        ] + flatten(
-                [
-                     {
-                         "value": 4 + ch * 4,
-                         "overload": {
-                             "nv": 9 + ch * 7,
-                             "labels": [
-                                           {"value": 0,
-                                            "label": f"${{channel{ch}}} - Input Changed"},
-                                           {"value": 1,
-                                            "label": f"${{channel{ch}}} - Output Changed"},
-                                           {"value": 2, "label": f"${{channel{ch}}} - Reached OFF"},
-                                           {"value": 3,
-                                            "label": f"${{channel{ch}}} - Output Changed"},
-                                           {"value": 4, "label": f"${{channel{ch}}} - AT1"},
-                                       ] + (
-                                           [
-                                               {"value": 5,
-                                                "label": f"${{channel{ch}}} - Threshold"},
-                                               {"value": 6,
-                                                "label": f"${{channel{ch}}} - Lower Threshold"}
-                                           ] if hasAnalogue else []) + (
-                                           [
-                                               {"value": 9,
-                                                "label": f"${{channel{ch}}} - Switch Changed"}
-                                           ] if hasLEDSW else [])
-                         }
-                     },
-                     {
-                         "value": 5 + ch * 4,
-                         "overload": {
-                             "nv": 9 + ch * 7,
-                             "labels": [
-                                           {"value": 0, "label": f"${{channel{ch}}} - TWO_ON"},
-                                           {"value": 2, "label": f"${{channel{ch}}} - Reached MID"},
-                                           {"value": 4, "label": f"${{channel{ch}}} - AT2"},
-                                       ] + (
-                                           [
-                                               {"value": 6,
-                                                "label": f"${{channel{ch}}} - Upper Threshold"}
-                                           ] if hasAnalogue else [])
-                         }
-                     },
-                     {
-                         "value": 6 + ch * 4,
-                         "overload": {
-                             "nv": 9 + ch * 7,
-                             "labels": [
-                                 {"value": 2, "label": f"${{channel{ch}}} - Reached ON"},
-                                 {"value": 4, "label": f"${{channel{ch}}} - AT3"}
-                             ]
-                         }
-                     },
-                     {
-                         "value": 7 + ch * 4,
-                         "overload": {
-                             "nv": 9 + ch * 7,
-                             "labels": [
-                                 {"value": 4, "label": f"${{channel{ch}}} - AT4"}
-                             ]
-                         }
-                     }
-                 ] for ch in range(1, channels + 1)),
+                {"value": 0, "label": "no event (0)"},
+                {"value": 1, "label": "Startup event (1)"},
+            ] + flatten(
+            [
+                {
+                    "value": 4 + ch * 4,
+                    "overload": {
+                        "nv": 9 + ch * 7,
+                        "labels": [
+                            {"value": 0, "label": f"${{channel{ch}}} - Input Changed"},
+                            {"value": 1, "label": f"${{channel{ch}}} - Output Changed"},
+                            {"value": 2, "label": f"${{channel{ch}}} - Reached OFF"},
+                            {"value": 3, "label": f"${{channel{ch}}} - Output Changed"},
+                            {"value": 4, "label": f"${{channel{ch}}} - AT1"},
+                        ] + (
+                        [
+                            {"value": 5, "label": f"${{channel{ch}}} - Threshold"},
+                            {"value": 6, "label": f"${{channel{ch}}} - Lower Threshold"}
+                        ] if hasAnalogue else []) + (
+                        [
+                            {"value": 9, "label": f"${{channel{ch}}} - Switch Changed"}
+                        ] if hasLEDSW else [])
+                    }
+                },
+                {
+                    "value": 5 + ch * 4,
+                    "overload": {
+                        "nv": 9 + ch * 7,
+                        "labels": [
+                            {"value": 0, "label": f"${{channel{ch}}} - TWO_ON"},
+                            {"value": 2, "label": f"${{channel{ch}}} - Reached MID"},
+                            {"value": 4, "label": f"${{channel{ch}}} - AT2"},
+                        ] + (
+                        [
+                            {"value": 6, "label": f"${{channel{ch}}} - Upper Threshold"}
+                        ] if hasAnalogue else [])
+                    }
+                },
+                {
+                    "value": 6 + ch * 4,
+                    "overload": {
+                        "nv": 9 + ch * 7,
+                        "labels": [
+                            {"value": 2, "label": f"${{channel{ch}}} - Reached ON"},
+                            {"value": 4, "label": f"${{channel{ch}}} - AT3"}
+                        ]
+                    }
+                },
+                {
+                    "value": 7 + ch * 4,
+                    "overload": {
+                        "nv": 9 + ch * 7,
+                        "labels": [
+                            {"value": 4, "label": f"${{channel{ch}}} - AT4"}
+                        ]
+                    }
+                }
+            ] for ch in range(1, channels + 1)),
             "comment": "end of EV1"
         }
     ] + [
@@ -783,236 +772,122 @@ advancedEventVariables = [
             "displayTitle": f"Consumed Event - EV{ev}",
             "type": "EventVariableGroup",
             "groupItems": [
-                 {
-                     "type": "EventVariableSelect",
-                     "bitMask": 127,
-                     "eventVariableIndex": ev,
-                     "displayTitle": "Action",
-                     "options": [
-                                    {"value": 0, "label": "no action"},
-                                    {"value": 1, "label": "Consumed SOD"},
-                                    {"value": 2, "label": "Wait 0.5s"},
-                                    {"value": 3, "label": "Wait 1s"},
-                                    {"value": 4, "label": "Wait 2s"},
-                                    {"value": 5, "label": "Wait 5s"},
-                                    {"value": 7, "label": "Stop Processing"}
-                                ] + flatten(
-                         [
-                             {
-                                 "value": 3 + ch * 5,
-                                 "overload": {
-                                     "nv": 9 + ch * 7,
-                                     "labels": [
-                                                   {"value": 1,
-                                                    "label": f"${{channel{ch}}} - Change"},
-                                                   {"value": 2,
-                                                    "label": f"${{channel{ch}}} - Change"},
-                                                   {"value": 3,
-                                                    "label": f"${{channel{ch}}} - Change"},
-                                                   {"value": 4, "label": f"${{channel{ch}}} - AT1"},
-                                               ] + (
-                                                   [
-                                                       {"value": 7,
-                                                        "label": f"${{channel{ch}}} - Change"}
-                                                   ] if hasCDU else [])
-                                               + (
-                                                   [
-                                                       {"value": 9,
-                                                        "label": f"${{channel{ch}}} - Change"}
-                                                   ] if hasLEDSW else [])
-                                 }
-                             },
-                             {
-                                 "value": 4 + ch * 5,
-                                 "overload": {
-                                     "nv": 9 + ch * 7,
-                                     "labels": [
-                                                   {"value": 1, "label": f"${{channel{ch}}} - ON"},
-                                                   {"value": 2, "label": f"${{channel{ch}}} - ON"},
-                                                   {"value": 3, "label": f"${{channel{ch}}} - ON"},
-                                                   {"value": 4, "label": f"${{channel{ch}}} - AT2"},
-                                               ] + (
-                                                   [
-                                                       {"value": 7,
-                                                        "label": f"${{channel{ch}}} - ON"}
-                                                   ] if hasCDU else [])
-                                               + (
-                                                   [
-                                                       {"value": 9,
-                                                        "label": f"${{channel{ch}}} - ON"}
-                                                   ] if hasLEDSW else [])
-                                 }
-                             },
-                             {
-                                 "value": 5 + ch * 5,
-                                 "overload": {
-                                     "nv": 9 + ch * 7,
-                                     "labels": [
-                                                   {"value": 1, "label": f"${{channel{ch}}} - OFF"},
-                                                   {"value": 2, "label": f"${{channel{ch}}} - OFF"},
-                                                   {"value": 3, "label": f"${{channel{ch}}} - OFF"},
-                                                   {"value": 4, "label": f"${{channel{ch}}} - AT3"},
-                                               ] + (
-                                                   [
-                                                       {"value": 7,
-                                                        "label": f"${{channel{ch}}} - OFF"}
-                                                   ] if hasCDU else [])
-                                               + (
-                                                   [
-                                                       {"value": 9,
-                                                        "label": f"${{channel{ch}}} - OFF"}
-                                                   ] if hasLEDSW else [])
-                                 }
-                             },
-                             {
-                                 "value": 6 + ch * 5,
-                                 "overload": {
-                                     "nv": 9 + ch * 7,
-                                     "labels": [
-                                                   {"value": 1,
-                                                    "label": f"${{channel{ch}}} - FLASH"},
-                                                   {"value": 4, "label": f"${{channel{ch}}} - AT4"}
-                                               ] + (
-                                                   [
-                                                       {"value": 9,
-                                                        "label": f"${{channel{ch}}} - FLASH"}
-                                                   ] if hasLEDSW else [])
-                                 }
-                             },
-                             {
-                                 "value": 7 + ch * 5,
-                                 "overload": {
-                                     "nv": 9 + ch * 7,
-                                     "labels": [
-                                                   {"value": 1,
-                                                    "label": f"${{channel{ch}}} - !Change"},
-                                                   {"value": 2,
-                                                    "label": f"${{channel{ch}}} - !Change"},
-                                                   {"value": 3,
-                                                    "label": f"${{channel{ch}}} - !Change"},
-                                               ] + (
-                                                   [
-                                                       {"value": 7,
-                                                        "label": f"${{channel{ch}}} - !Change"}
-                                                   ] if hasCDU else [])
-                                               + (
-                                                   [
-                                                       {"value": 9,
-                                                        "label": f"${{channel{ch}}} - !Change"}
-                                                   ] if hasLEDSW else [])
-                                 }
-                             }
-                         ] for ch in range(1, channels + 1)),
-                     "comment": f"end of EV{ev}"
-                 },
-                 {
-                     "displayTitle": "Simultaneous",
-                     "type": "EventVariableBitSingle",
-                     "eventVariableIndex": ev,
-                     "bit": 7
-                 }
-             ]
-        } for ev in range(2, 20 + 1)
-    ]
-
-if hasCDU:
-    data["eventVariables"].extend([
-        {
-            "type": "EventVariableTabs",
-            "tabPanels": [
                 {
-                    "displayTitle": "Basic - 4 paired solenoids",
-                    "items": [
+                    "type": "EventVariableSelect",
+                    "bitMask": 127,
+                    "eventVariableIndex": ev,
+                    "displayTitle": "Action",
+                    "options": [
+                        {"value": 0, "label": "no action"},
+                        {"value": 1, "label": "Consumed SOD"},
+                        {"value": 2, "label": "Wait 0.5s"},
+                        {"value": 3, "label": "Wait 1s"},
+                        {"value": 4, "label": "Wait 2s"},
+                        {"value": 5, "label": "Wait 5s"},
+                        {"value": 7, "label": "Stop Processing"}
+                    ] + flatten(
+                    [
                         {
-                            "displayTitle": f"Actions {pair}&{pair+1}",
-                            "type": "EventVariableGroup",
-                            "groupItems": [
-                                {
-                                    "type": "EventVariableCollectionSelect",
-                                    "eventVariableCollection": [
-                                        pair+1,
-                                        pair+2
-                                    ],
-                                    "displayTitle": "",
-                                    "options": [
-                                        {
-                                            "label": "No Action",
-                                            "value": [
-                                                0,
-                                                0
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 1 Active - normal",
-                                            "value": [
-                                                8,
-                                                17
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 1 Active - inverted",
-                                            "value": [
-                                                12,
-                                                13
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 2 Active - normal",
-                                            "value": [
-                                                18,
-                                                27
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 2 Active - inverted",
-                                            "value": [
-                                                22,
-                                                33
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 3 Active - normal",
-                                            "value": [
-                                                28,
-                                                37
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 3 Active - inverted",
-                                            "value": [
-                                                32,
-                                                33
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 4 Active - normal",
-                                            "value": [
-                                                38,
-                                                47
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 4 Active - inverted",
-                                            "value": [
-                                                42,
-                                                43
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        } for pair in range(1, 9, 2)
-                    ]
+                            "value": 3 + ch * 5,
+                            "overload": {
+                                "nv": 9 + ch * 7,
+                                "labels": [
+                                    {"value": 1, "label": f"${{channel{ch}}} - Change"},
+                                    {"value": 2, "label": f"${{channel{ch}}} - Change"},
+                                    {"value": 3, "label": f"${{channel{ch}}} - Change"},
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT1"},
+                                ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - Change"}
+                                ] if hasCDU else [])
+                                + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - Change"}
+                                ] if hasLEDSW else [])
+                            }
+                        },
+                        {
+                            "value": 4 + ch * 5,
+                            "overload": {
+                                "nv": 9 + ch * 7,
+                                "labels": [
+                                    {"value": 1, "label": f"${{channel{ch}}} - ON"},
+                                    {"value": 2, "label": f"${{channel{ch}}} - ON"},
+                                    {"value": 3, "label": f"${{channel{ch}}} - ON"},
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT2"},
+                                ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - ON"}
+                                ] if hasCDU else [])
+                                + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - ON"}
+                                ] if hasLEDSW else [])
+                            }
+                        },
+                        {
+                            "value": 5 + ch * 5,
+                            "overload": {
+                                "nv": 9 + ch * 7,
+                                "labels": [
+                                    {"value": 1, "label": f"${{channel{ch}}} - OFF"},
+                                    {"value": 2, "label": f"${{channel{ch}}} - OFF"},
+                                    {"value": 3, "label": f"${{channel{ch}}} - OFF"},
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT3"},
+                                ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - OFF"}
+                                ] if hasCDU else [])
+                                + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - OFF"}
+                                ] if hasLEDSW else [])
+                            }
+                        },
+                        {
+                            "value": 6 + ch * 5,
+                            "overload": {
+                                "nv": 9 + ch * 7,
+                                "labels": [
+                                    {"value": 1, "label": f"${{channel{ch}}} - FLASH"},
+                                    {"value": 4, "label": f"${{channel{ch}}} - AT4"}
+                                ] + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - FLASH"}
+                                ] if hasLEDSW else [])
+                            }
+                        },
+                        {
+                            "value": 7 + ch * 5,
+                            "overload": {
+                                "nv": 9 + ch * 7,
+                                "labels": [
+                                    {"value": 1, "label": f"${{channel{ch}}} - !Change"},
+                                    {"value": 2, "label": f"${{channel{ch}}} - !Change"},
+                                    {"value": 3, "label": f"${{channel{ch}}} - !Change"},
+                                ] + (
+                                [
+                                    {"value": 7, "label": f"${{channel{ch}}} - !Change"}
+                                ] if hasCDU else [])
+                                + (
+                                [
+                                    {"value": 9, "label": f"${{channel{ch}}} - !Change"}
+                                ] if hasLEDSW else [])
+                            }
+                        }
+                    ] for ch in range(1, channels + 1)),
+                    "comment": f"end of EV{ev}"
                 },
                 {
-                    "displayTitle": "Advanced",
-                    "items": advancedEventVariables
+                    "displayTitle": "Simultaneous",
+                    "type": "EventVariableBitSingle",
+                    "eventVariableIndex": ev,
+                    "bit": 7
                 }
             ]
-        }
-    ])
-else:
-    data["eventVariables"].extend(advancedEventVariables)
+        } for ev in range(2, 20 + 1)
+    ]
+}
 
 json.dump(data, sys.stdout, indent=2)
 print("")
