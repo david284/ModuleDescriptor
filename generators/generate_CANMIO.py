@@ -40,6 +40,21 @@ elif args.type == "CDU":
     hasCDU = True
     moduleName = "CANCDU_U"
     channels = 14
+elif args.type == "ESP32_8":
+    hasCDU = False
+    moduleType = "EPMIO8"
+    moduleName = "CANEPMIO8"
+    channels = 8
+elif args.type == "ESP32_16":
+    hasCDU = False
+    moduleType = "EPMIO16"
+    moduleName = "CANEPMIO16"
+    channels = 16
+elif args.type == "ESP32_24":
+    hasCDU = False
+    moduleType = "EPMIO24"
+    moduleName = "CANEPMIO24"
+    channels = 24
 elif args.type is not None:
     print(f"Unknown module type '{args.type}'")
     exit(1)
@@ -53,11 +68,16 @@ elif args.processor == "22":
 elif args.processor == "23":
     # PIC18F27Q83
     processorSeries = "Q"
+elif args.processor == "ESP":
+    # ESP32
+    processorSeries = "ESP"    
 elif args.processor is not None:
     print(f"Unsupported processor ID ({args.processor})")
     exit(1)
 
-if args.version == "3a" or args.version == "3c":
+if args.version == "1a":
+    nothing = True
+elif args.version == "3a" or args.version == "3c":
     nothing = True
 elif args.version == "3d":
     hasAnalogue = True
@@ -260,10 +280,12 @@ data = {
                                     {"label": "OUTPUT", "value": 1}
                                 ] + (
                                 [
-                                    {"label": "SERVO", "value": 2},
+                                    {"label": "SERVO", "value": 2}
+                                ] if ((ch <= 16) or (processorSeries == "ESP" and ch <= 24)) else []) + (
+                                [
                                     {"label": "BOUNCE", "value": 3},
                                     {"label": "MULTI", "value": 4}
-                                ] if ch <= 16 else []) + (
+                                ] if ch <= 16 and processorSeries != "ESP" else []) + (
                                 [
                                     {"label": "ANALOGUE", "value": 5},
                                     {"label": "MAGNET", "value": 6}
@@ -402,7 +424,7 @@ data = {
                             "displayTitle": "OFF to ON speed",
                             "displaySubTitle": "servo specific",
                             "displayUnits": "",
-                            "min": 230
+                            "min": 2 if processorSeries == "ESP" else 230
                         },
                         {
                             "type": "NodeVariableSlider",
@@ -431,7 +453,7 @@ data = {
                             "displayTitle": "ON to OFF speed",
                             "displaySubTitle": "servo specific",
                             "displayUnits": "",
-                            "min": 230
+                            "min": 2 if processorSeries == "ESP" else 230
                         },
                         {
                             "type": "NodeVariableSlider",
