@@ -902,84 +902,25 @@ if hasCDU:
                     "displayTitle": "Basic - 4 paired solenoids",
                     "items": [
                         {
-                            "displayTitle": f"Actions {pair}&{pair+1}",
-                            "type": "EventVariableGroup",
-                            "groupItems": [
+                            "displayTitle": f"Solenoid pair {pair}",
+                            "displaySubTitle": f"Channels {pair*2-1}&{pair*2}",
+                            "type": "EventVariableCollectionSelect",
+                            "eventVariableCollection": [pair*2, pair*2+1],
+                            "options": [
                                 {
-                                    "type": "EventVariableCollectionSelect",
-                                    "eventVariableCollection": [
-                                        pair+1,
-                                        pair+2
-                                    ],
-                                    "displayTitle": "",
-                                    "options": [
-                                        {
-                                            "label": "No Action",
-                                            "value": [
-                                                0,
-                                                0
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 1 Active - normal",
-                                            "value": [
-                                                8,
-                                                17
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 1 Active - inverted",
-                                            "value": [
-                                                12,
-                                                13
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 2 Active - normal",
-                                            "value": [
-                                                18,
-                                                27
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 2 Active - inverted",
-                                            "value": [
-                                                22,
-                                                33
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 3 Active - normal",
-                                            "value": [
-                                                28,
-                                                37
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 3 Active - inverted",
-                                            "value": [
-                                                32,
-                                                33
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 4 Active - normal",
-                                            "value": [
-                                                38,
-                                                47
-                                            ]
-                                        },
-                                        {
-                                            "label": "Pair 4 Active - inverted",
-                                            "value": [
-                                                42,
-                                                43
-                                            ]
-                                        }
-                                    ]
+                                    "label": "No Action",
+                                    "value": [0, 0]
+                                },
+                                {
+                                    "label": "Normal",
+                                    "value": [8+10*(pair-1), 17+10*(pair-1)]
+                                },
+                                {
+                                    "label": "Inverted",
+                                    "value": [12+10*(pair-1), 13+10*(pair-1)]
                                 }
                             ]
-                        } for pair in range(1, 9, 2)
+                        } for pair in range(1, 5)
                     ]
                 },
                 {

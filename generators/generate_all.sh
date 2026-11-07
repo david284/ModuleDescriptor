@@ -106,6 +106,7 @@ do
     python $gen_dir/generate_CANMIO.py -t XIO -p22 -v 4d | writeIfUpdated "$merg_dir"/CANXIO-A540-4d--P21.json
 
     #CANCDU_U
+    python $gen_dir/generate_CANMIO.py -t CDU -v 4d | writeIfUpdated "$merg_dir"/CANCDU_U-A558-4d.json
     python $gen_dir/generate_CANMIO.py -t CDU -p23 -v 4d | writeIfUpdated "$merg_dir"/CANCDU_U-A558-4d--P23.json
     ;;
 
