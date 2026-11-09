@@ -236,7 +236,7 @@ data = {
                         {"value": 6, "label": "OFF only"},
                         {"value": 8, "label": "Push ON/Push OFF"}
                     ],
-                    "visibilityLogic": {"JLL": {"or": [
+                    "visibilityLogic": {"JLL": {"and": [
                         {">": [{"EV": 2}, 0]},
                         {"<=": [{"EV": 2}, switches]}
                     ]}}
